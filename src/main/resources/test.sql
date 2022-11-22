@@ -27,3 +27,15 @@ VALUES ('9', 'Caerphilly', 'Caerphilly Miners Centre For The Community, Watford 
 
 INSERT INTO repair_Cafe(cafe_id, name, address)
 VALUES ('10', 'Caerphilly (The Furniture Revival)', 'The Furniture Revival, Unit 21 Lawn Industrial Estate, Rhymey, Tredegar, Gwent NP22 5PW');
+
+
+
+
+INSERT INTO repair_Booking(booking_id, firstName, lastName, email, repairDate, location)
+VALUES ('1', 'Fei', 'Liu', 'LiuF29@cardiff.ac.uk', '2022-11-25', 'Bridgend');
+
+INSERT INTO repair_Booking(booking_id, firstName, lastName, email, repairDate, location)
+VALUES ('2', 'Louis', 'Polly', 'PollyL@cardiff.ac.uk', '2022-12-02', 'Bangor');
+
+INSERT INTO repair_Booking(booking_id, firstName, lastName, email, repairDate, location)
+VALUES ('3', 'Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2022-12-25', 'Barford');
