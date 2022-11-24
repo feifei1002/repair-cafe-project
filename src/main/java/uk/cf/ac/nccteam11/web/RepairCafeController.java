@@ -4,7 +4,6 @@ package uk.cf.ac.nccteam11.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.domain.RepairCafe;
 import uk.cf.ac.nccteam11.service.RepairCafeService;
