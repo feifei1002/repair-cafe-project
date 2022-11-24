@@ -11,26 +11,15 @@ import java.util.List;
 @Service
 public class RepairCafeServiceImpl implements RepairCafeService {
 
-    private final JdbcTemplate jdbc;
-    private RowMapper<RepairCafeDTO> repairCafeMapper;
+    private final RepairCafeRepository repairCafeRepository;
 
-    public RepairCafeServiceImpl(JdbcTemplate jdbcTemplate) {
-        jdbc = jdbcTemplate;
-        setRepairCafeRowMapper();
-
-    }
-
-    private void setRepairCafeRowMapper() {
-        repairCafeMapper = (rs, i) -> new RepairCafeDTO(
-                rs.getString("name"),
-                rs.getString("cafe_id"),
-                rs.getString("address")
-        );
+    public RepairCafeServiceImpl(RepairCafeRepository repairCafeRepo) {
+        repairCafeRepository = repairCafeRepo;
     }
 
     @Override
     public List<RepairCafeDTO> getRepairCafes() {
-        String allRepairCafesSQL = "select * from repair_cafe";
-        return jdbc.query(allRepairCafesSQL, repairCafeMapper);
+        List<RepairCafe> repairCafes = repairCafeRepository.getRepairCafes();
+        return RepairCafeAssembler.toDTO(repairCafes);
     }
 }
