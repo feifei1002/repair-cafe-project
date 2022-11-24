@@ -19,4 +19,11 @@ public class RepairBookingServiceImpl implements RepairBookingService {
         List<RepairBooking> repairBookings = repairBookingRepository.getRepairBookings();
         return RepairBookingAssembler.toDTO(repairBookings);
     }
+
+    @Override
+    public void addNewRepairBooking(RepairBookingDTO repairBookingDTO) {
+        System.out.println("Coming from service: " + repairBookingDTO.toString());
+        RepairBooking newRepairBooking = new RepairBooking(repairBookingDTO.getFirstName(), repairBookingDTO.getLastName(), repairBookingDTO.getEmail(), repairBookingDTO.getRepairDate(), repairBookingDTO.getLocation());
+        repairBookingRepository.save(newRepairBooking);
+    }
 }

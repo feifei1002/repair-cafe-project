@@ -8,7 +8,6 @@ import java.util.Date;
 @Value
 @AllArgsConstructor
 public class RepairBookingDTO {
-    private String booking_id;
     private String firstName;
     private String lastName;
     private String email;

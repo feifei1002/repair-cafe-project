@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface RepairBookingRepository {
     List<RepairBooking> getRepairBookings();
+
+    void save(RepairBooking repairBooking);
 }

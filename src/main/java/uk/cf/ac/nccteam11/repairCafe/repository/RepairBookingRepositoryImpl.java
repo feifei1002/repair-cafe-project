@@ -20,7 +20,6 @@ public class RepairBookingRepositoryImpl implements RepairBookingRepository{
 
     private void setRepairBookingRowMapper() {
         repairBookingMapper = (rs, i) -> new RepairBooking(
-                rs.getString("booking_id"),
                 rs.getString("firstName"),
                 rs.getString("lastName"),
                 rs.getString("email"),
@@ -33,5 +32,11 @@ public class RepairBookingRepositoryImpl implements RepairBookingRepository{
     public List<RepairBooking> getRepairBookings() {
         String allRepairBookingsSQL = "select * from repair_booking";
         return jdbc.query(allRepairBookingsSQL, repairBookingMapper);
+    }
+
+    @Override
+    public void save(RepairBooking repairBooking) {
+        String repairBookingInsertSQL = "insert into repair_booking (firstName, lastName, email, repairDate, location) values (?,?,?,?,?)";
+        jdbc.update(repairBookingInsertSQL, repairBooking.getFirstName(), repairBooking.getLastName(), repairBooking.getEmail(), repairBooking.getRepairDate(), repairBooking.getLocation());
     }
 }

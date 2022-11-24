@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface RepairBookingService {
     List<RepairBookingDTO> getRepairBookings();
+
+    void addNewRepairBooking(RepairBookingDTO repairBookingDTO);
 }
