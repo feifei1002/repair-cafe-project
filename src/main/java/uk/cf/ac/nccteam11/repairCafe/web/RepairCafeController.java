@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class RepairCafeController {
     @GetMapping("repair-form")
     public ModelAndView getRepairCafes(Model model) {
 
-        List<RepairCafe> repairCafes = repairCafeService.getRepairCafes();
+        List<RepairCafeDTO> repairCafes = repairCafeService.getRepairCafes();
 
         model.addAttribute("repairCafes", repairCafes);
 
@@ -31,7 +31,7 @@ public class RepairCafeController {
 
     }
 
-    private List<RepairCafe> getRepairCafes() {
+    private List<RepairCafeDTO> getRepairCafes() {
         return repairCafeService.getRepairCafes();
     }
 }

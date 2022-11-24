@@ -1,27 +1,25 @@
-package uk.cf.ac.nccteam11.repairCafe.service;
+package uk.cf.ac.nccteam11.repairCafe.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
-import uk.cf.ac.nccteam11.repairCafe.repository.RepairCafeRepository;
 
 import java.util.List;
 
-@Service
-public class RepairCafeServiceImpl implements RepairCafeService {
-
+@Repository
+public class RepairCafeRepositoryImpl implements RepairCafeRepository {
     private final JdbcTemplate jdbc;
-    private RowMapper<RepairCafeDTO> repairCafeMapper;
+    private RowMapper<RepairCafe> repairCafeMapper;
 
-    public RepairCafeServiceImpl(JdbcTemplate jdbcTemplate) {
+    public RepairCafeRepositoryImpl(JdbcTemplate jdbcTemplate) {
         jdbc = jdbcTemplate;
         setRepairCafeRowMapper();
 
     }
 
     private void setRepairCafeRowMapper() {
-        repairCafeMapper = (rs, i) -> new RepairCafeDTO(
+        repairCafeMapper = (rs, i) -> new RepairCafe(
                 rs.getString("name"),
                 rs.getString("cafe_id"),
                 rs.getString("address")
@@ -29,8 +27,10 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     }
 
     @Override
-    public List<RepairCafeDTO> getRepairCafes() {
+    public List<RepairCafe> getRepairCafes() {
         String allRepairCafesSQL = "select * from repair_cafe";
         return jdbc.query(allRepairCafesSQL, repairCafeMapper);
     }
+
+
 }

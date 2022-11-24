@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface RepairCafeService {
 
-    List<RepairCafe> getRepairCafes();
+    List<RepairCafeDTO> getRepairCafes();
 }
