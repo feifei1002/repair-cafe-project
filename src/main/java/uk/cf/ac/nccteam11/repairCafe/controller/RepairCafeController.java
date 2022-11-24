@@ -1,4 +1,4 @@
-package uk.cf.ac.nccteam11.repairCafe.web;
+package uk.cf.ac.nccteam11.repairCafe.controller;
 
 
 import org.springframework.stereotype.Controller;
