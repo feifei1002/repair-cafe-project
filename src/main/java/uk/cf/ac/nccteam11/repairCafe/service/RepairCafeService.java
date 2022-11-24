@@ -1,6 +1,6 @@
-package uk.cf.ac.nccteam11.service;
+package uk.cf.ac.nccteam11.repairCafe.service;
 
-import uk.cf.ac.nccteam11.domain.RepairCafe;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
 
 import java.util.List;
 

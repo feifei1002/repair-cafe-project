@@ -1,12 +1,12 @@
-package uk.cf.ac.nccteam11.web;
+package uk.cf.ac.nccteam11.repairCafe.web;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import uk.cf.ac.nccteam11.domain.RepairCafe;
-import uk.cf.ac.nccteam11.service.RepairCafeService;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
 
 import java.util.List;
 

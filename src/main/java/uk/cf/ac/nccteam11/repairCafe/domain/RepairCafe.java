@@ -1,4 +1,4 @@
-package uk.cf.ac.nccteam11.domain;
+package uk.cf.ac.nccteam11.repairCafe.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

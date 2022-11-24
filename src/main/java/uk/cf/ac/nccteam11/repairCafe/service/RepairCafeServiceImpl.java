@@ -1,9 +1,9 @@
-package uk.cf.ac.nccteam11.service;
+package uk.cf.ac.nccteam11.repairCafe.service;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-import uk.cf.ac.nccteam11.domain.RepairCafe;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
 
 import java.util.List;
 
