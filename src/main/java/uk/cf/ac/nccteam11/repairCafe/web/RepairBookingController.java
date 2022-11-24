@@ -4,7 +4,6 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
@@ -19,6 +18,18 @@ public class RepairBookingController {
 
     public RepairBookingController(RepairBookingService svc) {
         this.repairBookingService = svc;
+    }
+
+    @GetMapping("repair-booking-list")
+    public ModelAndView getRepairBookings(Model model) {
+
+        List<RepairBookingDTO> repairBookings = repairBookingService.getRepairBookings();
+
+        model.addAttribute("repairBookings", repairBookings);
+
+        var mv = new ModelAndView("repair-booking-list", model.asMap());
+        return mv;
+
     }
 
     @GetMapping("repair/booking")
