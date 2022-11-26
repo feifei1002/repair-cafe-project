@@ -1,42 +1,27 @@
 package uk.cf.ac.nccteam11.repairCafe.repository;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairBooking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class RepairBookingRepositoryImpl implements RepairBookingRepository{
-    private final JdbcTemplate jdbc;
-    private RowMapper<RepairBooking> repairBookingMapper;
+    private final RepairBookingRepositoryJdbc repairBookingRepoJdbc;
 
-    public RepairBookingRepositoryImpl(JdbcTemplate jdbcTemplate) {
-        jdbc = jdbcTemplate;
-        setRepairBookingRowMapper();
+    public RepairBookingRepositoryImpl(RepairBookingRepositoryJdbc rbRepoJdbc) {
+        this.repairBookingRepoJdbc = rbRepoJdbc;
 
     }
-
-    private void setRepairBookingRowMapper() {
-        repairBookingMapper = (rs, i) -> new RepairBooking(
-                rs.getString("firstName"),
-                rs.getString("lastName"),
-                rs.getString("email"),
-                rs.getDate("repairDate"),
-                rs.getString("location")
-        );
-    }
-
-    @Override
     public List<RepairBooking> getRepairBookings() {
-        String allRepairBookingsSQL = "select * from repair_booking";
-        return jdbc.query(allRepairBookingsSQL, repairBookingMapper);
+        List<RepairBooking> repairBookings = new ArrayList<>();
+        repairBookingRepoJdbc.findAll().forEach(repairBookings::add);
+        return repairBookings;
     }
 
     @Override
-    public void save(RepairBooking repairBooking) {
-        String repairBookingInsertSQL = "insert into repair_booking (firstName, lastName, email, repairDate, location) values (?,?,?,?,?)";
-        jdbc.update(repairBookingInsertSQL, repairBooking.getFirstName(), repairBooking.getLastName(), repairBooking.getEmail(), repairBooking.getRepairDate(), repairBooking.getLocation());
+    public void addRepairBooking(RepairBooking repairBooking) {
+        repairBookingRepoJdbc.save(repairBooking);
     }
 }

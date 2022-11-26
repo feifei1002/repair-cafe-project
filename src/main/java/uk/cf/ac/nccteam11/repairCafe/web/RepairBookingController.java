@@ -1,13 +1,18 @@
 package uk.cf.ac.nccteam11.repairCafe.web;
 
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairBooking;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingAssembler;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingDTO;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairBookingListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairBookingListResponse;
 
 import java.util.List;
 
@@ -23,31 +28,36 @@ public class RepairBookingController {
     @GetMapping("repair-booking-list")
     public ModelAndView getRepairBookings(Model model) {
 
-        List<RepairBookingDTO> repairBookings = repairBookingService.getRepairBookings();
+        RepairBookingListRequest repairBookingListRequest = RepairBookingListRequest.of().build();
+        var repairBookingListResponse = repairBookingService.getRepairBookings(repairBookingListRequest);
 
-        model.addAttribute("repairBookings", repairBookings);
+        model.addAttribute("repairBookings", repairBookingListResponse.getRepairBookings());
 
         var mv = new ModelAndView("repair-booking-list", model.asMap());
         return mv;
 
     }
 
-    @GetMapping("repair/booking")
+    @GetMapping("repair/booking/form")
     public ModelAndView getNewRepairForm(Model model) {
         model.addAttribute("repairBookingForm", new RepairBookingForm());
-        var mv = new ModelAndView("repairBookingForm", model.asMap());
+        var mv = new ModelAndView("repair-form", model.asMap());
         return mv;
     }
 
-    @PostMapping("repair/booking")
-    public ModelAndView processNewRepairForm(RepairBookingForm newBooking, Model model) {
-        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newBooking.getFirstName(), newBooking.getLastName(), newBooking.getEmail(), newBooking.getRepairDate(), newBooking.getLocation());
-        repairBookingService.addNewRepairBooking(repairBookingDTO);
-        var mv = new ModelAndView("redirect:/repair/booking");
+    @PostMapping("repair/booking/add")
+    public ModelAndView processNewRepairForm(Model model) {
+        model.addAttribute("repairBookingForm", new RepairBookingForm());
+        var mv = new ModelAndView("repair-form", model.asMap());
         return mv;
     }
 
-    private List<RepairBookingDTO> getRepairBookings() {
-        return repairBookingService.getRepairBookings();
+    @GetMapping("repair/bookings")
+    public ResponseEntity<List<RepairBookingDTO>> getAllRepairBookings() {
+        RepairBookingListRequest repairBookingListRequest = RepairBookingListRequest.of().build();
+        RepairBookingListResponse repairBookingListResponse = repairBookingService.getRepairBookings(repairBookingListRequest);
+
+
+        return ResponseEntity.ok(repairBookingListResponse.getRepairBookings());
     }
 }

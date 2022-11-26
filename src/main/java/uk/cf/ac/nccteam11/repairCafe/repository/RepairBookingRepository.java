@@ -5,9 +5,8 @@ import uk.cf.ac.nccteam11.repairCafe.domain.RepairBooking;
 
 import java.util.List;
 
-@Repository
 public interface RepairBookingRepository {
     List<RepairBooking> getRepairBookings();
 
-    void save(RepairBooking repairBooking);
+    void addRepairBooking(RepairBooking repairBooking);
 }

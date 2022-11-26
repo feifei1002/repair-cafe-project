@@ -7,30 +7,30 @@
 <body>
 <h1>Please book an appointment if you have products that need to be repaired</h1>
 
-<form th:action="@{/repair/booking}" th:method="post" th:object="${repairBookingForm}">
+<form th:action="@{/repair/booking/add}" th:method="post" th:object="${repairBookingForm}">
 <div>
     <label>First Name:</label>
-    <input field="*{firstName}" type="text"/>
+    <input th:field="*{firstName}" type="text"/>
 </div>
 
 <div>
     <label>Last Name:</label>
-    <input field="*{lastName}" type="text"/>
+    <input th:field="*{lastName}" type="text"/>
 </div>
 
 <div>
     <label>Email:</label>
-    <input field="*{email}" type="text"/>
+    <input th:field="*{email}" type="text"/>
 </div>
 
 <div>
     <label>Date of Repair:</label>
-    <input field="*{repairDate}" type="date"/>
+    <input th:field="*{repairDate}" type="date"/>
 </div>
 
 <div>
     <label>Repair café you wish to visit:</label>
-    <select field="*{location}" name="location">
+    <select th:field="*{location}" name="location">
         <option th:each="repairCafe : ${repairCafes}" th:text="${repairCafe.name}"></option>
     </select>
 </div>

@@ -10,6 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RepairBookingForm {
+    private Integer booking_id;
     private String firstName;
     private String lastName;
     private String email;
