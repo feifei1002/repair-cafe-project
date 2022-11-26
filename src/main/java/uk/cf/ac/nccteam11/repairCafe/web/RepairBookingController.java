@@ -4,15 +4,14 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairBookingListRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairBookingListResponse;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.util.List;
 
@@ -51,9 +50,12 @@ public class RepairBookingController {
     }
 
     @PostMapping("repair/booking/add")
-    public ModelAndView processNewRepairForm(Model model) {
-        model.addAttribute("repairBookingForm", new RepairBookingForm());
-        var mv = new ModelAndView("repair-form", model.asMap());
+    public ModelAndView addNewRepairBooking(RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
+        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), newRepairBooking.getRepairDate(), newRepairBooking.getLocation());
+        SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
+        SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
+        var mv = new ModelAndView("repair-booking-list");
+        System.out.println("Booking successfully added");
         return mv;
     }
 

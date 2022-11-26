@@ -8,5 +8,5 @@ import java.util.List;
 public interface RepairBookingRepository {
     List<RepairBooking> getRepairBookings();
 
-    void addRepairBooking(RepairBooking repairBooking);
+    void addRepairBooking(RepairBooking newRepairBooking);
 }

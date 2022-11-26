@@ -31,7 +31,7 @@ public class RepairCafeController {
         return mv;
     }
 
-@GetMapping("repair/cafes")
+    @GetMapping("repair/cafes")
     private ResponseEntity<List<RepairCafeDTO>> getAllRepairCafes() {
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
         RepairCafeListResponse repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
