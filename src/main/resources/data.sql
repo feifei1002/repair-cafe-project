@@ -31,11 +31,11 @@ VALUES ('Caerphilly (The Furniture Revival)', 'The Furniture Revival, Unit 21 La
 
 
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, location)
-VALUES ('Fei', 'Liu', 'LiuF29@cardiff.ac.uk', '2021-11-25', 'Bridgend');
+INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+VALUES ('Fei', 'Liu', 'LiuF29@cardiff.ac.uk', '2021-11-25', 'Scooter','Bridgend');
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, location)
-VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', '2021-12-02', 'Bangor');
+INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', '2021-12-02', 'Misc','Bangor');
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, location)
-VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2012-12-25', 'Barford');
+INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2012-12-25', 'Heater','Barford');
