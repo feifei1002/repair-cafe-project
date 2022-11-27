@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import uk.cf.ac.nccteam11.repairCafe.service.EmailService;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingDTO;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
+import uk.cf.ac.nccteam11.repairCafe.service.*;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.sql.Date;
@@ -22,11 +19,13 @@ import java.util.List;
 public class RepairBookingController {
 
     private final RepairBookingService repairBookingService;
+    private final RepairCategoryService repairCategoryService;
     private final RepairCafeService repairCafeService;
     private EmailService emailService;
 
-    public RepairBookingController(RepairBookingService rbs, RepairCafeService rcs, EmailService es) {
+    public RepairBookingController(RepairBookingService rbs, RepairCategoryService rcates, RepairCafeService rcs, EmailService es) {
         this.repairBookingService = rbs;
+        this.repairCategoryService = rcates;
         this.repairCafeService = rcs;
         this.emailService = es;
     }
@@ -47,9 +46,15 @@ public class RepairBookingController {
     @GetMapping("repair/booking/form")
     public ModelAndView getNewRepairForm(Model model) {
         model.addAttribute("repairBookingForm", new RepairBookingForm());
+
+        RepairCategoryListRequest repairCategoryListRequest = RepairCategoryListRequest.of().build();
+        var repairCategoryListResponse = repairCategoryService.getRepairCategories(repairCategoryListRequest);
+        model.addAttribute("categories", repairCategoryListResponse.getRepairCategories());
+
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
         var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
         model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
+
         var mv = new ModelAndView("repair-form", model.asMap());
         return mv;
     }
@@ -59,7 +64,7 @@ public class RepairBookingController {
     public ModelAndView addNewRepairBooking(RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 //        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf(sdf.format(newRepairBooking.getRepairDate())), newRepairBooking.getLocation());
-        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf("2022-10-26"), newRepairBooking.getLocation());
+        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf("2022-10-26"), newRepairBooking.getCategory(), newRepairBooking.getLocation());
         SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
         SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
         emailService.sendSimpleMail(newRepairBooking);

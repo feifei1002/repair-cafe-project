@@ -14,6 +14,7 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Repair Date</th>
+      <th>Category</th>
       <th>Address</th>
     </tr>
     </thead>
@@ -30,6 +31,9 @@
       </td>
       <td>
         <a th:text="${repairBooking.repairDate}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.category}"></a>
       </td>
       <td>
         <a th:text="${repairBooking.location}"></a>

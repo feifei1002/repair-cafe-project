@@ -9,14 +9,10 @@ import org.springframework.data.relational.core.mapping.Table;
 @Data
 @AllArgsConstructor
 @Table
-public class RepairCafe {
+public class RepairCategory {
     @Id
-    @Column("CAFE_ID")
-    private Integer cafe_id;
+    @Column("CATEGORY_ID")
+    private Integer category_id;
     @Column("NAME")
     private String name;
-    @Column("ADDRESS")
-    private String address;
-
-
 }

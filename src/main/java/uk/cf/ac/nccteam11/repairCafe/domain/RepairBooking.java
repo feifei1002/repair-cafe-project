@@ -22,6 +22,8 @@ public class RepairBooking {
     private String email;
     @Column("REPAIRDATE")
     private Date repairDate;
+    @Column("CATEGORY")
+    private String category;
     @Column("LOCATION")
     private String location;
 }

@@ -24,6 +24,13 @@
 </div>
 
 <div>
+    <label>Choose the category which best describes your item:</label>
+    <select th:field="*{category}" name="category">
+        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
+    </select>
+</div>
+
+<div>
     <label>Date of Repair:</label>
     <input th:field="*{repairDate}" type="date"/>
 </div>

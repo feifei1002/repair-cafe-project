@@ -37,6 +37,7 @@ public class RepairBookingServiceImpl implements RepairBookingService {
                 repairBookingDTO.getLastName(),
                 repairBookingDTO.getEmail(),
                 repairBookingDTO.getRepairDate(),
+                repairBookingDTO.getCategory(),
                 repairBookingDTO.getLocation());
         repairBookingRepository.addRepairBooking(newRepairBooking);
         return SaveRepairBookingResponse.of().saveRepairBookingRequest(saveRepairBookingRequest).build();

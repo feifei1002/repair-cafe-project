@@ -13,5 +13,6 @@ public class RepairBookingDTO {
     private String lastName;
     private String email;
     private Date repairDate;
+    private String category;
     private String location;
 }
