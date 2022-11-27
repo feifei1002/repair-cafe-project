@@ -1,7 +1,5 @@
 package uk.cf.ac.nccteam11.repairCafe.web;
 
-
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
+import uk.cf.ac.nccteam11.repairCafe.service.EmailService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingDTO;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -25,10 +23,12 @@ public class RepairBookingController {
 
     private final RepairBookingService repairBookingService;
     private final RepairCafeService repairCafeService;
+    private EmailService emailService;
 
-    public RepairBookingController(RepairBookingService rbs, RepairCafeService rcs) {
+    public RepairBookingController(RepairBookingService rbs, RepairCafeService rcs, EmailService es) {
         this.repairBookingService = rbs;
         this.repairCafeService = rcs;
+        this.emailService = es;
     }
 
     @GetMapping("repair-booking-list")
@@ -58,9 +58,11 @@ public class RepairBookingController {
     @ResponseBody
     public ModelAndView addNewRepairBooking(RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf(sdf.format(newRepairBooking.getRepairDate())), newRepairBooking.getLocation());
+//        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf(sdf.format(newRepairBooking.getRepairDate())), newRepairBooking.getLocation());
+        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf("2022-10-26"), newRepairBooking.getLocation());
         SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
         SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
+        emailService.sendSimpleMail(newRepairBooking);
         var mv = new ModelAndView("redirect:/repair-booking-list");
         return mv;
     }
