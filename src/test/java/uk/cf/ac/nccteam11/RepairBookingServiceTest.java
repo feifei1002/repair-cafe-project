@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairBookingService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairCategoryService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairBookingListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCategoryListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairBookingRequest;
 
 import java.sql.Date;
@@ -22,6 +24,8 @@ public class RepairBookingServiceTest {
     private RepairBookingService repairBookingService;
     @Autowired
     private RepairCafeService repairCafeService;
+    @Autowired
+    private RepairCategoryService repairCategoryService;
 
     @Test
     public void shouldGetThreeRepairBookings() throws Exception {
@@ -61,5 +65,18 @@ public class RepairBookingServiceTest {
 
         //THEN
         assertEquals(10, repairCafeListResponse.getRepairCafes().size());
+    }
+
+    @Test
+    public void ShouldGetAllCategories() throws Exception{
+        RepairCategoryListRequest repairCategoryListRequest = RepairCategoryListRequest
+                .of()
+                .build();
+
+        //WHEN
+        var repairCategoryListResponse = repairCategoryService.getRepairCategories(repairCategoryListRequest);
+
+        //THEN
+        assertEquals(13, repairCategoryListResponse.getRepairCategories().size());
     }
 }
