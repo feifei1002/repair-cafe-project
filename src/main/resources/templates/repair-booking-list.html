@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repair Booking List</title>
+</head>
+<body>
+<h1>Repair Booking List</h1>
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Repair Date</th>
+      <th>Category</th>
+      <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="repairBooking : ${repairBookings}">
+      <td>
+        <a th:text="${repairBooking.firstName}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.lastName}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.email}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.repairDate}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.category}"></a>
+      </td>
+      <td>
+        <a th:text="${repairBooking.location}"></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

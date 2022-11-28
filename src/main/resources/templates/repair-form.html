@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Repair Form</title>
+</head>
+<body>
+<h1>Please book an appointment if you have products that need to be repaired</h1>
+
+<form th:action="@{/repair/booking/add}" th:method="post" th:object="${repairBookingForm}">
+<div>
+    <label>First Name:</label>
+    <input th:field="*{firstName}" type="text"/>
+</div>
+
+<div>
+    <label>Last Name:</label>
+    <input th:field="*{lastName}" type="text"/>
+</div>
+
+<div>
+    <label>Email:</label>
+    <input th:field="*{email}" type="text"/>
+</div>
+
+<div>
+    <label>Choose the category which best describes your item:</label>
+    <select th:field="*{category}" name="category">
+        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
+    </select>
+</div>
+
+<div>
+    <label>Date of Repair:</label>
+    <input th:field="*{repairDate}" type="date"/>
+</div>
+
+<div>
+    <label>Repair café you wish to visit:</label>
+    <select th:field="*{location}" name="location">
+        <option th:each="repairCafe : ${repairCafes}" th:text="${repairCafe.name}" th:value="${repairCafe.name}"></option>
+    </select>
+</div>
+
+<div>
+    <button>Submit</button>
+</div>
+
+</form>
+
+</body>
+</html>
