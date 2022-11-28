@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS repair_Booking
     lastName        VARCHAR(200) NOT NULL,
     email           VARCHAR(200) NOT NULL,
     repairDate      DATE NOT NULL,
+    category        VARCHAR(200) NOT NULL,
     location        VARCHAR(1000) NOT NULL,
     PRIMARY KEY(`booking_id`)
     )
