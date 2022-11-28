@@ -18,38 +18,37 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`product`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`product` ;
+DROP TABLE IF EXISTS `product` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`product` (
-  `productID` INT NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  `Description` VARCHAR(140) NULL,
-  `Category` VARCHAR(45) NOT NULL,
-  `Location` VARCHAR(60) NOT NULL,
-  `Status` INT NOT NULL,
-  PRIMARY KEY (`productID`))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS product (
+                                       productID INTEGER NOT NULL,
+                                       name VARCHAR(45) NOT NULL,
+    description VARCHAR(140) NULL,
+    category VARCHAR(45) NOT NULL,
+    location VARCHAR(60) NOT NULL,
+    status INT NOT NULL,
+    PRIMARY KEY (productID))
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user` ;
+DROP TABLE IF EXISTS `user` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
-  `userID` INT NOT NULL,
-  `FirstName` VARCHAR(45) NOT NULL,
-  `LastName` VARCHAR(45) NOT NULL,
-  `Email` VARCHAR(45) NOT NULL,
-  `hashed password` VARCHAR(30) NOT NULL,
-  `FirstLineAddress` VARCHAR(60) NULL,
-  `Town` VARCHAR(45) NULL,
-  `City` VARCHAR(45) NULL,
-  `Postcode` VARCHAR(45) NULL,
-  `userType` BINARY(0) NOT NULL,
-  `` VARCHAR(45) NULL,
-  PRIMARY KEY (`userID`))
-ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS user (
+    userID INTEGER NOT NULL,
+    firstName VARCHAR(45) NOT NULL,
+    lastName VARCHAR(45) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    hashedPassword VARCHAR(30) NOT NULL,
+    FirstLineAddress VARCHAR(60) NULL,
+    town VARCHAR(45) NULL,
+    city VARCHAR(45) NULL,
+    postcode VARCHAR(45) NULL,
+    userType BINARY(0) NOT NULL,
+    PRIMARY KEY (userID))
+    ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `repair_Cafe`;
 
@@ -71,6 +70,7 @@ CREATE TABLE IF NOT EXISTS repair_Booking
     lastName        VARCHAR(200) NOT NULL,
     email           VARCHAR(200) NOT NULL,
     repairDate      DATE NOT NULL,
+    category        VARCHAR(200) NOT NULL,
     location        VARCHAR(1000) NOT NULL,
     PRIMARY KEY(`booking_id`)
     )
