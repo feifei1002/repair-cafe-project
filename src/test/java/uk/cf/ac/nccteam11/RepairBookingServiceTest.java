@@ -14,8 +14,9 @@ import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairBookingRequest;
 
 import java.sql.Date;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 public class RepairBookingServiceTest {
@@ -49,7 +50,7 @@ public class RepairBookingServiceTest {
         //WHEN
         var saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
         //THEN
-        assertThat(saveRepairBookingResponse).isEqualTo(newRepairBooking);
+        verify(saveRepairBookingResponse, times(1));
     }
 
     @Test

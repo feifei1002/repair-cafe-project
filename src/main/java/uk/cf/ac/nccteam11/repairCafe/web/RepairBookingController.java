@@ -11,8 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.*;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -62,8 +60,8 @@ public class RepairBookingController {
     @PostMapping("repair/booking/add")
     @ResponseBody
     public ModelAndView addNewRepairBooking(RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf(sdf.format(newRepairBooking.getRepairDate())), newRepairBooking.getCategory(), newRepairBooking.getLocation());
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), newRepairBooking.getRepairDate(), newRepairBooking.getCategory(), newRepairBooking.getLocation());
 //        RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), Date.valueOf("2022-10-26"), newRepairBooking.getCategory(), newRepairBooking.getLocation());
         SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
         SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);

@@ -3,6 +3,7 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -14,6 +15,7 @@ public class RepairBookingForm {
     private String firstName;
     private String lastName;
     private String email;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date repairDate;
     private String category;
     private String location;
