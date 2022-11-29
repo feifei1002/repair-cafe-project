@@ -2,8 +2,10 @@ package uk.cf.ac.nccteam11;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class NcCteam11Application {
 
     public static void main(String[] args) {
