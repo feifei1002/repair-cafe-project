@@ -75,6 +75,16 @@ CREATE TABLE IF NOT EXISTS repair_Booking
     PRIMARY KEY(`booking_id`)
     )
     ENGINE = INNODB;
+    
+DROP TABLE IF EXISTS `repair_Category`;
+
+CREATE TABLE IF NOT EXISTS repair_Category
+(
+    category_id      INTEGER AUTO_INCREMENT NOT NULL,
+    name       VARCHAR(200) NOT NULL,
+    PRIMARY KEY(`category_id`)
+    )
+    ENGINE = INNODB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

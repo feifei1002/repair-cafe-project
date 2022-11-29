@@ -39,3 +39,44 @@ VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', '2021-12-02', 'Misc','Bangor')
 
 INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
 VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2012-12-25', 'Heater','Barford');
+
+
+
+INSERT INTO repair_Category(name)
+VALUES ('Apparel/Textiles');
+
+INSERT INTO repair_Category(name)
+VALUES ('Bag/Luggage/Purse');
+
+INSERT INTO repair_Category(name)
+VALUES ('Bicycle');
+
+INSERT INTO repair_Category(name)
+VALUES ('Bicycle Accessory');
+
+INSERT INTO repair_Category(name)
+VALUES ('Car Accessory');
+
+INSERT INTO repair_Category(name)
+VALUES ('Electrical Item');
+
+INSERT INTO repair_Category(name)
+VALUES ('Furniture');
+
+INSERT INTO repair_Category(name)
+VALUES ('Heater');
+
+INSERT INTO repair_Category(name)
+VALUES ('Home Decor');
+
+INSERT INTO repair_Category(name)
+VALUES ('Jewellery/Accessory');
+
+INSERT INTO repair_Category(name)
+VALUES ('Mannual Tool');
+
+INSERT INTO repair_Category(name)
+VALUES ('Misc');
+
+INSERT INTO repair_Category(name)
+VALUES ('Scooter');
