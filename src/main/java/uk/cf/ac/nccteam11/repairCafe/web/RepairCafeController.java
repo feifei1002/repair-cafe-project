@@ -21,6 +21,10 @@ public class RepairCafeController {
     public RepairCafeController(RepairCafeService svc) {
         this.repairCafeService = svc;
     }
+    @GetMapping("/")
+    public ModelAndView homePage(Model model){
+        return new ModelAndView("index");
+    }
 
     @GetMapping("repair-cafe-list")
     public ModelAndView getRepairCafes(Model model) {
