@@ -21,12 +21,12 @@ USE `mydb` ;
 DROP TABLE IF EXISTS `product` ;
 
 CREATE TABLE IF NOT EXISTS product (
-                                       productID INTEGER NOT NULL,
-                                       name VARCHAR(45) NOT NULL,
+	productID INTEGER AUTO_INCREMENT NOT NULL,
+    name VARCHAR(45) NOT NULL,
     description VARCHAR(140) NULL,
     category VARCHAR(45) NOT NULL,
     location VARCHAR(60) NOT NULL,
-    status INT NOT NULL,
+    status VARCHAR(45) NOT NULL,
     PRIMARY KEY (productID))
     ENGINE = InnoDB;
 
