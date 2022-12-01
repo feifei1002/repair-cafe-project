@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Admin Homepage</title>
@@ -22,9 +22,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product : ${products}">
+            <tr th:each="product : ${product}">
                 <td>
-                    <a th:href="@{/product/descripton/{location (location=${product.location})}" th:text="${product.name}"></a>
+                    <a th:href="@{/product/descripton/location}" th:text="${product.name}"></a>
                 </td>
             </tr>
             </tbody>

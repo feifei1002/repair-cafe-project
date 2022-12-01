@@ -17,21 +17,28 @@ public class ProductController {
         this.productService = pvc;
     }
 
-    @GetMapping
+    @GetMapping("admin")
     public ModelAndView getProductListPage(@RequestParam(name = "search", required = false) Optional<String> query, Model model) {
 
-        List<Product> product;
+        List<Product> products;
 
-        ProductListRequest productListRequest = ProductListRequest
-                .of()
-                .searchTerm(query)
-                .build();
+        if(query.isPresent()) {
+            products = getProductsBySearch(query.get());
+        } else {
+            products = getProducts();
+        }
 
-        var productListResponse = productService.getProducts(productListRequest);
+        model.addAttribute("products", products);
 
-        model.addAttribute("products", productListResponse.getProducts());
-
-        var mv = new ModelAndView("admin/admin", model.asMap());
+        var mv = new ModelAndView("admin", model.asMap());
         return mv;
+    }
+
+    private List<Product> getProducts(){
+        return productService.getProducts();
+    }
+
+    private List<Product> getProductsBySearch(String search){
+        return productService.getProductsBySearch(search);
     }
 }

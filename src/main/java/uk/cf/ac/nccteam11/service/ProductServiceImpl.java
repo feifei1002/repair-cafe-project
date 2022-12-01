@@ -51,7 +51,30 @@ public class ProductServiceImpl implements ProductService{
         return products;
     }
 
-    private Optional<ProductDto> getProductByLocation(String location) {
+    /**
+     * @param location
+     * @return
+     */
+
+    /**
+     * @param description
+     * @return
+     */
+    @Override
+    public Optional<Product> getProductByDescription(String description) {
+        return Optional.empty();
+    }
+
+    /**
+     * @param category
+     * @return
+     */
+    @Override
+    public Optional<Product> getProductByCategory(String category) {
+        return Optional.empty();
+    }
+
+    public Optional<ProductDto> getProductsByLocation(String location) {
         Optional<Product> aProduct = productRepo.getProductByLocation(location);
         if (aProduct.isPresent()) {
             System.out.println(aProduct.get());
