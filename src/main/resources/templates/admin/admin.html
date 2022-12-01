@@ -12,8 +12,24 @@
   <form action="/admin/admin" method="get">
     <div class="mb-3">
         <label class="Search-bar" for="search">Search</label>
-        <input class="search-form" name="q" type="text"/>
+        <input class="search-form" name="search" type="text"/>
     </div>
   </form>
+    <div class="product-list">
+        <table class="products">
+            <thead>
+            <tr>
+                <th class="table-header">Product Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td>
+                    <a th:href="@{/product/descripton/{location (location=${product.location})}" th:text="${product.name}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
