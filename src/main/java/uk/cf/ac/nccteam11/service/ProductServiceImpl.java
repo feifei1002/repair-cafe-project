@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService{
      */
     public ProductListResponse getProducts(ProductListRequest productListRequest) {
 
-        List<ProductDto> products;
+        List<Product> products;
 
         if (productListRequest.getSearchTerm().isPresent()) {
             products = getProductsBySearch(productListRequest.getSearchTerm().get());
@@ -39,16 +39,16 @@ public class ProductServiceImpl implements ProductService{
                 .build();
     }
 
-    private List<ProductDto> getProducts() {
+    private List<Product> getProducts() {
         List<Product> products = productRepo.getProducts();
-        return ProductAssembler.toDto(products);
+        return products;
     }
 
 
-    private List<ProductDto> getProductsBySearch(String search) {
+    private List<Product> getProductsBySearch(String search) {
         List<Product> products = productRepo.getProductsBySearch(search);
 
-        return ProductAssembler.toDto(products);
+        return products;
     }
 
     private Optional<ProductDto> getProductByLocation(String location) {
