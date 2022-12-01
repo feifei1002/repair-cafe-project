@@ -23,6 +23,9 @@ public class RepairCafeController {
     }
     @GetMapping("/")
     public ModelAndView homePage(Model model){
+        RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
+        var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
+        model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
         return new ModelAndView("index");
     }
 
