@@ -51,7 +51,7 @@ public class RepairBookingWebMvcTests {
 
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
         var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
-        given(repairCafeService.getRepairCafes(repairCafeListRequest)).willReturn(RepairCafeListResponse.of().repairCafes(List.of(cafe1, cafe2, cafe3)).build());
+        given(repairCafeService.getRepairCafes(repairCafeListRequest)).willReturn(repairCafeListResponse.of().repairCafes(List.of(cafe1, cafe2, cafe3)).build());
 
     }
 
