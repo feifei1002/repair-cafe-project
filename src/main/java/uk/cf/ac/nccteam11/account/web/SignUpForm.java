@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SignUpForm {
+    private Integer user_id;
     private String firstName;
     private String lastName;
     private String email;

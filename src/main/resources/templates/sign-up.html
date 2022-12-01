@@ -7,7 +7,7 @@
 <body>
 <h1>New User Sign Up</h1>
 
-<form th:action="@{user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+<form th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
     <div>
         <label>First Name:</label>
         <input th:field="*{firstName}" type="text"/><br>

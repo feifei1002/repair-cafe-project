@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS product (
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS user (
-    user_id INTEGER NOT NULL,
+    user_id INTEGER AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS user (
     town VARCHAR(45) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
-    PRIMARY KEY (user_id))
+    PRIMARY KEY (`user_id`))
     ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `repair_Cafe`;
