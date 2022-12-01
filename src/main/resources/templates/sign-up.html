@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<h1>New User Sign Up</h1>
+
+<form th:action="@{user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+    <div>
+        <label>First Name:</label>
+        <input th:field="*{firstName}" type="text"/><br>
+<!--        <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</td>-->
+    </div>
+
+    <div>
+        <label>Last Name:</label>
+        <input th:field="*{lastName}" type="text"/><br>
+<!--        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td>-->
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input th:field="*{email}" type="text"/><br>
+<!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <input th:field="*{password}" type="password"/><br>
+        <!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <label>Address:</label>
+        <input th:field="*{firstLineAddress}" type="text"/><br>
+        <!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <label>Town:</label>
+        <input th:field="*{town}" type="text"/><br>
+        <!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <label>City:</label>
+        <input th:field="*{city}" type="text"/><br>
+        <!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <label>Postcode:</label>
+        <input th:field="*{postcode}" type="text"/><br>
+        <!--        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    </div>
+
+    <div>
+        <button>Submit</button>
+    </div>
+
+</form>
+
+</body>
+</html>
