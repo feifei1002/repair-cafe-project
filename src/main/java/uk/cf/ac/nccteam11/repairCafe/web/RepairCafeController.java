@@ -29,15 +29,6 @@ public class RepairCafeController {
         return new ModelAndView("index");
     }
 
-    @GetMapping("repair-cafe-list")
-    public ModelAndView getRepairCafes(Model model) {
-        RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
-        var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
-        model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
-        var mv = new ModelAndView("repair-cafe-list", model.asMap());
-        return mv;
-    }
-
     @GetMapping("repair/cafes")
     private ResponseEntity<List<RepairCafeDTO>> getAllRepairCafes() {
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
