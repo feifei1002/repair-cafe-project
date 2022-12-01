@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Homepage</title>
+    <link th:replace=""
+</head>
+<body>
+  <h1>Hello Admin</h1>
+  <br>
+  <h4>Here you can see all the products that are waiting for your approval</h4>
+  <form action="/admin/admin" method="get">
+    <div class="mb-3">
+        <label class="Search-bar" for="search">Search</label>
+        <input class="search-form" name="q" type="text"/>
+    </div>
+  </form>
+</body>
+</html>
