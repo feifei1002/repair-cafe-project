@@ -53,10 +53,10 @@ public class RepairBookingController {
     @PostMapping("repair/booking/add")
     @ModelAttribute
     public ModelAndView addNewRepairBooking(@Valid RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             var mv = new ModelAndView("repair-form", model.asMap());
             return mv;
-        }else {
+        } else {
             RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), newRepairBooking.getRepairDate(), newRepairBooking.getCategory(), newRepairBooking.getLocation());
             SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
             SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
@@ -75,14 +75,17 @@ public class RepairBookingController {
         return ResponseEntity.ok(repairBookingListResponse.getRepairBookings());
     }
 
-    @ModelAttribute
-    public void addAttributes(Model model) {
+    @ModelAttribute("categories")
+    public List<RepairCategoryDTO> repairCategories(Model model) {
         RepairCategoryListRequest repairCategoryListRequest = RepairCategoryListRequest.of().build();
         var repairCategoryListResponse = repairCategoryService.getRepairCategories(repairCategoryListRequest);
-        model.addAttribute("categories", repairCategoryListResponse.getRepairCategories());
+        return repairCategoryListResponse.getRepairCategories();
+    }
 
+    @ModelAttribute("repairCafes")
+    public List<RepairCafeDTO> repairCafes(Model model) {
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();
         var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
-        model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
+        return repairCafeListResponse.getRepairCafes();
     }
 }
