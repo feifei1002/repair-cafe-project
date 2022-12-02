@@ -4,6 +4,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import uk.cf.ac.nccteam11.service.ProductDto;
 import uk.cf.ac.nccteam11.service.ProductService;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ProductController {
     @GetMapping("admin")
     public ModelAndView getProductListPage(@RequestParam(name = "search", required = false) Optional<String> query, Model model) {
 
-        List<Product> products;
+        List<ProductDto> products;
 
         if(query.isPresent()) {
             products = getProductsBySearch(query.get());
@@ -34,11 +35,11 @@ public class ProductController {
         return mv;
     }
 
-    private List<Product> getProducts(){
+    private List<ProductDto> getProducts(){
         return productService.getProducts();
     }
 
-    private List<Product> getProductsBySearch(String search){
+    private List<ProductDto> getProductsBySearch(String search){
         return productService.getProductsBySearch(search);
     }
 }

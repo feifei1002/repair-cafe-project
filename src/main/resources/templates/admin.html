@@ -21,6 +21,7 @@
                 <th class="table-header">Product Name</th>
             </tr>
             </thead>
+            <form class="adminApproval" th:action="">
             <tbody>
             <tr th:each="product : ${product}">
                 <td>
@@ -28,7 +29,13 @@
                 </td>
             </tr>
             </tbody>
+                <div class="adminActions">
+                    <button class="Approve" type="submit" value="Submit">Approve</button>
+                    <button class="Reject" type="submit" value="Submit">Reject</button>
+                </div>
+            </form>>
         </table>
+
     </div>
 </body>
 </html>
