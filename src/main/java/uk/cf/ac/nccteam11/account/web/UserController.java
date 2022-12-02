@@ -1,5 +1,6 @@
 package uk.cf.ac.nccteam11.account.web;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,13 +27,14 @@ public class UserController {
     }
 
     @PostMapping("user/sign-up/add")
-    public ModelAndView addNewUser(SignUpForm newSignUp, Model model){
+    public ResponseEntity addNewUser(SignUpForm newSignUp, Model model){
         UserDTO userDTO = new UserDTO(newSignUp.getUser_id(), newSignUp.getFirstName(), newSignUp.getLastName(),
                                     newSignUp.getEmail(), newSignUp.getPassword(), newSignUp.getFirstLineAddress(),
                                     newSignUp.getTown(), newSignUp.getCity(), newSignUp.getPostcode());
         SaveUserRequest saveUserRequest = SaveUserRequest.of().userDTO(userDTO).build();
         SaveUserResponse saveUserResponse = userService.addNewUser(saveUserRequest);
-        var mv = new ModelAndView("redirect:/");
-        return mv;
+        return ResponseEntity.ok().body("Sign up sucessufully!");
+//        var mv = new ModelAndView("redirect:/");
+//        return mv;
     }
 }
