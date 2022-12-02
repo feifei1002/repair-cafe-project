@@ -7,6 +7,12 @@ import java.util.Optional;
 
 public interface ProductRepo {
     List<Product> getProducts();
-    Optional<Product> getProductByLocation(String location);
+    Optional<Product> getProductsByByLocation(String location);
     List<Product> getProductsBySearch(String search);
+
+    Optional<Product> getProductsByDescription(String description);
+
+    Optional<Product> getProductsByLocation(String location);
+
+    Optional<Product> getProductByCategory(String category);
 }

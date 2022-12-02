@@ -5,6 +5,7 @@ import uk.cf.ac.nccteam11.forms.Product;
 import uk.cf.ac.nccteam11.data.ProductRepo;
 import uk.cf.ac.nccteam11.forms.ProductListRequest;
 import uk.cf.ac.nccteam11.forms.ProductListResponse;
+import uk.cf.ac.nccteam11.service.ProductDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,51 +19,34 @@ public class ProductServiceImpl implements ProductService{
         productRepo = repo;
     }
 
-    /**
-     * @param productListRequest
-     * @return
-     */
-    public ProductListResponse getProducts(ProductListRequest productListRequest) {
 
-        List<Product> products;
+    public List<ProductDto> getProducts() {
 
-        if (productListRequest.getSearchTerm().isPresent()) {
-            products = getProductsBySearch(productListRequest.getSearchTerm().get());
-        } else {
-            products = getProducts();
-        }
-
-        return ProductListResponse
-                .of()
-                .request(productListRequest)
-                .products(products)
-                .build();
-    }
-
-    private List<Product> getProducts() {
         List<Product> products = productRepo.getProducts();
-        return products;
+        return ProductAssembler.toDto(products);
+
     }
 
 
-    private List<Product> getProductsBySearch(String search) {
+    @Override
+    public List<ProductDto> getProductsBySearch(String search) {
         List<Product> products = productRepo.getProductsBySearch(search);
 
-        return products;
+        return ProductAssembler.toDto(products);
     }
-
-    /**
-     * @param location
-     * @return
-     */
 
     /**
      * @param description
      * @return
      */
     @Override
-    public Optional<Product> getProductByDescription(String description) {
-        return Optional.empty();
+    public Optional<ProductDto> getProductByDescription(String description) {
+        Optional<Product> aProduct = productRepo.getProductsByDescription(description);
+        if (aProduct.isPresent()) {
+            return Optional.of(ProductAssembler.toDto(aProduct.get()));
+        } else {
+            return Optional.empty();
+        }
     }
 
     /**
@@ -70,12 +54,25 @@ public class ProductServiceImpl implements ProductService{
      * @return
      */
     @Override
-    public Optional<Product> getProductByCategory(String category) {
-        return Optional.empty();
+    public Optional<ProductDto> getProductByCategory(String category) {
+        Optional<Product> aProduct = productRepo.getProductByCategory(category);
+        if (aProduct.isPresent()) {
+            return Optional.of(ProductAssembler.toDto(aProduct.get()));
+        } else {
+            return Optional.empty();
+        }
     }
 
+
+    /**
+     * @param location
+     * @return
+     */
+
+
+    @Override
     public Optional<ProductDto> getProductsByLocation(String location) {
-        Optional<Product> aProduct = productRepo.getProductByLocation(location);
+        Optional<Product> aProduct = productRepo.getProductsByLocation(location);
         if (aProduct.isPresent()) {
             System.out.println(aProduct.get());
             return Optional.of(ProductAssembler.toDto(aProduct.get()));

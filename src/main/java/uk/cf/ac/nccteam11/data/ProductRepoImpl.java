@@ -39,12 +39,13 @@ public class ProductRepoImpl implements ProductRepo {
         return jdbc.query(allProductsSQL, productMapper);
     }
 
-    /**
-     * @param location
-     * @return
-     */
     @Override
-    public Optional<Product> getProductByLocation(String location) {
+    public Optional<Product> getProductsByByLocation(String location) {
+        return Optional.empty();
+    }
+
+
+    public Optional<Product> getProductsByLocation(String location) {
         String productByLocation = "select * from products where location = ?";
         Optional<Product> theProduct;
 
@@ -68,4 +69,36 @@ public class ProductRepoImpl implements ProductRepo {
         String productsSearchSQL = "select * from products where name like ?";
         return jdbc.query(productsSearchSQL, productMapper, likeTerm);
     }
+
+    /**
+     * @param description
+     * @return
+     */
+    @Override
+    public Optional<Product> getProductsByDescription(String description) {
+
+        String productByDescriptionSql = "select * from product where description like ?";
+
+        try {
+            return Optional.of(jdbc.queryForObject(productByDescriptionSql, productMapper, description));
+        } catch (IncorrectResultSizeDataAccessException e) {
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * @param category
+     * @return
+     */
+    @Override
+    public Optional<Product> getProductByCategory(String category) {
+        String productByFurlSql = "select * from charity where category = ?";
+
+        try {
+            return Optional.of(jdbc.queryForObject(productByFurlSql, productMapper, category));
+        } catch (IncorrectResultSizeDataAccessException e) {
+            return Optional.empty();
+        }
+    }
 }
+

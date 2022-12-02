@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    List<Product> getProducts();
-    List<Product> getProductsBySearch(String search);
-    Optional<Product> getProductsByLocation(String location);
-    Optional<Product> getProductByDescription(String description);
-    Optional<Product> getProductByCategory(String category);
+    List<ProductDto> getProducts();
+    List<ProductDto> getProductsBySearch(String search);
+    Optional<ProductDto> getProductsByLocation(String location);
+    Optional<ProductDto> getProductByDescription(String description);
+    Optional<ProductDto> getProductByCategory(String category);
 
 
 }
