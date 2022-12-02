@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.account.service.UserDTO;
@@ -29,6 +30,7 @@ public class UserController {
     }
 
     @PostMapping("user/sign-up/add")
+    @ModelAttribute
     public ModelAndView addNewUser(@Valid SignUpForm newSignUp, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             var mv = new ModelAndView("sign-up", model.asMap());

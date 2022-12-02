@@ -3,12 +3,14 @@ package uk.cf.ac.nccteam11;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.cf.ac.nccteam11.repairCafe.service.*;
-import uk.cf.ac.nccteam11.repairCafe.service.message.*;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCategoryListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairBookingRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairBookingResponse;
 import uk.cf.ac.nccteam11.repairCafe.web.RepairBookingController;
 
 import java.sql.Date;
@@ -20,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(controllers = RepairBookingController.class)
-@AutoConfigureMockMvc
 
 public class RepairBookingWebMvcTests {
     @Autowired
