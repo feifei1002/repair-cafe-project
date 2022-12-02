@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -25,9 +24,9 @@ public class SignUpForm {
     private String email;
 
     @NotEmpty
-    @Min(value = 8, message = "Password must have minimum 8 characters")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]$",
-    message = "Password must have minimum 1 upper case letter, 1 lowercase letter, 1 number and 1 special character")
+//    @Min(value = 8, message = "Password must have minimum 8 characters")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]{8,})$",
+    message = "Password must have minimum of 8 characters, including 1 upper case letter, 1 lowercase letter, 1 number and 1 special character")
     private String password;
 
     @NotEmpty
