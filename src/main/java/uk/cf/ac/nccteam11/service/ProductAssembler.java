@@ -14,6 +14,6 @@ public class ProductAssembler {
     }
 
     public static ProductDto toDto(Product p) {
-        return new ProductDto(p.getID(), p.getName(), p.getDescription(), p.getCategory(), p.getLocation(), p.getStatus(), p.getAvailability());
+        return new ProductDto(p.getProductID(), p.getName(), p.getDescription(), p.getCategory(), p.getLocation(), p.getStatus(), p.getAvailability());
     }
 }

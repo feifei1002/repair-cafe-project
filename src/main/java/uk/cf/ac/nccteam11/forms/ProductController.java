@@ -1,5 +1,6 @@
 package uk.cf.ac.nccteam11.forms;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +10,7 @@ import uk.cf.ac.nccteam11.service.ProductService;
 
 import java.util.List;
 import java.util.Optional;
+@Controller
 
 public class ProductController {
 

@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS product (
     category VARCHAR(45) NOT NULL,
     location VARCHAR(60) NOT NULL,
     status INT NOT NULL,
+    availability INT NOT NULL,
     PRIMARY KEY (productID))
     ENGINE = InnoDB;
 
