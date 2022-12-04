@@ -2,8 +2,10 @@ package uk.cf.ac.nccteam11.forms;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
+@Table
 @AllArgsConstructor
 public class Product {
 
