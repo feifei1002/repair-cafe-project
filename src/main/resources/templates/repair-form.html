@@ -11,20 +11,20 @@
 <div>
     <label>First Name:</label>
     <input th:field="*{firstName}" type="text"/><br>
-    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</td>
-</div>
+    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+</div><br>
 
 <div>
     <label>Last Name:</label>
     <input th:field="*{lastName}" type="text"/><br>
-    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td>
-</div>
+    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+</div><br>
 
 <div>
     <label>Email:</label>
     <input th:field="*{email}" type="text"/><br>
     <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
-</div>
+</div><br>
 
 <div>
     <label>Choose the category which best describes your item:</label>
@@ -32,13 +32,13 @@
         <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
     </select><br>
     <td th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Category Error</td>
-</div>
+</div><br>
 
 <div>
     <label>Date of Repair:</label>
     <input th:field="*{repairDate}" type="date"/><br>
     <td th:if="${#fields.hasErrors('repairDate')}" th:errors="*{repairDate}">Repair Date Error</td>
-</div>
+</div><br>
 
 <div>
     <label>Repair café you wish to visit:</label>
@@ -46,7 +46,7 @@
         <option th:each="repairCafe : ${repairCafes}" th:text="${repairCafe.name}" th:value="${repairCafe.name}"></option>
     </select><br>
     <td th:if="${#fields.hasErrors('location')}" th:errors="*{location}">Location Error</td>
-</div>
+</div><br>
 
 <div>
     <button>Submit</button>

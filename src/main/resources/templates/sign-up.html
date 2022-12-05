@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<h1>New User Sign Up</h1>
+
+<form th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+    <div>
+        <label>First Name:</label>
+        <input th:field="*{firstName}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+    </div><br>
+
+    <div>
+        <label>Last Name:</label>
+        <input th:field="*{lastName}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+    </div><br>
+
+    <div>
+        <label>Email:</label>
+        <input th:field="*{email}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+    </div><br>
+
+    <div>
+        <label>Password:</label>
+        <input th:field="*{password}" type="password"/><br>
+        <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+    </div><br>
+
+    <div>
+        <label>Address:</label>
+        <input th:field="*{firstLineAddress}" type="text"/><br>
+         <td th:if="${#fields.hasErrors('firstLineAddress')}" th:errors="*{firstLineAddress}">Address Error</td>
+    </div><br>
+
+    <div>
+        <label>Town:</label>
+        <input th:field="*{town}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('town')}" th:errors="*{town}">Town Error</td>
+    </div><br>
+
+    <div>
+        <label>City:</label>
+        <input th:field="*{city}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
+    </div><br>
+
+    <div>
+        <label>Postcode:</label>
+        <input th:field="*{postcode}" type="text"/><br>
+        <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
+    </div><br>
+
+    <div>
+        <button>Submit</button>
+    </div>
+
+</form>
+
+</body>
+</html>
