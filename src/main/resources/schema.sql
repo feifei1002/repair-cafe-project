@@ -86,6 +86,18 @@ CREATE TABLE IF NOT EXISTS repair_Category
     )
     ENGINE = INNODB;
 
+DROP TABLE IF EXISTS `repair_Products`;
+
+CREATE TABLE IF NOT EXISTS repair_Products (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(45) NOT NULL,
+  `condition` VARCHAR(45) NOT NULL,
+  `brand` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `photo` LONGBLOB NULL,
+  PRIMARY KEY (`product_id`))
+ENGINE = INNODB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

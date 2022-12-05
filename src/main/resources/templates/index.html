@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
@@ -113,6 +113,42 @@
         </div>
       </div>
     </div>
+
+    <!--<div class="container">
+
+			<h3>List of Products</h3>
+
+			<hr/>
+
+			<table class="table table-bordered table-striped">
+
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Name</th>
+						<th>Condition</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        Need to link the photo in here
+    <th>Photo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${products}">
+      <td th:text="${product.code}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.condition}"></td>
+      <td th:text="${product.brand}"></td>
+      <td th:text="${product.price}"></td>
+      <td th:text="${product.status}"></td>
+      <td th:text="${product.photo}"></td>
+    </tr>
+    </tbody>
+
+    </table>
+    </div>-->
+
   </section>
   <section class="am-sect">
     <div class="container-width">
