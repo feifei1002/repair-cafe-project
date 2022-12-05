@@ -35,7 +35,10 @@ body {
     background-position:left top;
     background-attachment:scroll;
     background-size:cover;
+    transition:all 0.5s ease;
+    cursor:pointer;
 }
+
 #i5wh1{
     min-height:200px;
 }
@@ -54,7 +57,12 @@ body {
     background-position:left top;
     background-attachment:scroll;
     background-size:cover;
+    transition:all 0.5s ease;
+    cursor:pointer;
 }
+
+
+
 #plastic{
     min-height:200px;
     background-image:url('https://ismwaste.co.uk/images/recycling/plastic-min.jpg');
