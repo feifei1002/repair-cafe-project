@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS user (
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    password VARCHAR(2000) NOT NULL,
     firstLineAddress VARCHAR(60) NULL,
     town VARCHAR(45) NULL,
     city VARCHAR(45) NULL,
