@@ -1,4 +1,4 @@
--- MySQL Workbench Forward Engineering
+- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -38,16 +38,17 @@ CREATE TABLE IF NOT EXISTS product (
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS user (
-    user_id INTEGER AUTO_INCREMENT NOT NULL,
+    userID INTEGER NOT NULL,
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    password VARCHAR(30) NOT NULL,
-    firstLineAddress VARCHAR(60) NULL,
+    hashedPassword VARCHAR(30) NOT NULL,
+    FirstLineAddress VARCHAR(60) NULL,
     town VARCHAR(45) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
-    PRIMARY KEY (`user_id`))
+    userType BINARY(0) NOT NULL,
+    PRIMARY KEY (userID))
     ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `repair_Cafe`;

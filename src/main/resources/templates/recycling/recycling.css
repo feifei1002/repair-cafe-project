@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.gjs-row{
+    display:flex;
+    justify-content:flex-start;
+    align-items:stretch;
+    flex-wrap:nowrap;
+    padding:10px;
+}
+.gjs-cell{
+    min-height:75px;
+    flex-grow:1;
+    flex-basis:100%;
+}
+#row1{
+    font-family:Arial Black, Gadget, sans-serif;
+    line-height:200px;
+    text-align:center;
+}
+#row2{
+    text-align:center;
+    color:#000000;
+    font-family:Arial Black, Gadget, sans-serif;
+    font-size:40px;
+    line-height:200px;
+}
+#electronics{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/weee-waste.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+    transition:all 0.5s ease;
+    cursor:pointer;
+}
+
+#i5wh1{
+    min-height:200px;
+}
+#wood{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/wood-min.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#cardboard{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/cardboard-min.jpeg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+    transition:all 0.5s ease;
+    cursor:pointer;
+}
+
+
+
+#plastic{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/plastic-min.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#metal{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/metal-min.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#row3{
+    font-family:Arial Black, Gadget, sans-serif;
+    font-size:40px;
+    text-align:center;
+    line-height:200px;
+}
+#glass{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/glass-min.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#clothes{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/textiles.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#inert{
+    min-height:200px;
+    background-image:url('https://ismwaste.co.uk/images/recycling/bricks-min.jpg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+}
+#plasticText{
+    padding:10px;
+    text-align:center;
+    font-family:Arial Black, Gadget, sans-serif;
+    line-height:200px;
+    color:#ffffff;
+    font-size:40px;
+}
+#cardboardText{
+    padding:10px;
+    font-size:40px;
+    transition:all 0.5s ease;
+    background-image:url('https://ismwaste.co.uk/images/recycling/cardboard-min.jpeg');
+    background-repeat:repeat;
+    background-position:left top;
+    background-attachment:scroll;
+    background-size:cover;
+    transform:rotateZ(0);
+}
+#metalsText{
+    padding:10px;
+    font-size:40px;
+}
+#electronicsText{
+    padding:10px;
+    color:#ffffff;
+}
+#woodText{
+    padding:10px;
+    color:#ffffff;
+}
+#glassText{
+    padding:10px;
+}
+#clothingText{
+    padding:10px;
+    color:#ffffff;
+}
+#InertText{
+    padding:10px;
+}
+@media (max-width: 768px){
+    .gjs-row{
+        flex-wrap:wrap;
+    }
+}

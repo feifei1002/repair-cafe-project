@@ -1,3 +1,33 @@
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('001', 'Desk', 'White 120 x 70 x 50 desk', 'furniture', 'Stow Hill', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('002', 'Chair', 'Black 60 x 45 x 38 chair', 'furniture', 'Cathays', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('003', 'Shoes', 'Black Air Force 1 Size 10', 'clothing', 'Canton', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('004', 'Lawnmower', 'Green 400cc', 'Gardening', 'Newport', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('005', 'Frisbee', 'Yellow 30cm Circumfrence', 'Toys', 'Caerphilly', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('006', 'Book', 'The Nicomachean Ethics by Aristotle', 'Books', 'Castle', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('007', 'Cupboard', 'Wood 2.5m x 70cm x 40cm', 'furniture', 'Cathays', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('008', 'Laptop', 'Dell i7', 'Electronics', 'Cardiff University', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('009', 'Pen', '4 colour ballpoint', 'stationary', 'Stow Hill', '0', '0');
+
+INSERT INTO `product` (productID, name, description, category, location, status, availability)
+values ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0');
+
 INSERT INTO repair_Cafe(name, address)
 VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street, Abergavenny NP7 5YB');
 
