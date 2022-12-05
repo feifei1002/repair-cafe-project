@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.forms.Product;
-import uk.cf.ac.nccteam11.data.ProductRepo;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +34,7 @@ public class ProductRepoImpl implements ProductRepo {
     }
 
     public List<Product> getProducts() {
-        String allProductsSQL = "select * from products";
+        String allProductsSQL = "select * from product";
         return jdbc.query(allProductsSQL, productMapper);
     }
 
@@ -46,7 +45,7 @@ public class ProductRepoImpl implements ProductRepo {
 
 
     public Optional<Product> getProductsByLocation(String location) {
-        String productByLocation = "select * from products where location = ?";
+        String productByLocation = "select * from product where location = ?";
         Optional<Product> theProduct;
 
         try {

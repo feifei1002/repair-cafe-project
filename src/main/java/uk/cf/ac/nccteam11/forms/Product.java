@@ -9,16 +9,16 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 public class Product {
 
-    private Integer ID;
-    private String Name;
-    private String Description;
-    private String Category;
-    private String Location;
-    private Boolean Status;
-    private Boolean Availability;
+    private Integer productID;
+    private String name;
+    private String description;
+    private String category;
+    private String location;
+    private Boolean status;
+    private Boolean availability;
 
-    public Product(Integer ID, String Name, String Description, String Category, String Location) {
-        this(ID, Name, Description, Category, Location, Boolean.FALSE, Boolean.FALSE);
+    public Product(Integer productID, String name, String description, String category, String location) {
+        this(productID, name, description, category, location, Boolean.FALSE, Boolean.FALSE);
     }
 
     public Product() {

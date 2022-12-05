@@ -7,12 +7,12 @@ import lombok.Value;
 @AllArgsConstructor
 public class ProductDto {
 
-    private Integer ID;
-    private String Name;
-    private String Description;
-    private String Category;
-    private String Location;
-    private Boolean Status;
-    private Boolean Availability;
+    private Integer productID;
+    private String name;
+    private String description;
+    private String category;
+    private String location;
+    private Boolean status;
+    private Boolean availability;
 
 }

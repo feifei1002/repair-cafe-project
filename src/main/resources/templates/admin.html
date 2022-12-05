@@ -8,7 +8,7 @@
   <h1>Hello Admin</h1>
   <br>
   <h4>Here you can see all the products that are waiting for your approval</h4>
-  <form action="/admin/admin" method="get">
+  <form th:action="@{/admin}" method="get">
     <div class="mb-3">
         <label class="Search-bar" for="search">Search</label>
         <input class="search-form" name="search" type="text"/>
@@ -21,9 +21,9 @@
                 <th class="table-header">Product Name</th>
             </tr>
             </thead>
-            <form class="adminApproval" th:action="">
+            <form class="adminApproval" >
             <tbody>
-            <tr th:each="product : ${product}">
+            <tr th:each="product : ${products}">
                 <td>
                     <a th:href="@{/product/descripton/location}" th:text="${product.name}"></a>
                 </td>
@@ -33,7 +33,7 @@
                     <button class="Approve" type="submit" value="Submit">Approve</button>
                     <button class="Reject" type="submit" value="Submit">Reject</button>
                 </div>
-            </form>>
+            </form>
         </table>
 
     </div>
