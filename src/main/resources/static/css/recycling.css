@@ -57,11 +57,25 @@ body {
     background-position:left top;
     background-attachment:scroll;
     background-size:cover;
-    transition:all 0.5s ease;
-    cursor:pointer;
+
 }
 
+#cardboardOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-colour: #000000
+}
 
+#cardboard:hover #cardboardOverlay{
+    opacity: 1;
+}
 
 #plastic{
     min-height:200px;
