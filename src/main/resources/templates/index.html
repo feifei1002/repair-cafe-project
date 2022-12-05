@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Home</title>
   <link rel="stylesheet" href="/css/homepage.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
     </div>
     <div class="lead-btn" id="login-btn">Login
     </div>
-    <div class="lead-btn" id="new-acc">Create New Account
+    <div class="lead-btn" id="new-acc"><a href="/user/sign-up">Create New Account</a>
     </div>
   </header>
   <section class="flex-sect" id="recentlyAdded">
@@ -128,6 +128,14 @@
         <div class="map-cont" id="mapCont">
           <div class="mapBackground locationBackground">
             <iframe src="https://www.google.com/maps/d/embed?mid=1ls4qRydjq4b2cr40_B4XETgZ873y6YYG&ehbc=2E312F" width="640" height="480"></iframe>
+
+            <div>
+              <h3>List of Repair Cafes Wales</h3>
+              <ul th:each = "repairCafe : ${repairCafes}">
+                <li><a th:text="${repairCafe.name}"></a></li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>

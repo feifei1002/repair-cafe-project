@@ -38,17 +38,16 @@ CREATE TABLE IF NOT EXISTS product (
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS user (
-    userID INTEGER NOT NULL,
+    user_id INTEGER AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    hashedPassword VARCHAR(30) NOT NULL,
-    FirstLineAddress VARCHAR(60) NULL,
+    password VARCHAR(30) NOT NULL,
+    firstLineAddress VARCHAR(60) NULL,
     town VARCHAR(45) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
-    userType BINARY(0) NOT NULL,
-    PRIMARY KEY (userID))
+    PRIMARY KEY (`user_id`))
     ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `repair_Cafe`;

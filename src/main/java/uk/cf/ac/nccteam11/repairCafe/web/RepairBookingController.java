@@ -61,7 +61,7 @@ public class RepairBookingController {
             SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
             SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
             emailService.sendSimpleMail(newRepairBooking);
-            var mv = new ModelAndView("redirect:/repair-booking-list");
+            var mv = new ModelAndView("redirect:/");
             return mv;
         }
     }
