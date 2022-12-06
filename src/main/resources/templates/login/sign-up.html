@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>New User Sign Up</h1>
+
+<form th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+    <div>
+<!--        <label>First Name:</label>-->
+        <input th:field="*{firstName}" type="text" class="input-field" placeholder="First Name"/><br>
+        <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+    </div><br>
+
+    <div>
+<!--        <label>Last Name:</label>-->
+        <input th:field="*{lastName}" type="text" class="input-field" placeholder="Last Name"/><br>
+        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+    </div><br>
+
+    <div>
+<!--        <label>Email:</label>-->
+        <input th:field="*{email}" type="text" class="input-field" placeholder="Email"/><br>
+        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+    </div><br>
+
+    <div>
+        <!--        <label>Phone No.:</label>-->
+        <input th:field="*{phoneNo}" type="text" class="input-field" placeholder="Phone No."/><br>
+        <td th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}">Phone No. Error</td>
+    </div><br>
+
+    <div>
+<!--        <label>Password:</label>-->
+        <input th:field="*{password}" type="password" class="input-field" placeholder="Password"/><br>
+        <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+    </div><br>
+
+    <div>
+<!--        <label>Address:</label>-->
+        <input th:field="*{address}" type="text" class="input-field" placeholder="Address/Street"/><br>
+         <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+    </div><br>
+
+<!--    <div>-->
+<!--        <label>Town:</label>-->
+<!--        <input th:field="*{town}" type="text"/><br>-->
+<!--        <td th:if="${#fields.hasErrors('town')}" th:errors="*{town}">Town Error</td>-->
+<!--    </div><br>-->
+
+    <div>
+<!--        <label>City:</label>-->
+        <input th:field="*{city}" type="text" class="input-field" placeholder="City"/><br>
+        <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
+    </div><br>
+
+    <div>
+<!--        <label>Postcode:</label>-->
+        <input th:field="*{postcode}" type="text" class="input-field" placeholder="Postcode"/><br>
+        <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
+    </div><br>
+
+    <div>
+        <input type="checkbox" class="check-box"><p>I agree to the Terms and Conditions</p>
+    </div>
+
+    <div>
+        <button>Submit</button>
+    </div>
+
+</form>
+<script>
+    var x=document.getElementById('login');
+    var y=document.getElementById('register');
+    var z=document.getElementById('btn');
+    function register()
+    {
+        x.style.left='-400px';
+        y.style.left='50px';
+        z.style.left='110px';
+    }
+    function login()
+    {
+        x.style.left='50px';
+        y.style.left='450px';
+        z.style.left='0px';
+    }
+</script>
+<script>
+    var modal = document.getElementById('login-form');
+    window.onclick = function(event)
+    {
+        if (event.target == modal)
+        {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

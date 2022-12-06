@@ -23,14 +23,14 @@ public class User {
     @Column("EMAIL")
     private String email;
 
+    @Column("PHONENO")
+    private String phoneNo;
+
     @Column("PASSWORD")
     private String password;
 
-    @Column("FIRSTLINEADDRESS")
-    private String firstLineAddress;
-
-    @Column("TOWN")
-    private String town;
+    @Column("ADDRESS")
+    private String address;
 
     @Column("CITY")
     private String city;

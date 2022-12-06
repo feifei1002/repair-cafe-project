@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS user (
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    password VARCHAR(2000) NOT NULL,
-    firstLineAddress VARCHAR(60) NULL,
-    town VARCHAR(45) NULL,
+    phoneNo VARCHAR(10) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    address VARCHAR(60) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
     PRIMARY KEY (`user_id`))

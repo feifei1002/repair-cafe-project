@@ -24,16 +24,15 @@ public class SignUpForm {
     private String email;
 
     @NotEmpty
-//    @Min(value = 8, message = "Password must have minimum 8 characters")
+    private String phoneNo;
+
+    @NotEmpty
     @Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]{8,})$",
     message = "Password must have minimum of 8 characters, including 1 upper case letter, 1 lowercase letter, 1 number and 1 special character")
     private String password;
 
     @NotEmpty
-    private String firstLineAddress;
-
-    @NotEmpty
-    private String town;
+    private String address;
 
     @NotEmpty
     private String city;

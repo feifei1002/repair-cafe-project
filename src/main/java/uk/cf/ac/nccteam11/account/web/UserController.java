@@ -22,10 +22,15 @@ public class UserController {
         this.userService = usrService;
     }
 
+    @GetMapping("user/login")
+    public ModelAndView loginPage(Model model){
+        return new ModelAndView("login/login");
+    }
+
     @GetMapping("user/sign-up")
     public ModelAndView getNewSignUpForm(Model model){
         model.addAttribute("signUpForm", new SignUpForm());
-        var mv = new ModelAndView("sign-up", model.asMap());
+        var mv = new ModelAndView("login/sign-up", model.asMap());
         return mv;
     }
 
@@ -37,8 +42,8 @@ public class UserController {
             return mv;
         } else {
             UserDTO userDTO = new UserDTO(newSignUp.getUser_id(), newSignUp.getFirstName(), newSignUp.getLastName(),
-                    newSignUp.getEmail(), newSignUp.getPassword(), newSignUp.getFirstLineAddress(),
-                    newSignUp.getTown(), newSignUp.getCity(), newSignUp.getPostcode());
+                    newSignUp.getEmail(), newSignUp.getPhoneNo(), newSignUp.getPassword(), newSignUp.getAddress(),
+                    newSignUp.getCity(), newSignUp.getPostcode());
             SaveUserRequest saveUserRequest = SaveUserRequest.of().userDTO(userDTO).build();
             SaveUserResponse saveUserResponse = userService.addNewUser(saveUserRequest);
             var mv = new ModelAndView("redirect:/");
