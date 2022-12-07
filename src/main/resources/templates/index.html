@@ -108,8 +108,8 @@
           <div class="mapBackground locationBackground">
             <iframe src="https://www.google.com/maps/d/embed?mid=1ls4qRydjq4b2cr40_B4XETgZ873y6YYG&ehbc=2E312F" width="640" height="480"></iframe>
 
-            <div>
-              <h3>List of Repair Cafes Wales</h3>
+            <div class="repairCafes-list">
+              <h3>List of Repair Cafes Wales</h3><br>
               <ul th:each = "repairCafe : ${repairCafes}">
                 <li><a th:text="${repairCafe.name}"></a></li>
               </ul>

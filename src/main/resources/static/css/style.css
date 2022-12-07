@@ -170,6 +170,10 @@ nav ul li a
 	outline: none;
 	border-radius: 30px;
 }
+.submit-btn:hover{
+	color: black;
+	font-weight: bold;
+}
 .check-box
 {
 	margin: 10px 10px 34px 0px;
@@ -415,6 +419,10 @@ body {
 }
 .locationBackground{
 	background-color: #ff1818;
+}
+
+.repairCafes-list{
+	margin-left: 50px;
 }
 .footer-under{
 	background-color:#312833;
