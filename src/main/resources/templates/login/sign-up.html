@@ -7,44 +7,44 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
-<h1>New User Sign Up</h1>
-
+<div class="form-box" id="register-form">
 <form id="register" class="input-group-register" th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+    <h2 class="form-title">Sign Up</h2>
     <div>
 <!--        <label>First Name:</label>-->
-        <input th:field="*{firstName}" type="text" class="input-field" placeholder="First Name"/><br>
+        <input class="input-field" th:field="*{firstName}" type="text" placeholder="First Name"/><br>
         <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
-    </div><br>
+    </div>
 
     <div>
 <!--        <label>Last Name:</label>-->
-        <input th:field="*{lastName}" type="text" class="input-field" placeholder="Last Name"/><br>
+        <input class="input-field" th:field="*{lastName}" type="text" placeholder="Last Name"/><br>
         <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
-    </div><br>
+    </div>
 
     <div>
 <!--        <label>Email:</label>-->
-        <input th:field="*{email}" type="text" class="input-field" placeholder="Email"/><br>
+        <input class="input-field" th:field="*{email}" type="text" placeholder="Email"/><br>
         <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
-    </div><br>
+    </div>
 
     <div>
         <!--        <label>Phone No.:</label>-->
-        <input th:field="*{phoneNo}" type="text" class="input-field" placeholder="Phone No."/><br>
+        <input class="input-field" th:field="*{phoneNo}" type="text" placeholder="Phone No."/><br>
         <td th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}">Phone No. Error</td>
-    </div><br>
+    </div>
 
     <div>
 <!--        <label>Password:</label>-->
-        <input th:field="*{password}" type="password" class="input-field" placeholder="Password"/><br>
+        <input class="input-field" th:field="*{password}" type="password"  placeholder="Password"/><br>
         <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
-    </div><br>
+    </div>
 
     <div>
 <!--        <label>Address:</label>-->
-        <input th:field="*{address}" type="text" class="input-field" placeholder="Address/Street"/><br>
+        <input class="input-field" th:field="*{address}" type="text" placeholder="Address/Street"/><br>
          <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
-    </div><br>
+    </div>
 
 <!--    <div>-->
 <!--        <label>Town:</label>-->
@@ -54,52 +54,53 @@
 
     <div>
 <!--        <label>City:</label>-->
-        <input th:field="*{city}" type="text" class="input-field" placeholder="City"/><br>
+        <input class="input-field" th:field="*{city}" type="text" placeholder="City"/><br>
         <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
-    </div><br>
+    </div>
 
     <div>
 <!--        <label>Postcode:</label>-->
-        <input th:field="*{postcode}" type="text" class="input-field" placeholder="Postcode"/><br>
+        <input class="input-field" th:field="*{postcode}" type="text" placeholder="Postcode"/><br>
         <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
-    </div><br>
-
-    <div>
-        <input type="checkbox" class="check-box"><p>I agree to the Terms and Conditions</p>
     </div>
 
     <div>
-        <button>Submit</button>
+        <input type="checkbox" class="check-box"><span>I agree to the Terms and Conditions</span>
+    </div>
+
+    <div>
+        <button class="submit-btn">Sign Up</button>
     </div>
 
 </form>
-<script>
-    var x=document.getElementById('login');
-    var y=document.getElementById('register');
-    var z=document.getElementById('btn');
-    function register()
-    {
-        x.style.left='-400px';
-        y.style.left='50px';
-        z.style.left='110px';
-    }
-    function login()
-    {
-        x.style.left='50px';
-        y.style.left='450px';
-        z.style.left='0px';
-    }
-</script>
-<script>
-    var modal = document.getElementById('login-form');
-    window.onclick = function(event)
-    {
-        if (event.target == modal)
-        {
-            modal.style.display = "none";
-        }
-    }
-</script>
+</div>
+<!--<script>-->
+<!--    var x=document.getElementById('login');-->
+<!--    var y=document.getElementById('register');-->
+<!--    var z=document.getElementById('btn');-->
+<!--    function register()-->
+<!--    {-->
+<!--        x.style.left='-400px';-->
+<!--        y.style.left='50px';-->
+<!--        z.style.left='110px';-->
+<!--    }-->
+<!--    function login()-->
+<!--    {-->
+<!--        x.style.left='50px';-->
+<!--        y.style.left='450px';-->
+<!--        z.style.left='0px';-->
+<!--    }-->
+<!--</script>-->
+<!--<script>-->
+<!--    var modal = document.getElementById('login-form');-->
+<!--    window.onclick = function(event)-->
+<!--    {-->
+<!--        if (event.target == modal)-->
+<!--        {-->
+<!--            modal.style.display = "none";-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 <link th:replace="fragments/fragment :: footer">
 </body>
 </html>

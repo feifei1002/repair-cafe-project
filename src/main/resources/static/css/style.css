@@ -18,9 +18,9 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    padding-left: 50px;
-    padding-right: 30px;
-    padding-top: 50px;
+    /*padding-left: 50px;*/
+    /*padding-right: 30px;*/
+    /*padding-top: 50px;*/
 	background-color: #ff1818;
 }
 nav
@@ -74,6 +74,17 @@ nav ul li a
 	padding:10px;
     overflow: auto;
 }
+
+#register-form
+{
+	width:380px;
+	height:700px;
+	position:relative;
+	margin:2% auto;
+	background:#ff1818;
+	padding:10px;
+	overflow: auto;
+}
 .button-box
 {
 	width:220px;
@@ -95,7 +106,7 @@ nav ul li a
 /*	outline: none;*/
 /*	border-radius: 30px;*/
 /*}*/
-#login-title{
+.form-title{
 	text-align: center;
 	color: #ffffff;
 }
@@ -110,21 +121,13 @@ nav ul li a
 	border-radius: 30px;
 	transition: .5s;
 }
-.input-group-login
+.input-group-login, .input-group-register
 {
 	top: 150px;
 	position:absolute;
 	width:280px;
 	transition:.5s;
     
-}
-.input-group-register
-{
-    top: 120px;
-	position:absolute;
-	width:280px;
-	transition:.5s;
-    overflow-y: scroll;
 }
 .input-field
 {
@@ -137,7 +140,7 @@ nav ul li a
 	border-bottom: 1px solid black;
 	outline:none;
 	background: transparent;
-    overflow: scroll;
+    /*overflow: scroll;*/
 	color: #ffffff;
 }
 
@@ -159,34 +162,24 @@ nav ul li a
 }
 .check-box
 {
-	margin: 30px 10px 34px 0;
+	margin: 10px 10px 34px 0px;
 }
 span
 {
-	color:black;
-	font-size:12px;
-	bottom:58px;
-	position:absolute;
-    margin: 30px 10px 34px 0;
+	color:white;
+	/*font-size:12px;*/
+	/*bottom:-5px;*/
+	/*position:absolute;*/
+    /*margin: 30px 10px 34px 0;*/
 }
-#login
+#login, #register
 {
 	left:50px;
 }
-#login input
+#login input, #register input
 {
 	font-size:15;
 }
-#register
-{
-	left:450px;
-}
-#register input
-{
-	color:white;
-	font-size: 15;
-}
-
 
 
 body {
