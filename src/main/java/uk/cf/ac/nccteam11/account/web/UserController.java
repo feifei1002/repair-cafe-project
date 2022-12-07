@@ -38,7 +38,7 @@ public class UserController {
     @ModelAttribute
     public ModelAndView addNewUser(@Valid SignUpForm newSignUp, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            var mv = new ModelAndView("sign-up", model.asMap());
+            var mv = new ModelAndView("login/sign-up", model.asMap());
             return mv;
         } else {
             UserDTO userDTO = new UserDTO(newSignUp.getUser_id(), newSignUp.getFirstName(), newSignUp.getLastName(),

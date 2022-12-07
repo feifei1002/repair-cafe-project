@@ -70,7 +70,7 @@ nav ul li a
 	height:480px;
 	position:relative;
 	margin:2% auto;
-	background:#ff1818;
+	background:#785580;
 	padding:10px;
     overflow: auto;
 }
@@ -78,10 +78,20 @@ nav ul li a
 #register-form
 {
 	width:380px;
-	height:700px;
+	height:800px;
 	position:relative;
 	margin:2% auto;
-	background:#ff1818;
+	background:#785580;
+	padding:10px;
+	overflow: auto;
+}
+
+#repair-form{
+	color: #ffffff;
+	background-color: #785580;
+	width:1000px;
+	height:500px;
+	margin:2% auto;
 	padding:10px;
 	overflow: auto;
 }
