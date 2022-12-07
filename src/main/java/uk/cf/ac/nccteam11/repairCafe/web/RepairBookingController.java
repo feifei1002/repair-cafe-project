@@ -29,7 +29,7 @@ public class RepairBookingController {
         this.emailService = es;
     }
 
-    @GetMapping("repair-booking-list")
+    @GetMapping("admin/repair-booking-list")
     public ModelAndView getRepairBookings(Model model) {
 
         RepairBookingListRequest repairBookingListRequest = RepairBookingListRequest.of().build();

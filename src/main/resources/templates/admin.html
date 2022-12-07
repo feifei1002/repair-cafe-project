@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Homepage</title>
+    <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
+<link th:replace="fragments/fragment :: header">
   <h1>Hello Admin</h1>
   <br>
   <h4>Here you can see all the products that are waiting for your approval</h4>
@@ -37,5 +39,6 @@
         </table>
 
     </div>
+<link th:replace="fragments/fragment :: footer">
 </body>
 </html>

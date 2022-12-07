@@ -11,55 +11,41 @@
 <form id="register" class="input-group-register" th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
     <h2 class="form-title">Sign Up</h2>
     <div>
-<!--        <label>First Name:</label>-->
         <input class="input-field" th:field="*{firstName}" type="text" placeholder="First Name"/><br>
         <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
     </div>
 
     <div>
-<!--        <label>Last Name:</label>-->
         <input class="input-field" th:field="*{lastName}" type="text" placeholder="Last Name"/><br>
         <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
     </div>
 
     <div>
-<!--        <label>Email:</label>-->
         <input class="input-field" th:field="*{email}" type="text" placeholder="Email"/><br>
         <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
     </div>
 
     <div>
-        <!--        <label>Phone No.:</label>-->
         <input class="input-field" th:field="*{phoneNo}" type="text" placeholder="Phone No."/><br>
         <td th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}">Phone No. Error</td>
     </div>
 
     <div>
-<!--        <label>Password:</label>-->
         <input class="input-field" th:field="*{password}" type="password"  placeholder="Password"/><br>
         <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
     </div>
 
     <div>
-<!--        <label>Address:</label>-->
         <input class="input-field" th:field="*{address}" type="text" placeholder="Address/Street"/><br>
          <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
     </div>
 
-<!--    <div>-->
-<!--        <label>Town:</label>-->
-<!--        <input th:field="*{town}" type="text"/><br>-->
-<!--        <td th:if="${#fields.hasErrors('town')}" th:errors="*{town}">Town Error</td>-->
-<!--    </div><br>-->
-
     <div>
-<!--        <label>City:</label>-->
         <input class="input-field" th:field="*{city}" type="text" placeholder="City"/><br>
         <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
     </div>
 
     <div>
-<!--        <label>Postcode:</label>-->
         <input class="input-field" th:field="*{postcode}" type="text" placeholder="Postcode"/><br>
         <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
     </div>
@@ -74,33 +60,6 @@
 
 </form>
 </div>
-<!--<script>-->
-<!--    var x=document.getElementById('login');-->
-<!--    var y=document.getElementById('register');-->
-<!--    var z=document.getElementById('btn');-->
-<!--    function register()-->
-<!--    {-->
-<!--        x.style.left='-400px';-->
-<!--        y.style.left='50px';-->
-<!--        z.style.left='110px';-->
-<!--    }-->
-<!--    function login()-->
-<!--    {-->
-<!--        x.style.left='50px';-->
-<!--        y.style.left='450px';-->
-<!--        z.style.left='0px';-->
-<!--    }-->
-<!--</script>-->
-<!--<script>-->
-<!--    var modal = document.getElementById('login-form');-->
-<!--    window.onclick = function(event)-->
-<!--    {-->
-<!--        if (event.target == modal)-->
-<!--        {-->
-<!--            modal.style.display = "none";-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
 <link th:replace="fragments/fragment :: footer">
 </body>
 </html>
