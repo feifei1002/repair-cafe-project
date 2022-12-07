@@ -3,36 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
-<!--  <link rel="stylesheet" href="/css/homepage.css">-->
-  <link th:replace="fragments/footer :: styling-css">
+  <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
-  <header class="header-banner" id="ib88">
-    <div class="container-width" id="imkp">
-      <div class="logo-container" id="igji">
-        <div class="logo" id="placeholder">PlaceHolder
-        </div>
-      </div>
-      <nav class="menu" id="nav-bar">
-        <div class="menu-item" id="repair"><a href="/repair/booking/form">Repair</a>
-        </div>
-        <div class="menu-item" id="borrow">Borrow
-        </div>
-        <div class="menu-item" id="about-us">About Us
-        </div>
-      </nav>
-      <div class="clearfix">
-      </div>
-      <div class="lead-title" id="pageTitle">Recycling...
-      </div>
-      <div class="sub-lead-title" id="pageDescription">Add something to do with recycling here
-      </div>
-    </div>
-    <div class="lead-btn" id="login-btn"><a href="/user/login">Login</a>
-    </div>
-    <div class="lead-btn" id="new-acc"><a href="/user/sign-up">Create New Account</a>
-    </div>
-  </header>
+<link th:replace="fragments/fragment :: header">
+
+<div class="lead-title" id="pageTitle">Recycling...</div>
+<div class="sub-lead-title" id="pageDescription">Add something to do with recycling here</div>
+
   <section class="flex-sect" id="recentlyAdded">
     <div class="container-width">
       <div class="flex-title" id="recentlyAddedTitle">Recently Added Products
@@ -151,5 +129,5 @@
       </div>
     </div>
   </section>
-  <link th:replace="fragments/footer :: footer">
+  <link th:replace="fragments/fragment:: footer">
 </body>

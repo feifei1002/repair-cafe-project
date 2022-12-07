@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link th:replace="fragments/footer :: styling-css">
+    <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
+<link th:replace="fragments/fragment :: header">
 <h1>New User Sign Up</h1>
 
 <form id="register" class="input-group-register" th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
@@ -99,6 +100,6 @@
         }
     }
 </script>
-<link th:replace="fragments/footer :: footer">
+<link th:replace="fragments/fragment :: footer">
 </body>
 </html>

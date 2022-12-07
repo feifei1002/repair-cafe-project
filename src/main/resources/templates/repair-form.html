@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Repair Form</title>
-    <link th:replace="fragments/footer :: styling-css">
+    <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
+<link th:replace="fragments/fragment :: header">
 <h1>Please book an appointment if you have products that need to be repaired</h1>
 
 <form th:action="@{/repair/booking/add}" th:method="post" th:object="${repairBookingForm}">
@@ -54,6 +55,6 @@
 </div>
 
 </form>
-<link th:replace="fragments/footer :: footer">
+<link th:replace="fragments/fragment :: footer">
 </body>
 </html>
