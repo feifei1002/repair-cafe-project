@@ -4,15 +4,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-/*.full-page*/
-/*{*/
-/*    height: 100%;*/
-/*	width: 100%;*/
-/*	background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));*/
-/*	background-position: center;*/
-/*	background-size: cover;*/
-/*	position: absolute;*/
-/*}*/
+.full-page
+{
+    height: 100%;
+	width: 100%;
+	/*background-color:#ff1818;*/
+	background-position: center;
+	background-size: cover;
+	/*position: absolute;*/
+}
 .navbar
 {
     display: flex;
@@ -56,10 +56,10 @@ nav ul li a
 /*    cursor: pointer;*/
 /*    font-family: sans-serif;*/
 /*}*/
-a
-{
-    /*background-image: url(/Users/mac/Desktop/Cardiff_Uni/Year2/login/logo.jpg)*/
-}
+/*a*/
+/*{*/
+/*    background-image: url(/Users/mac/Desktop/Cardiff_Uni/Year2/login/logo.jpg)*/
+/*}*/
 #login-form
 {
     /*display: none;*/
@@ -70,35 +70,43 @@ a
 	height:480px;
 	position:relative;
 	margin:2% auto;
-	background:rgba(0,0,0,0.3);
+	background:#ff1818;
 	padding:10px;
     overflow: auto;
 }
 .button-box
 {
 	width:220px;
-	margin:35px auto;
+	/*margin:35px auto;*/
 	position:relative;
-	box-shadow: 0 0 20px 9px darkblue;
+	/*box-shadow: 0 0 20px 9px green;*/
 	border-radius: 30px;
 }
-.toggle-btn
-{
-	padding:10px 30px;
-	cursor:pointer;
-	background:transparent;
-	border:0;
-	outline: none;
-	position: relative;
+/*.toggle-btn*/
+/*{*/
+/*	width: 85%;*/
+/*	align-self: center;*/
+/*	padding: 10px 30px;*/
+/*	cursor: pointer;*/
+/*	display: block;*/
+/*	margin: auto;*/
+/*	background: lightblue;*/
+/*	border: 0;*/
+/*	outline: none;*/
+/*	border-radius: 30px;*/
+/*}*/
+#login-title{
+	text-align: center;
+	color: #ffffff;
 }
 #btn
 {
-	top: 0;
-	left:0;
-	position: absolute;
+	/*top: 0;*/
+	/*left:0;*/
+	/*position: absolute;*/
 	width: 110px;
 	height: 100%;
-	background: lightskyblue;
+	background: green;
 	border-radius: 30px;
 	transition: .5s;
 }
@@ -130,6 +138,11 @@ a
 	outline:none;
 	background: transparent;
     overflow: scroll;
+	color: #ffffff;
+}
+
+.input-field::placeholder{
+	color: #ffffff;
 }
 .submit-btn
 {
@@ -138,7 +151,8 @@ a
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: lightblue;
+	background: #008b02;
+	color: #ffffff;
 	border: 0;
 	outline: none;
 	border-radius: 30px;
