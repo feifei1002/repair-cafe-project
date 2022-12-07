@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>casnewydd REMAKE newport</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link th:replace="fragments/footer :: styling-css">
 </head>
 <body>
     <div class="full-page">
@@ -18,8 +19,9 @@
                     <li><a href='#'>Catalogue</a></li>
                     <li><a href='#'>About Us</a></li>
                     <li><a href='#'>Contact</a></li>
-                    <li><a href='#'>Login</a></li>
-                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
+                    <li><a href="/user/sign-up">Sign Up</a></li>
+                    <li><a href="/user/login">Login</a></li>
+<!--                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>-->
                 </ul>
             </nav>
         </div>
@@ -81,5 +83,6 @@
             }
         }
     </script>
+    <link th:replace="fragments/footer :: footer">
 </body>
 </html>
