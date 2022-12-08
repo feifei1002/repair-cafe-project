@@ -14,8 +14,12 @@ public class RepairProduct {
     @Id
     @Column("PRODUCT_ID")
     private Integer product_id;
+    @Column("PRODUCT_NAME")
     private String product_name;
+    @Column("CONDITION")
     private String condition;
+    @Column("BRAND")
     private String brand;
+    @Column("STATUS")
     private String status;
 }
