@@ -21,7 +21,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     public RepairCafeListResponse getRepairCafes(RepairCafeListRequest repairCafeListRequest) {
         List<RepairCafeDTO> repairCafes;
         if(repairCafeListRequest.hasSearchTerm()){
-            repairCafes = getRepairCafesBySearch(repairCafeListRequest.getSearchTermString());
+            repairCafes = getRepairCafesBySearch(repairCafeListRequest.getSearchTerm());
 
         }else{
             repairCafes = getRepairCafes();

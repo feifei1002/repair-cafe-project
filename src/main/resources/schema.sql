@@ -57,6 +57,8 @@ CREATE TABLE IF NOT EXISTS repair_Cafe
     cafe_id         INTEGER AUTO_INCREMENT NOT NULL,
     name            VARCHAR(200) NOT NULL,
     address         VARCHAR(2000) NOT NULL,
+    city            VARCHAR(200) NOT NULL,
+    postcode        VARCHAR(10) NOT NULL,
     PRIMARY KEY(`cafe_id`)
     )
     ENGINE = INNODB;

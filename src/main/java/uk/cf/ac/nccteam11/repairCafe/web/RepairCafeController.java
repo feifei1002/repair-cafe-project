@@ -13,7 +13,6 @@ import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class RepairCafeController {
@@ -32,9 +31,7 @@ public class RepairCafeController {
     }
 
     @GetMapping("repair-cafes-list")
-    public ModelAndView getRepairCafes(@RequestParam(name = "q", required = false) Optional<String> query, Model model) {
-
-        List<RepairCafeDTO> repairCafes;
+    public ModelAndView getRepairCafes(@RequestParam(name = "q", required = false) String query, Model model) {
 
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest
                 .of()

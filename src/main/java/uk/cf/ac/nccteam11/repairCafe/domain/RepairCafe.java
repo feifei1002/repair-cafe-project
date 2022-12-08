@@ -17,6 +17,10 @@ public class RepairCafe {
     private String name;
     @Column("ADDRESS")
     private String address;
+    @Column("CITY")
+    private String city;
+    @Column("POSTCODE")
+    private String postcode;
 
 
 }
