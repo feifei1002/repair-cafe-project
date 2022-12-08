@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div class="form-box" id="register-form">
+<form id="register" class="input-group-register" th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+    <h2 class="form-title">Sign Up</h2>
+    <div>
+        <input class="input-field" th:field="*{firstName}" type="text" placeholder="First Name"/><br>
+        <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{lastName}" type="text" placeholder="Last Name"/><br>
+        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{email}" type="text" placeholder="Email"/><br>
+        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{phoneNo}" type="text" placeholder="Phone No."/><br>
+        <td th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}">Phone No. Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{password}" type="password"  placeholder="Password"/><br>
+        <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{address}" type="text" placeholder="Address/Street"/><br>
+         <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{city}" type="text" placeholder="City"/><br>
+        <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
+    </div>
+
+    <div>
+        <input class="input-field" th:field="*{postcode}" type="text" placeholder="Postcode"/><br>
+        <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
+    </div>
+
+    <div>
+        <input type="checkbox" class="check-box"><span>I agree to the Terms and Conditions</span>
+    </div>
+
+    <div>
+        <button class="submit-btn">Sign Up</button>
+    </div>
+
+</form>
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

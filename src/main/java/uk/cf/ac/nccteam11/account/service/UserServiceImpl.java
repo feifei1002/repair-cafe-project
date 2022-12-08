@@ -27,9 +27,9 @@ public class UserServiceImpl implements UserService{
                 userDTO.getFirstName(),
                 userDTO.getLastName(),
                 userDTO.getEmail(),
+                userDTO.getPhoneNo(),
                 passwordEncoder.encode(userDTO.getPassword()),
-                userDTO.getFirstLineAddress(),
-                userDTO.getTown(),
+                userDTO.getAddress(),
                 userDTO.getCity(),
                 userDTO.getPostcode());
         userRepository.addUser(newUser);
