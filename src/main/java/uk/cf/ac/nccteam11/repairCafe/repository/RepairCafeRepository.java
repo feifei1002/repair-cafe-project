@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RepairCafeRepository {
     List<RepairCafe> getRepairCafes();
+    List<RepairCafe> getRepairCafesBySearch(String search);
 }

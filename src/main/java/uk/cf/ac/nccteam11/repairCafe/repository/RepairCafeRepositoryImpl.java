@@ -19,5 +19,10 @@ public class RepairCafeRepositoryImpl implements RepairCafeRepository {
         return repairCafes;
     }
 
+    @Override
+    public List<RepairCafe> getRepairCafesBySearch(String search) {
+        return repairCafeRepoJdbc.findByPostcodeContaining(search);
+    }
+
 
 }

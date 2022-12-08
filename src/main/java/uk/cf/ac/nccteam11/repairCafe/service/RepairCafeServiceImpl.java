@@ -19,7 +19,13 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     }
     @Override
     public RepairCafeListResponse getRepairCafes(RepairCafeListRequest repairCafeListRequest) {
-        List<RepairCafeDTO> repairCafes = getRepairCafes();
+        List<RepairCafeDTO> repairCafes;
+        if(repairCafeListRequest.hasSearchTerm()){
+            repairCafes = getRepairCafesBySearch(repairCafeListRequest.getSearchTermString());
+
+        }else{
+            repairCafes = getRepairCafes();
+        }
         return RepairCafeListResponse.of()
                 .request(repairCafeListRequest)
                 .repairCafes(repairCafes)
@@ -28,6 +34,12 @@ public class RepairCafeServiceImpl implements RepairCafeService {
 
     public List<RepairCafeDTO> getRepairCafes() {
         List<RepairCafe> repairCafes = repairCafeRepository.getRepairCafes();
+        return repairCafes.stream().map(rc -> RepairCafeAssembler.toDTO(rc)).collect(Collectors.toList());
+    }
+
+    private List<RepairCafeDTO> getRepairCafesBySearch(String search) {
+        List<RepairCafe> repairCafes = repairCafeRepository.getRepairCafesBySearch(search);
+
         return repairCafes.stream().map(rc -> RepairCafeAssembler.toDTO(rc)).collect(Collectors.toList());
     }
 }
