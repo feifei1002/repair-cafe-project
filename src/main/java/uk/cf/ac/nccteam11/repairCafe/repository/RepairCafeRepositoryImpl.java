@@ -24,5 +24,8 @@ public class RepairCafeRepositoryImpl implements RepairCafeRepository {
         return repairCafeRepoJdbc.findByPostcodeContaining(search);
     }
 
-
+    @Override
+    public void addRepairCafe(RepairCafe repairCafe){
+        repairCafeRepoJdbc.save(repairCafe);
+    }
 }

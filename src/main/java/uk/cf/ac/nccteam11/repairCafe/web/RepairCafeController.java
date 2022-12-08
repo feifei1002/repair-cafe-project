@@ -4,14 +4,19 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeResponse;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -42,7 +47,27 @@ public class RepairCafeController {
         model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
         var mv = new ModelAndView("repair-cafes-list", model.asMap());
         return mv;
+    }
 
+    @GetMapping("admin/repair-cafe/add/form")
+    public ModelAndView getNewRepairCafeAddForm(Model model){
+        model.addAttribute("repairCafeAdd", new RepairCafeAddForm());
+        var mv = new ModelAndView("admin/repair-cafe-add", model.asMap());
+        return mv;
+    }
+
+    @PostMapping("admin/repair-cafe/add")
+    public ModelAndView addNewRepairCafe(@Valid RepairCafeAddForm newRepairCafeAdd, BindingResult bindingResult, Model model){
+        if (bindingResult.hasErrors()) {
+            var mv = new ModelAndView("admin/repair-cafe-add", model.asMap());
+            return mv;
+        } else {
+            RepairCafeDTO repairCafeDTO = new RepairCafeDTO(newRepairCafeAdd.getCafe_id(), newRepairCafeAdd.getName(), newRepairCafeAdd.getAddress(), newRepairCafeAdd.getCity(), newRepairCafeAdd.getPostcode());
+            SaveRepairCafeRequest saveRepairCafeRequest = SaveRepairCafeRequest.of().repairCafeDTO(repairCafeDTO).build();
+            SaveRepairCafeResponse saveRepairCafeResponse = repairCafeService.addNewRepairCafe(saveRepairCafeRequest);
+            var mv = new ModelAndView("redirect:/repair-cafes-list");
+            return mv;
+        }
     }
 
     @GetMapping("repair/cafes")

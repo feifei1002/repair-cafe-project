@@ -5,6 +5,8 @@ import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
 import uk.cf.ac.nccteam11.repairCafe.repository.RepairCafeRepository;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +20,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
         repairCafeRepository = repairCafeRepo;
     }
 
+    @Override
     public RepairCafeListResponse getRepairCafes(RepairCafeListRequest repairCafeListRequest) {
         List<RepairCafeDTO> repairCafes;
         if(repairCafeListRequest.hasSearchTerm()){
@@ -30,6 +33,19 @@ public class RepairCafeServiceImpl implements RepairCafeService {
                 .request(repairCafeListRequest)
                 .repairCafes(repairCafes)
                 .build();
+    }
+
+    @Override
+    public SaveRepairCafeResponse addNewRepairCafe(SaveRepairCafeRequest saveRepairCafeRequest){
+        RepairCafeDTO repairCafeDTO = saveRepairCafeRequest.getRepairCafeDTO();
+        RepairCafe newRepairCafe = new RepairCafe(
+                repairCafeDTO.getCafe_id(),
+                repairCafeDTO.getName(),
+                repairCafeDTO.getAddress(),
+                repairCafeDTO.getCity(),
+                repairCafeDTO.getPostcode());
+        repairCafeRepository.addRepairCafe(newRepairCafe);
+        return SaveRepairCafeResponse.of().saveRepairCafeRequest(saveRepairCafeRequest).build();
     }
 
     public List<RepairCafeDTO> getRepairCafes() {
