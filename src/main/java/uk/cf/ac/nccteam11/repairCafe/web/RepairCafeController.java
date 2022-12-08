@@ -38,13 +38,9 @@ public class RepairCafeController {
                 .searchTerm(query)
                 .build();
 
-
         var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
-
-
         model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
-
-        var mv = new ModelAndView("repair-cafe-list", model.asMap());
+        var mv = new ModelAndView("repair-cafes-list", model.asMap());
         return mv;
 
     }

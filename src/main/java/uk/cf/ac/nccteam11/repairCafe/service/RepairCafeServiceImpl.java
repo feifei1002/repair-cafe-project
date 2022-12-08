@@ -17,7 +17,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     public RepairCafeServiceImpl(RepairCafeRepository repairCafeRepo) {
         repairCafeRepository = repairCafeRepo;
     }
-    @Override
+
     public RepairCafeListResponse getRepairCafes(RepairCafeListRequest repairCafeListRequest) {
         List<RepairCafeDTO> repairCafes;
         if(repairCafeListRequest.hasSearchTerm()){

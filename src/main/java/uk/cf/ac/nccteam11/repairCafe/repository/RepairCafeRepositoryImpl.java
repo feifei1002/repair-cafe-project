@@ -2,6 +2,7 @@ package uk.cf.ac.nccteam11.repairCafe.repository;
 
 import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,6 @@ public class RepairCafeRepositoryImpl implements RepairCafeRepository {
         repairCafeRepoJdbc.findAll().forEach(repairCafes::add);
         return repairCafes;
     }
-
     @Override
     public List<RepairCafe> getRepairCafesBySearch(String search) {
         return repairCafeRepoJdbc.findByPostcodeContaining(search);
