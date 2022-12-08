@@ -7,12 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListResponse;
 import org.springframework.web.servlet.ModelAndView;
+
+
 import java.util.List;
 
 @Controller
@@ -27,7 +28,7 @@ public class RepairProductController {
     @GetMapping("repair/product-list")
     private ResponseEntity<List<RepairProductDTO>> getAllRepairProducts() {
         RepairProductListRequest repairProductListRequest = RepairProductListRequest.of().build();
-        RepairProductListResponse repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);
+        RepairProductListResponse repairProductListResponse = repairProductService.getRepairProduct(repairProductListRequest);
         return ResponseEntity.ok(repairProductListResponse.getRepairProducts());
 
     }
