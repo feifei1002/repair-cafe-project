@@ -177,3 +177,52 @@ section {
   height: 100%;
   object-fit: cover;
 }
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.gjs-row{
+  display:flex;
+  justify-content:flex-start;
+  align-items:stretch;
+  flex-wrap:nowrap;
+  padding:10px;
+}
+.gjs-cell{
+  min-height:75px;
+  flex-grow:1;
+  flex-basis:100%;
+}
+#mapCaption{
+  flex-basis:30%;
+}
+#mapcontainerright{
+  flex-basis:70%;
+}
+#il1t{
+  height:286px;
+  width:610.2706564941407px;
+}
+#This{
+padding:10px;
+}
+#that{
+  padding:10px;
+}
+#ipah{
+  flex-basis:30%;
+}
+#ivgkq{
+  height:286px;
+  width:610.2706564941407px;
+}
+#i0tmr{
+  flex-basis:70%;
+}
+@media (max-width: 768px){
+  .gjs-row{
+    flex-wrap:wrap;
+  }
+}
