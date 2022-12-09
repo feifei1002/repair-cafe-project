@@ -1,37 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
-  <link rel="stylesheet" href="/static/css/homepage.css">
+  <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
-  <header class="header-banner" id="ib88">
-    <div class="container-width" id="imkp">
-      <div class="logo-container" id="igji">
-        <div class="logo" id="placeholder">PlaceHolder
-        </div>
-      </div>
-      <nav class="menu" id="nav-bar">
-        <div class="menu-item" id="repair"><a href="/repair/booking/form">Repair</a>
-        </div>
-        <div class="menu-item" id="borrow">Borrow
-        </div>
-        <div class="menu-item" id="about-us">About Us
-        </div>
-      </nav>
-      <div class="clearfix">
-      </div>
-      <div class="lead-title" id="pageTitle">Recycling...
-      </div>
-      <div class="sub-lead-title" id="pageDescription">Add something to do with recycling here
-      </div>
-    </div>
-    <div class="lead-btn" id="login-btn">Login
-    </div>
-    <div class="lead-btn" id="new-acc"><a href="/user/sign-up">Create New Account</a>
-    </div>
-  </header>
+<link th:replace="fragments/fragment :: header">
+
+<div class="lead-title" id="pageTitle">Recycling...</div>
+<div class="sub-lead-title" id="pageDescription">Add something to do with recycling here</div>
+
   <section class="flex-sect" id="recentlyAdded">
     <div class="container-width">
       <div class="flex-title" id="recentlyAddedTitle">Recently Added Products
@@ -113,6 +92,42 @@
         </div>
       </div>
     </div>
+
+    <!--<div class="container">
+
+			<h3>List of Products</h3>
+
+			<hr/>
+
+			<table class="table table-bordered table-striped">
+
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Name</th>
+						<th>Condition</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        Need to link the photo in here
+    <th>Photo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${products}">
+      <td th:text="${product.code}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.condition}"></td>
+      <td th:text="${product.brand}"></td>
+      <td th:text="${product.price}"></td>
+      <td th:text="${product.status}"></td>
+      <td th:text="${product.photo}"></td>
+    </tr>
+    </tbody>
+
+    </table>
+    </div>-->
+
   </section>
   <section class="am-sect">
     <div class="container-width">
@@ -129,8 +144,8 @@
           <div class="mapBackground locationBackground">
             <iframe src="https://www.google.com/maps/d/embed?mid=1ls4qRydjq4b2cr40_B4XETgZ873y6YYG&ehbc=2E312F" width="640" height="480"></iframe>
 
-            <div>
-              <h3>List of Repair Cafes Wales</h3>
+            <div class="repairCafes-list">
+              <h3>List of Repair Cafes Wales</h3><br>
               <ul th:each = "repairCafe : ${repairCafes}">
                 <li><a th:text="${repairCafe.name}"></a></li>
               </ul>
@@ -150,55 +165,5 @@
       </div>
     </div>
   </section>
-  <footer class="footer-under">
-    <div class="container-width">
-      <div class="footer-container">
-        <div class="foot-lists">
-          <div class="foot-list">
-            <div class="foot-list-title">About us
-            </div>
-            <div class="foot-list-item">Contact
-            </div>
-            <div class="foot-list-item">Events
-            </div>
-            <div class="foot-list-item">Company
-            </div>
-            <div class="foot-list-item">Jobs
-            </div>
-            <div class="foot-list-item">Blog
-            </div>
-          </div>
-          <div class="foot-list">
-            <div class="foot-list-title">Services
-            </div>
-            <div class="foot-list-item">Education
-            </div>
-            <div class="foot-list-item">Partner
-            </div>
-            <div class="foot-list-item">Community
-            </div>
-            <div class="foot-list-item">Forum
-            </div>
-            <div class="foot-list-item">Download
-            </div>
-            <div class="foot-list-item">Upgrade
-            </div>
-          </div>
-          <div class="clearfix">
-          </div>
-        </div>
-        <div class="form-sub">
-          <div class="foot-form-cont">
-            <div class="foot-form-title">Contact Us
-            </div>
-            <div class="foot-form-desc">If you would like to find out more, you can contact us here
-            </div>
-            <input type="text" name="name" placeholder="Name" class="sub-input"/>
-            <input type="text" name="email" placeholder="Email" class="sub-input"/>
-            <button type="button" class="sub-btn">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <link th:replace="fragments/fragment:: footer">
 </body>

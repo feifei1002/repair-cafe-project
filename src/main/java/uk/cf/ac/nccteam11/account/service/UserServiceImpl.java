@@ -1,5 +1,7 @@
 package uk.cf.ac.nccteam11.account.service;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import uk.cf.ac.nccteam11.account.domain.User;
 import uk.cf.ac.nccteam11.account.repository.UserRepository;
@@ -9,9 +11,12 @@ import uk.cf.ac.nccteam11.account.service.message.SaveUserResponse;
 @Service
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
+
 
     public UserServiceImpl (UserRepository userRepo){
         this.userRepository = userRepo;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     @Override
@@ -22,9 +27,9 @@ public class UserServiceImpl implements UserService{
                 userDTO.getFirstName(),
                 userDTO.getLastName(),
                 userDTO.getEmail(),
-                userDTO.getPassword(),
-                userDTO.getFirstLineAddress(),
-                userDTO.getTown(),
+                userDTO.getPhoneNo(),
+                passwordEncoder.encode(userDTO.getPassword()),
+                userDTO.getAddress(),
                 userDTO.getCity(),
                 userDTO.getPostcode());
         userRepository.addUser(newUser);

@@ -10,9 +10,9 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
+    private String phoneNo;
     private String password;
-    private String firstLineAddress;
-    private String town;
+    private String address;
     private String city;
     private String postcode;
 }

@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS user (
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
-    password VARCHAR(30) NOT NULL,
-    firstLineAddress VARCHAR(60) NULL,
-    town VARCHAR(45) NULL,
+    phoneNo VARCHAR(10) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    address VARCHAR(60) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
     PRIMARY KEY (`user_id`))
@@ -85,6 +85,18 @@ CREATE TABLE IF NOT EXISTS repair_Category
     PRIMARY KEY(`category_id`)
     )
     ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `repair_Product`;
+
+CREATE TABLE IF NOT EXISTS repair_Product (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(45) NOT NULL,
+  `condition` VARCHAR(45) NOT NULL,
+  `brand` VARCHAR(45) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `photo` LONGBLOB NULL,
+  PRIMARY KEY (`product_id`))
+ENGINE = INNODB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

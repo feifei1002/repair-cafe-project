@@ -27,7 +27,7 @@ public class UserWebMvcTests {
     @Test
     public void shouldBeAbleToCreateANewAccount() throws Exception{
         //GIVEN
-        UserDTO newUser = new UserDTO(1, "Fei", "Liu", "email123@gmail.com", "P@55w0rd", "Tyndall Street", "Cathays", "Cardiff", "CF10 4BZ");
+        UserDTO newUser = new UserDTO(1, "Fei", "Liu", "email123@gmail.com","0123456789", "P@55w0rd", "Tyndall Street",  "Cardiff", "CF10 4BZ");
 
         //WHEN
         SaveUserRequest saveUserRequest = SaveUserRequest.of().userDTO(newUser).build();
