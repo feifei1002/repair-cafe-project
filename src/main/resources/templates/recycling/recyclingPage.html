@@ -1,55 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>recycling</title>
-    <link ref="stylesheet" href="/css/recycling.css">
+    <title>Recycling</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/recycling.css">
+
 </head>
-<body class="container" id="isrj">
-<div id="row1" class="gjs-row">
-    <div id="cardboardOverlay">
-    <div id="cardboard" title="cardboard" class="gjs-cell">
-        <div id="cardboardText">Cardboard
+<body>
+<!-- partial:index.partial.html -->
+<section>
+    <div class="container">
+        <div class="carousel">
+            <input type="radio" name="slides" checked="checked" id="slide-1">
+            <input type="radio" name="slides" id="slide-2">
+            <input type="radio" name="slides" id="slide-3">
+            <input type="radio" name="slides" id="slide-4">
+            <input type="radio" name="slides" id="slide-5">
+            <input type="radio" name="slides" id="slide-6">
+            <ul class="carousel__slides">
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/cardboard-min.jpeg" alt="Cardboard">
+                        </div>
+                        <figcaption>
+                            Paper and Cardboard Waste
+                            <span class="info">
+                                Recycling paper is vital to ensure you reduce your environmental impact and to reduce unnecessary general waste. Industry and commerce dispose of approximately 12.5 million tonnes of paper and cardboard in the UK each year; most paper is recyclable and can be diverted away from landfill sites!
+                                <br>
+                                Every tonne of recycled paper or cardboard can save up to 17 trees, two cubic yards of landfill capacity and 4100 kW/hours of electricity!
+                                <br>
+                                Did you know that 70% less energy is used when making new paper from recycled stock than when using virgin pulp!
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/plastic-min.jpg" alt="Plastic">
+                        </div>
+                        <figcaption>
+                            Plastic Recycling
+                            <span class="info">
+                                The world generates 381 million tonnes of plastic waste annually, and with the amount of plastic waste set to double by 2034, recycling plastic is vital
+                                <br>
+                                There are about 50 different groups of plastics, with hundreds of different varieties. Most types of plastic are recyclable, and because of this, they need to be recycled to reduce the amount of waste sent to landfill and help prevent rubbish from ending up in the oceans.
+                                <br>
+                                You can find out if your plastic is recyclable by checking the resin code. These will be a number between one and seven surrounded by three arrows.
+                                <br>
+                                Although no one knows for sure as plastics haven't existed for long enough, it's believed that plastics can take over 500 years to decompose.
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/metal-min.jpg" alt="Metals">
+                        </div>
+                        <figcaption>
+                            Metal Recycling
+                            <span class="info">
+                                All grades of non-ferrous and ferrous metal are recyclable for future use. Because metals don't lose quality when recycled, we can recycle metal many times over.
+                                <br>
+                                To get an idea of how much energy recycling can conserve, recycling one aluminium drink can saves enough energy to power a television for around three hours!
+                                <br>
+                                Before the metals are recycled, metals get separated into ferrous and non-ferrous types.
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/weee-waste.jpg" alt="Electrics">
+                        </div>
+                        <figcaption>
+                            WEEE Recycling (Electronic Devices)
+                            <span class="info">
+                                WEEE recycling is for the waste of electrical and electronic equipment recycling, which is nearly everything powered by a battery or plug such as computers, mobile phones and TVs.
+                                <br>
+                                Electronic goods recycling is a specialist part of the waste and recycling industry aiming to prevent electrical items sent to landfill.
+                                <br>
+                                The Waste Electrical and Electronic Equipment (WEEE) Regulations (2013) became law in the UK on 1 January 2014.
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/wood-min.jpg" alt="Wood">
+                        </div>
+                        <figcaption>
+                            Wood Recycling
+                            <span class="info">
+                                Wood is the ultimate renewable material because of its large number of different uses.
+                                <br>
+                                Wood can be reused as a building material, recycled into mulch for landscaping. Even low-grade wood is useful because we can use it for fuel to generate environmentally friendly energy.
+                                <br>
+                                According to the Wood Recyclers Association, around 5 million tonnes of waste wood is created in the UK every year, yet considerably less than half of it is recycled.
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://ismwaste.co.uk/images/recycling/glass-min.jpg" alt="Glass Recycling">
+                        </div>
+                        <figcaption>
+                            Glass Recycling
+                            <span class="info">
+                                Glass is 100% recyclable and never loses any purity or quality when recycled, meaning we can recycle it many times over.
+                                <br>
+                                Glass can take around one million years to fully decompose, which is a big issue for landfill sites getting too full. It is crucial to ensure we recycle as much glass as possible.
+                                <br>
+                                We can reuse glass repeatedly, and the quality of the material is as good as if it was made new from the raw materials
+                                <br>
+                                Glass should be as clean and contaminant-free as possible for recycling. Grades include such items as bottles, jars, windows, drinking glasses, computer screens etc. Similar to other recycled materials, recycling glass also saves significant amounts of energy.
+                            </span>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <ul class="carousel__thumbnails">
+                <li>
+                    <label for="slide-1"><img src="https://ismwaste.co.uk/images/recycling/cardboard-min.jpeg" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-2"><img src="https://ismwaste.co.uk/images/recycling/plastic-min.jpg" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-3"><img src="https://ismwaste.co.uk/images/recycling/metal-min.jpg" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-4"><img src="https://ismwaste.co.uk/images/recycling/weee-waste.jpg" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-5"><img src="https://ismwaste.co.uk/images/recycling/wood-min.jpg" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-6"><img src="https://ismwaste.co.uk/images/recycling/glass-min.jpg" alt=""></label>
+                </li>
+            </ul>
         </div>
     </div>
-    </div>
-    <div id="plasticOverlay">
-    <div id="plastic" title="plastic" class="gjs-cell text">
-        <div id="plasticText" class="text">Plastic
-        </div>
-    </div>
-    </div>
-    <div id="metalOverlay">
-    <div id="metal" title="metal" class="gjs-cell">
-        <div id="metalsText">Metals
-        </div>
-    </div>
-    </div>
-</div>
-<div id="row2" class="gjs-row">
-    <div id="electronics" title="electronics" class="gjs-cell">
-        <div id="electronicsText">Electronics
-        </div>
-    </div>
-    <div class="gjs-cell" id="i5wh1">
-    </div>
-    <div id="wood" title="wood" class="gjs-cell">
-        <div id="woodText">Wood
-        </div>
-    </div>
-</div>
-<div id="row3" class="gjs-row">
-    <div id="glass" title="glass" class="gjs-cell">
-        <div id="glassText">Glass
-        </div>
-    </div>
-    <div id="clothes" title="clothes" class="gjs-cell">
-        <div id="clothingText">Clothing
-        </div>
-    </div>
-    <div id="inert" title="inert" class="gjs-cell">
-        <div id="InertText"> Inert Waste
-        </div>
-    </div>
-</div>
+</section>
+<!-- partial -->
+
 </body>
+</html>
