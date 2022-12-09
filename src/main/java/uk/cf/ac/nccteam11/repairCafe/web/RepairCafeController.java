@@ -65,16 +65,22 @@ public class RepairCafeController {
         }
     }
 
-    @GetMapping("admin/repair-cafe/delete/form")
-    public ModelAndView getDeleteRepairCafeForm(Model model){
+    @GetMapping("admin/repair-cafe/{cafe_id}/delete/form")
+    public ModelAndView getDeleteRepairCafeForm(@PathVariable("cafe_id") Integer cafeId, Model model){
+        SingleRepairCafeRequest singleRepairCafeRequest = SingleRepairCafeRequest.of().cafe_id(cafeId).build();
+        var singleRepairCafeResponse = repairCafeService.getRepairCafeByRequest(singleRepairCafeRequest);
+        var repairCafeDTO = singleRepairCafeResponse.getRepairCafeDTO();
+        RepairCafeAddForm repairCafeAddForm = FormAssembler.toRepairCafeAddForm(repairCafeDTO);
+        model.addAttribute("repairCafeAdd", repairCafeAddForm);
+//        model.addAttribute("repairCafe", singleRepairCafeResponse.getSingleRepairCafeRequest());
         model.addAttribute("repairCafeDelete", new RepairCafeDeleteForm());
         var mv = new ModelAndView("admin/repair-cafe-delete", model.asMap());
         return mv;
     }
 
-    @PostMapping("admin/repair-cafe/delete")
-    public ModelAndView deleteRepairCafe(@PathVariable("id") Integer cafeId, RepairCafeDeleteForm repairCafeDelete, Model model){
-        DeleteRepairCafeRequest deleteRepairCafeRequest = DeleteRepairCafeRequest.of().cafeId(repairCafeDelete.getCafe_id()).build();
+    @PostMapping("admin/repair-cafe/{cafe_id}/delete")
+    public ModelAndView deleteRepairCafe(@PathVariable("cafe_id") Integer cafeId, RepairCafeDeleteForm repairCafeDelete, Model model){
+        DeleteRepairCafeRequest deleteRepairCafeRequest = DeleteRepairCafeRequest.of().cafeId(cafeId).build();
         DeleteRepairCafeResponse deleteRepairCafeResponse = repairCafeService.deleteRepairCafe(deleteRepairCafeRequest);
         var mv = new ModelAndView("redirect:/repair-cafes-list");
         return mv;

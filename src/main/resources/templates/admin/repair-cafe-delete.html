@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Repair Cafe</title>
+    <link th:replace="fragments/fragment :: styling-css">
 </head>
 <body>
-<form method="post" th:action="@{/admin/repair-cafe/delete}" th:object="${repairCafeDelete}">
-    <input th:field="*{cafe_id}" type="text">
+<link th:replace="fragments/fragment :: header">
+<form method="post" th:action="@{/admin/repair-cafe/{cafe_id}/delete (cafe_id=${repairCafeAdd.cafe_id})}" th:object="${repairCafeDelete}">
+    <input th:field="*{cafe_id}" type="hidden">
+    <h2>Do you really want to delete the Repair Cafe?</h2>
+    <button>Submit</button>
+    <a href="/repair-cafes-list">Cancel</a>
 </form>
-
+<link th:replace="fragments/fragment :: footer">
 </body>
 </html>
