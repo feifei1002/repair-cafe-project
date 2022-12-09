@@ -86,7 +86,7 @@ nav ul li a
 	overflow: auto;
 }
 
-#repair-form{
+#repair-form, #repair-add{
 	color: #ffffff;
 	background-color: #785580;
 	width:1000px;

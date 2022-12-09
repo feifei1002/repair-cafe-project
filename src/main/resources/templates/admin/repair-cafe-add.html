@@ -7,9 +7,9 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
-<h1>Add New Repair Cafe</h1>
 <div>
     <form id="repair-add" th:action="@{/admin/repair-cafe/add}" th:method="post" th:object="${repairCafeAdd}">
+        <h2 class="form-title">Add New Repair Cafe</h2><br>
         <div>
             <label>Repair Cafe's Name:</label>
             <input class='input-field' th:field="*{name}" type="text"/><br>

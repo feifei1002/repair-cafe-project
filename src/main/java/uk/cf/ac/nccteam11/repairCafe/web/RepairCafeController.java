@@ -5,16 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeService;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
-import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -68,6 +63,21 @@ public class RepairCafeController {
             var mv = new ModelAndView("redirect:/repair-cafes-list");
             return mv;
         }
+    }
+
+    @GetMapping("admin/repair-cafe/delete/form")
+    public ModelAndView getDeleteRepairCafeForm(Model model){
+        model.addAttribute("repairCafeDelete", new RepairCafeDeleteForm());
+        var mv = new ModelAndView("admin/repair-cafe-delete", model.asMap());
+        return mv;
+    }
+
+    @PostMapping("admin/repair-cafe/delete")
+    public ModelAndView deleteRepairCafe(@PathVariable("id") Integer cafeId, RepairCafeDeleteForm repairCafeDelete, Model model){
+        DeleteRepairCafeRequest deleteRepairCafeRequest = DeleteRepairCafeRequest.of().cafeId(repairCafeDelete.getCafe_id()).build();
+        DeleteRepairCafeResponse deleteRepairCafeResponse = repairCafeService.deleteRepairCafe(deleteRepairCafeRequest);
+        var mv = new ModelAndView("redirect:/repair-cafes-list");
+        return mv;
     }
 
     @GetMapping("repair/cafes")

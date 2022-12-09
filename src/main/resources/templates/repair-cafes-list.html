@@ -21,6 +21,7 @@
     <table>
         <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Address</th>
             <th>City</th>
@@ -29,6 +30,9 @@
         </thead>
         <tbody>
         <tr th:each="repairCafe : ${repairCafes}">
+            <td>
+                <a th:text="${repairCafe.cafe_id}"></a>
+            </td>
             <td>
                 <a th:text="${repairCafe.name}"></a>
             </td>
@@ -40,6 +44,12 @@
             </td>
             <td>
                 <a th:text="${repairCafe.postcode}"></a>
+            </td>
+            <td>
+                <a>Edit</a>
+            </td>
+            <td>
+                <a>Delete</a>
             </td>
         </tr>
         </tbody>

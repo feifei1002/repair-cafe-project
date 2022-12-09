@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Repair Cafe</title>
+</head>
+<body>
+<form method="post" th:action="@{/admin/repair-cafe/delete}" th:object="${repairCafeDelete}">
+    <input th:field="*{cafe_id}" type="text">
+</form>
+
+</body>
+</html>

@@ -3,12 +3,10 @@ package uk.cf.ac.nccteam11.repairCafe.service;
 import org.springframework.stereotype.Service;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairCafe;
 import uk.cf.ac.nccteam11.repairCafe.repository.RepairCafeRepository;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCafeListResponse;
-import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.SaveRepairCafeResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,6 +44,15 @@ public class RepairCafeServiceImpl implements RepairCafeService {
                 repairCafeDTO.getPostcode());
         repairCafeRepository.addRepairCafe(newRepairCafe);
         return SaveRepairCafeResponse.of().saveRepairCafeRequest(saveRepairCafeRequest).build();
+    }
+
+    @Override
+    public DeleteRepairCafeResponse deleteRepairCafe(DeleteRepairCafeRequest deleteRepairCafeRequest) {
+        Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(deleteRepairCafeRequest.getCafeId());
+        if(repairCafe.isPresent()){
+            repairCafeRepository.deleteRepairCafeById(repairCafe.get());
+        }
+        return DeleteRepairCafeResponse.of().deleteRepairCafeRequest(deleteRepairCafeRequest).build();
     }
 
     public List<RepairCafeDTO> getRepairCafes() {
