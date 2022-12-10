@@ -46,7 +46,7 @@
                 <a th:text="${repairCafe.postcode}"></a>
             </td>
             <td>
-                <a>Edit</a>
+                <a th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
             </td>
             <td>
                 <a th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>

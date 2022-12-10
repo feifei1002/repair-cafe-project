@@ -64,6 +64,25 @@ public class RepairCafeController {
             return mv;
         }
     }
+    @GetMapping("admin/repair-cafe/{cafe_id}/update/form")
+    public ModelAndView getUpdateRepairCafeForm(@PathVariable("cafe_id") Integer cafeId, Model model){
+        SingleRepairCafeRequest singleRepairCafeRequest = SingleRepairCafeRequest.of().cafe_id(cafeId).build();
+        var singleRepairCafeResponse = repairCafeService.getRepairCafeByRequest(singleRepairCafeRequest);
+        var repairCafeDTO = singleRepairCafeResponse.getRepairCafeDTO();
+        RepairCafeAddForm repairCafeAddForm = FormAssembler.toRepairCafeAddForm(repairCafeDTO);
+        model.addAttribute("repairCafeAdd", repairCafeAddForm);
+        var mv = new ModelAndView("admin/repair-cafe-add", model.asMap());
+        return mv;
+    }
+
+    @PostMapping("admin/repair-cafe/{cafe_id}/update")
+    public ModelAndView updateRepairCafe(@PathVariable("cafe_id") Integer cafeId, RepairCafeAddForm newRepairCafeAdd, Model model){
+        RepairCafeDTO repairCafeDTO = FormAssembler.toRepairCafeDTO(newRepairCafeAdd);
+        UpdateRepairCafeRequest updateRepairCafeRequest = UpdateRepairCafeRequest.of().repairCafeDTO(repairCafeDTO).build();
+        UpdateRepairCafeResponse updateRepairCafeResponse = repairCafeService.updateRepairCafe(updateRepairCafeRequest);
+        var mv = new ModelAndView("redirect/admin/repair-cafe/{cafe_id}/update/form", model.asMap());
+        return mv;
+    }
 
     @GetMapping("admin/repair-cafe/{cafe_id}/delete/form")
     public ModelAndView getDeleteRepairCafeForm(@PathVariable("cafe_id") Integer cafeId, Model model){
