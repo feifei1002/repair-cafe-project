@@ -11,6 +11,7 @@ public class RequestRouter implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/repair-form").setViewName("repair-form");
         registry.addViewController("/admin").setViewName("admin");
-        registry.addViewController("login").setViewName("login/login");
+        registry.addViewController("/recycling").setViewName("recycling");
+        registry.addViewController("/login").setViewName("login/login");
     }
 }
