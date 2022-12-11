@@ -21,6 +21,7 @@
     <table class="table-list">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Address</th>
             <th>City</th>
@@ -29,6 +30,9 @@
         </thead>
         <tbody>
         <tr th:each="repairCafe : ${repairCafes}">
+            <td class="details-table">
+                <a th:text="${repairCafe.cafe_id}"></a>
+            </td>
             <td class="details-table">
                 <a th:text="${repairCafe.name}"></a>
             </td>
@@ -40,6 +44,12 @@
             </td>
             <td class="details-table">
                 <a th:text="${repairCafe.postcode}"></a>
+            </td>
+            <td>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
+            </td>
+            <td>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>
             </td>
         </tr>
         </tbody>

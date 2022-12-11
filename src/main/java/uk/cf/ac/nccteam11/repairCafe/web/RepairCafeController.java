@@ -44,6 +44,20 @@ public class RepairCafeController {
         return mv;
     }
 
+    @GetMapping("admin/repair-cafes-list")
+    public ModelAndView getRepairCafesAdmin(@RequestParam(name = "q", required = false) String query, Model model) {
+
+        RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest
+                .of()
+                .searchTerm(query)
+                .build();
+
+        var repairCafeListResponse = repairCafeService.getRepairCafes(repairCafeListRequest);
+        model.addAttribute("repairCafes", repairCafeListResponse.getRepairCafes());
+        var mv = new ModelAndView("admin/repair-cafes-list-admin", model.asMap());
+        return mv;
+    }
+
     @GetMapping("admin/repair-cafe/add/form")
     public ModelAndView getNewRepairCafeAddForm(Model model){
         model.addAttribute("repairCafeAdd", new RepairCafeAddForm());
@@ -60,7 +74,7 @@ public class RepairCafeController {
             RepairCafeDTO repairCafeDTO = new RepairCafeDTO(newRepairCafeAdd.getCafe_id(), newRepairCafeAdd.getName(), newRepairCafeAdd.getAddress(), newRepairCafeAdd.getCity(), newRepairCafeAdd.getPostcode());
             SaveRepairCafeRequest saveRepairCafeRequest = SaveRepairCafeRequest.of().repairCafeDTO(repairCafeDTO).build();
             SaveRepairCafeResponse saveRepairCafeResponse = repairCafeService.addNewRepairCafe(saveRepairCafeRequest);
-            var mv = new ModelAndView("redirect:/repair-cafes-list");
+            var mv = new ModelAndView("redirect:/admin/repair-cafes-list");
             return mv;
         }
     }
@@ -101,7 +115,7 @@ public class RepairCafeController {
     public ModelAndView deleteRepairCafe(@PathVariable("cafe_id") Integer cafeId, RepairCafeDeleteForm repairCafeDelete, Model model){
         DeleteRepairCafeRequest deleteRepairCafeRequest = DeleteRepairCafeRequest.of().cafeId(cafeId).build();
         DeleteRepairCafeResponse deleteRepairCafeResponse = repairCafeService.deleteRepairCafe(deleteRepairCafeRequest);
-        var mv = new ModelAndView("redirect:/repair-cafes-list");
+        var mv = new ModelAndView("redirect:/admin/repair-cafes-list");
         return mv;
     }
 
