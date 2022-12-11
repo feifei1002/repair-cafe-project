@@ -28,35 +28,35 @@ values ('009', 'Pen', '4 colour ballpoint', 'stationary', 'Stow Hill', '0', '0')
 INSERT INTO `product` (productID, name, description, category, location, status, availability)
 values ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street, Abergavenny NP7 5YB');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street', 'Abergavenny', 'NP7 5YB');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Bangor', 'SBangor Students'' Union, Room 3, Activities Hub, Ffriddoedd Site, Ffriddoedd Road, Bangor LL57 2JW');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Bangor', 'SBangor Students Union, Room 3, Activities Hub, Ffriddoedd Site, Ffriddoedd Road', 'Bangor', 'LL57 2JW');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Barford', 'Scout Hut, Wasperton Lane, Barford, Warwick CV35 8DT');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Barford', 'Scout Hut, Wasperton Lane, Barford', 'Warwick', 'CV35 8DT');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Beaumaris', 'Canolfan Hamdden Beaumaris, Rating Row, Beaumaris, Ynys Mon LL58 8AL');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Beaumaris', 'Canolfan Hamdden Beaumaris, Rating Row, Beaumaris', 'Ynys Mon', 'LL58 8AL');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Boat of Garten', 'Boat of Garten Community Hall, Reidhaven Park, Craigie Avenue Boat of Garten, Highland PH24 3BL');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Boat of Garten', 'Boat of Garten Community Hall, Reidhaven Park, Craigie Avenue Boat of Garten', 'Highland', 'PH24 3BL');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Bridgend', 'Bryncethin Community Centre, Ogmore Terrace, Bryncethin, Bridgend CF32 9YF');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Bridgend', 'Bryncethin Community Centre, Ogmore Terrace, Bryncethin', 'Bridgend', 'CF32 9YF');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Bridgend College Pop Up Shop', '22 The Rhiw Bridgend CF31 3BL United Kingdom');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Bridgend College Pop Up Shop', '22 The Rhiw', 'Bridgend', 'CF31 3BL');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Caerau', 'Caerau Menshed, Bangor Terrace, Nantyffyllon, Bridgend CF34 0HU');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Caerau', 'Caerau Menshed, Bangor Terrace, Nantyffyllon', 'Bridgend', 'CF34 0HU');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Caerphilly', 'Caerphilly Miners Centre For The Community, Watford Road, Caerphilly CF83 1ET');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Caerphilly', 'Caerphilly Miners Centre For The Community, Watford Road', 'Caerphilly', 'CF83 1ET');
 
-INSERT INTO repair_Cafe(name, address)
-VALUES ('Caerphilly (The Furniture Revival)', 'The Furniture Revival, Unit 21 Lawn Industrial Estate, Rhymey, Tredegar, Gwent NP22 5PW');
+INSERT INTO repair_Cafe(name, address, city, postcode)
+VALUES ('Caerphilly (The Furniture Revival)', 'The Furniture Revival, Unit 21 Lawn Industrial Estate, Rhymey, Tredegar', 'Gwent', 'NP22 5PW');
 
 
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Repair Cafe</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div>
+    <form id="repair-add" th:action="@{/admin/repair-cafe/add}" th:method="post" th:object="${repairCafeAdd}">
+        <h2 class="form-title">Add New Repair Cafe</h2><br>
+        <div>
+            <label>Repair Cafe's Name:</label>
+            <input class='input-field' th:field="*{name}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </div><br>
+
+        <div>
+            <label>Address</label>
+            <input class='input-field' th:field="*{address}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+        </div><br>
+
+        <div>
+            <label>City</label>
+            <input class='input-field' th:field="*{city}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</td>
+        </div><br>
+
+        <div>
+            <label>Postcode</label>
+            <input class='input-field' th:field="*{postcode}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Postcode Error</td>
+        </div><br>
+        <div>
+            <button class="submit-btn">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

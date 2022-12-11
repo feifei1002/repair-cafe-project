@@ -17,6 +17,11 @@ public class RepairCafe {
     private String name;
     @Column("ADDRESS")
     private String address;
-
-
+    @Column("CITY")
+    private String city;
+    @Column("POSTCODE")
+    private String postcode;
+    public static RepairCafe of(Integer cafe_id, String name, String address, String city, String postcode) {
+        return new RepairCafe(cafe_id, name, address, city, postcode);
+    }
 }

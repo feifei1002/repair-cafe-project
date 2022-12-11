@@ -13,4 +13,8 @@ public class RepairCafeListRequest {
     private String searchTerm;
     private List<String> orderBy;
     private Integer limit;
+
+    public Boolean hasSearchTerm() {
+        return searchTerm != null;
+    }
 }

@@ -7,9 +7,9 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
-<h1>Repair Booking List</h1>
+<h1>Repair Booking List</h1><br>
 <div>
-  <table>
+  <table class="table-list">
     <thead>
     <tr>
       <th>First Name</th>
@@ -22,22 +22,22 @@
     </thead>
     <tbody>
     <tr th:each="repairBooking : ${repairBookings}">
-      <td>
+      <td class="table-list">
         <a th:text="${repairBooking.firstName}"></a>
       </td>
-      <td>
+      <td class="details-table">
         <a th:text="${repairBooking.lastName}"></a>
       </td>
-      <td>
+      <td class="details-table">
         <a th:text="${repairBooking.email}"></a>
       </td>
-      <td>
+      <td class="details-table">
         <a th:text="${repairBooking.repairDate}"></a>
       </td>
-      <td>
+      <td class="details-table">
         <a th:text="${repairBooking.category}"></a>
       </td>
-      <td>
+      <td class="details-table">
         <a th:text="${repairBooking.location}"></a>
       </td>
     </tr>
