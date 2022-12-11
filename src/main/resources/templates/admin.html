@@ -7,7 +7,9 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
-  <h1>Hello Admin</h1>
+  <h1>Hello Admin</h1><br>
+<a class = sub-btn href="admin/repair-booking-list">Repair Booking List</a>
+<a class = sub-btn href="admin/repair-cafes-list">Repair Cafes List</a><br>
   <br>
   <h4>Here you can see all the products that are waiting for your approval</h4>
   <form th:action="@{/admin}" method="get">

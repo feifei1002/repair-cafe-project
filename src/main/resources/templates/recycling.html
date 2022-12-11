@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Recycling</title>
+    <link th:replace="fragments/fragment :: styling-css">
     <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="/css/recycling.css">
 
 </head>
 <body>
+<link th:replace="fragments/fragment :: header">
 <!-- partial:index.partial.html -->
 <section>
     <div class="container">
@@ -208,5 +210,6 @@
         </div>
     </div>
 </section>
+<link th:replace="fragments/fragment:: footer">
 </body>
 </html>
