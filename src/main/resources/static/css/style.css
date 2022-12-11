@@ -494,6 +494,7 @@ body {
 	border:none;
 }
 .sub-btn{
+	text-decoration-line: underline;
 	width:100%;
 	margin:15px 0;
 	background-color:#785580;
@@ -509,6 +510,10 @@ body {
 }
 .sub-btn:active{
 	background-color:#573f5c;
+}
+
+#cancel-btn{
+	color:#ffffff;
 }
 .bdg-sect{
 	padding-top:100px;
