@@ -17,8 +17,8 @@
                 <input class="form-control" name="q" type="text"/>
             </div>
         </form>
-    </div>
-    <table>
+    </div><br>
+    <table class="table-list">
         <thead>
         <tr>
             <th>ID</th>
@@ -30,26 +30,26 @@
         </thead>
         <tbody>
         <tr th:each="repairCafe : ${repairCafes}">
-            <td>
+            <td class="details-table">
                 <a th:text="${repairCafe.cafe_id}"></a>
             </td>
-            <td>
+            <td class="details-table">
                 <a th:text="${repairCafe.name}"></a>
             </td>
-            <td>
+            <td class="details-table">
                 <a th:text="${repairCafe.address}"></a>
             </td>
-            <td>
+            <td class="details-table">
                 <a th:text="${repairCafe.city}"></a>
             </td>
-            <td>
+            <td class="details-table">
                 <a th:text="${repairCafe.postcode}"></a>
             </td>
             <td>
-                <a th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
             </td>
             <td>
-                <a th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>
             </td>
         </tr>
         </tbody>

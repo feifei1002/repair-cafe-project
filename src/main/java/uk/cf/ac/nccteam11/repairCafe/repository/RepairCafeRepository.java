@@ -9,6 +9,6 @@ public interface RepairCafeRepository {
     List<RepairCafe> getRepairCafes();
     List<RepairCafe> getRepairCafesBySearch(String search);
     Optional<RepairCafe> getRepairCafeById(Integer id);
-    void addRepairCafe(RepairCafe repairCafe);
+    void save(RepairCafe repairCafe);
     void deleteRepairCafeById(RepairCafe repairCafe);
 }

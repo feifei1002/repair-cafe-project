@@ -56,7 +56,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
                 repairCafeDTO.getAddress(),
                 repairCafeDTO.getCity(),
                 repairCafeDTO.getPostcode());
-        repairCafeRepository.addRepairCafe(newRepairCafe);
+        repairCafeRepository.save(newRepairCafe);
         return SaveRepairCafeResponse.of().saveRepairCafeRequest(saveRepairCafeRequest).build();
     }
 
@@ -64,10 +64,10 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     public UpdateRepairCafeResponse updateRepairCafe(UpdateRepairCafeRequest updateRepairCafeRequest) {
         Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(updateRepairCafeRequest.getCafe_id());
         if(updateRepairCafeRequest.getRepairCafeDTO().getCafe_id() == null){
-            repairCafeRepository.addRepairCafe(repairCafe.get());
-            return UpdateRepairCafeResponse.of().updateRepairCafeRequest(updateRepairCafeRequest).build();
-        }
-        repairCafe.get();
+            repairCafeRepository.save(repairCafe.get());
+        }else {
+        repairCafeRepository.save(repairCafe.get());}
+
         return UpdateRepairCafeResponse.of().updateRepairCafeRequest(updateRepairCafeRequest).build();
     }
 

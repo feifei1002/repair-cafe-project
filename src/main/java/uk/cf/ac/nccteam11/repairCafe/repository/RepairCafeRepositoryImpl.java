@@ -31,7 +31,7 @@ public class RepairCafeRepositoryImpl implements RepairCafeRepository {
     }
 
     @Override
-    public void addRepairCafe(RepairCafe repairCafe){
+    public void save(RepairCafe repairCafe){
         repairCafeRepoJdbc.save(repairCafe);
     }
 

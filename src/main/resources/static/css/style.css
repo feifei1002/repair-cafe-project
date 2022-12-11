@@ -291,6 +291,14 @@ body {
 .lead-btn a:visited{
 	color:inherit;
 }
+
+.table-list {
+	border-collapse: collapse;
+}
+.details-table {
+	border: 1px solid black;
+	padding: 8px;
+}
 .flex-sect{
 	background-color:#fafafa;
 	padding:100px 0;
