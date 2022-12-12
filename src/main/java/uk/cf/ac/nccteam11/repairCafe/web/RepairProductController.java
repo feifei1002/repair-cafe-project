@@ -4,10 +4,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
+import uk.cf.ac.nccteam11.repairCafe.service.message.DeleteRepairProductRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.DeleteRepairProductResponse;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListResponse;
 
@@ -36,6 +40,13 @@ public class RepairProductController {
         model.addAttribute("products", repairProductListResponse.getRepairProducts());
 
         var mv = new ModelAndView("admin/repair-products-list", model.asMap());
+        return mv;
+    }
+    @PostMapping("admin/repair-product/{id}/delete")
+    public ModelAndView deleteRepairProduct(@PathVariable("id") Integer productId, Model model){
+        DeleteRepairProductRequest deleteRepairProductRequest = DeleteRepairProductRequest.of().productId(productId).build();
+        DeleteRepairProductResponse deleteRepairProductResponse = repairProductService.deleteRepairProduct(deleteRepairProductRequest);
+        var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
     @GetMapping("repair/product-list")

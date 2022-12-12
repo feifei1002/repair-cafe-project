@@ -36,5 +36,10 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
         return repairProductRepoJdbc.findById(id);
     }
 
+    @Override
+    public void deleteRepairProductById(RepairProduct repairProduct) {
+        repairProductRepoJdbc.deleteById(repairProduct.getProduct_id());
+    }
+
 
 }

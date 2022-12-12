@@ -27,12 +27,22 @@
                 <td>
                     <a th:href="@{/product/descripton/location}" th:text="${product.productName}"></a>
                 </td>
+                <td>
+                    <form>
+                    <button class="Approve" type="submit" value="Submit">Approve</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/admin/repair-product/{id}/delete (id=${product.product_id})}" th:method="post" th:object="${products}">
+                    <button class="Reject" type="submit" value="Submit">Reject</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
-            <div class="adminActions">
-                <button class="Approve" type="submit" value="Submit">Approve</button>
-                <button class="Reject" type="submit" value="Submit">Reject</button>
-            </div>
+<!--            <div class="adminActions">-->
+<!--                <button class="Approve" type="submit" value="Submit">Approve</button>-->
+<!--                <button class="Reject" type="submit" value="Submit">Reject</button>-->
+<!--            </div>-->
         </form>
     </table>
 

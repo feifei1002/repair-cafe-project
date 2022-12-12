@@ -5,6 +5,6 @@ import lombok.Value;
 
 @Value
 @Builder(builderMethodName = "of")
-public class SingleRepairProductRequest {
-    private final Integer productId;
+public class DeleteRepairProductResponse {
+    private final DeleteRepairProductRequest deleteRepairProductRequest;
 }

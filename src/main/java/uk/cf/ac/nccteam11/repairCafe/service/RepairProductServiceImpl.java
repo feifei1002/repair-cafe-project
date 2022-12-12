@@ -26,7 +26,7 @@ public class RepairProductServiceImpl implements RepairProductService {
 
     @Override
     public SingleRepairProductResponse getRepairProductByRequest(SingleRepairProductRequest singleRepairProductRequest) {
-        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(singleRepairProductRequest.getProduct_id());
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(singleRepairProductRequest.getProductId());
         RepairProductDTO repairProductDTO;
         if(repairProduct.isPresent()){
             repairProductDTO = RepairProductAssembler.toDTO(repairProduct.get());
@@ -37,6 +37,15 @@ public class RepairProductServiceImpl implements RepairProductService {
                 .singleRepairProductRequest(singleRepairProductRequest)
                 .repairProductDTO(repairProductDTO)
                 .build();
+    }
+
+    @Override
+    public DeleteRepairProductResponse deleteRepairProduct(DeleteRepairProductRequest deleteRepairProductRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(deleteRepairProductRequest.getProductId());
+        if (repairProduct.isPresent()){
+            repairProductRepository.deleteRepairProductById(repairProduct.get());
+        }
+        return DeleteRepairProductResponse.of().deleteRepairProductRequest(deleteRepairProductRequest).build();
     }
 
     public List<RepairProductDTO> getRepairProducts() {
