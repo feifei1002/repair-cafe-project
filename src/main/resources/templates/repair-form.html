@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Repair Form</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div>
+<form id="repair-form" th:action="@{/repair/booking/add}" th:method="post" th:object="${repairBookingForm}">
+    <h2 class="form-title">Please book an appointment if you have products that need to be repaired</h2><br>
+<div>
+    <label>First Name:</label>
+    <input class='input-field' th:field="*{firstName}" type="text"/><br>
+    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</td>
+</div><br>
+
+<div>
+    <label>Last Name:</label>
+    <input class='input-field' th:field="*{lastName}" type="text"/><br>
+    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</td>
+</div><br>
+
+<div>
+    <label>Email:</label>
+    <input class='input-field' th:field="*{email}" type="text"/><br>
+    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+</div><br>
+
+<div>
+    <label>Choose the category which best describes your item:</label>
+    <select th:field="*{category}" name="category">
+        <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
+    </select><br>
+    <td th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Category Error</td>
+</div><br>
+
+<div>
+    <label>Date of Repair:</label>
+    <input th:field="*{repairDate}" type="date"/><br>
+    <td th:if="${#fields.hasErrors('repairDate')}" th:errors="*{repairDate}">Repair Date Error</td>
+</div><br>
+
+<div>
+    <label>Repair café you wish to visit:</label>
+    <select th:field="*{location}" name="location">
+        <option th:each="repairCafe : ${repairCafes}" th:text="${repairCafe.name}" th:value="${repairCafe.name}"></option>
+    </select><br>
+    <td th:if="${#fields.hasErrors('location')}" th:errors="*{location}">Location Error</td>
+</div><br>
+
+<div>
+    <button class="submit-btn">Submit</button>
+</div>
+
+</form>
+</div>
+
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

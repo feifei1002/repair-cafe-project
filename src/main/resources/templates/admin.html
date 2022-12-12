@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Homepage</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+  <h1>Hello Admin</h1><br>
+<a class = sub-btn href="admin/repair-booking-list">Repair Booking List</a>
+<a class = sub-btn href="admin/repair-cafes-list">Repair Cafes List</a>
+<a class = sub-btn href="admin/repair-products-list">Repair Products List</a><br>
+  <br>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

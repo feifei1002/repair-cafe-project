@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Repair Cafes List</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<h1>Repair Cafes List</h1><br>
+
+<div>
+    <div>
+        <form action="/repair-cafes-list" method="get">
+            <div>
+                <label class="form-label" for="search">Search</label>
+                <input class="form-control" name="q" type="text"/>
+            </div>
+        </form>
+    </div><br>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Postcode</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="repairCafe : ${repairCafes}">
+            <td class="details-table">
+                <a th:text="${repairCafe.cafe_id}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${repairCafe.name}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${repairCafe.address}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${repairCafe.city}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${repairCafe.postcode}"></a>
+            </td>
+            <td>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
+            </td>
+            <td>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

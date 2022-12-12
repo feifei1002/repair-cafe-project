@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:fragment="styling-css" rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="full-page" th:fragment="header">
+    <div class="navbar">
+        <nav>
+            <ul id='MenuItems'>
+                <li><a href="/">Home</a></li>
+                <li><a href='/recycling'>Recycling</a></li>
+                <li><a href='/repair/booking/form'>Repair</a></li>
+                <li><a href='/repair-cafes-list'>Repair Cafes</a></li>
+                <li><a href='#'>Catalogue</a></li>
+                <li><a href="#">Borrow/Rent</a></li>
+                <li><a href='#'>Contact</a></li>
+                <li><a href="/user/sign-up" class="lead-btn">Sign Up</a></li>
+                <li><a href="/user/login" class="lead-btn">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div th:fragment="footer">
+    <footer class="footer-under">
+        <div class="container-width">
+            <div class="footer-container">
+                <div class="foot-lists">
+                    <div class="foot-list">
+                        <div class="foot-list-title">About us
+                        </div>
+                        <div class="foot-list-item">Contact
+                        </div>
+                        <div class="foot-list-item">Events
+                        </div>
+                        <div class="foot-list-item">Company
+                        </div>
+                        <div class="foot-list-item">Jobs
+                        </div>
+                        <div class="foot-list-item">Blog
+                        </div>
+                    </div>
+                    <div class="foot-list">
+                        <div class="foot-list-title">Services
+                        </div>
+                        <div class="foot-list-item">Education
+                        </div>
+                        <div class="foot-list-item">Partner
+                        </div>
+                        <div class="foot-list-item">Community
+                        </div>
+                        <div class="foot-list-item">Forum
+                        </div>
+                        <div class="foot-list-item">Download
+                        </div>
+                        <div class="foot-list-item">Upgrade
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                </div>
+                <div class="form-sub">
+                    <div class="foot-form-cont">
+                        <div class="foot-form-title">Contact Us
+                        </div>
+                        <div class="foot-form-desc">If you would like to find out more, you can contact us here
+                        </div>
+                        <input type="text" name="name" placeholder="Name" class="sub-input"/>
+                        <input type="text" name="email" placeholder="Email" class="sub-input"/>
+                        <button type="button" class="sub-btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
