@@ -6,4 +6,5 @@ public interface RepairProductService {
     RepairProductListResponse getRepairProducts(RepairProductListRequest repairProductListRequest);
     SingleRepairProductResponse getRepairProductByRequest(SingleRepairProductRequest singleRepairProductRequest);
     DeleteRepairProductResponse deleteRepairProduct(DeleteRepairProductRequest deleteRepairProductRequest);
+    UpdateRepairProductResponse updateRepairProduct(UpdateRepairProductRequest updateRepairProductRequest);
 }

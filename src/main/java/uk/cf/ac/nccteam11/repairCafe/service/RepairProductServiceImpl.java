@@ -48,6 +48,20 @@ public class RepairProductServiceImpl implements RepairProductService {
         return DeleteRepairProductResponse.of().deleteRepairProductRequest(deleteRepairProductRequest).build();
     }
 
+    @Override
+    public UpdateRepairProductResponse updateRepairProduct(UpdateRepairProductRequest updateRepairProductRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(updateRepairProductRequest.getProductId());
+        if(repairProduct.get().getIsApproved()==null) {
+            repairProduct.get().setIsApproved("approved");
+            repairProductRepository.save(repairProduct.get());
+        }else{
+            repairProductRepository.save(repairProduct.get());
+        }
+        return UpdateRepairProductResponse.of().updateRepairProductRequest(updateRepairProductRequest).build();
+
+
+    }
+
     public List<RepairProductDTO> getRepairProducts() {
         List<RepairProduct> repairProducts = repairProductRepository.getRepairProducts();
         return repairProducts.stream().map(rp -> RepairProductAssembler.toDTO(rp)).collect(Collectors.toList());

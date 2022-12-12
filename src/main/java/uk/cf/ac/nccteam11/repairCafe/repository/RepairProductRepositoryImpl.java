@@ -37,6 +37,11 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
     }
 
     @Override
+    public void save(RepairProduct repairProduct) {
+        repairProductRepoJdbc.save(repairProduct);
+    }
+
+    @Override
     public void deleteRepairProductById(RepairProduct repairProduct) {
         repairProductRepoJdbc.deleteById(repairProduct.getProduct_id());
     }

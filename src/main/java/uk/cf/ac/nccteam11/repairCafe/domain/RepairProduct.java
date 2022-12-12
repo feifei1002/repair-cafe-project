@@ -22,4 +22,6 @@ public class RepairProduct {
     private String brand;
     @Column("STATUS")
     private String status;
+    @Column("IS_APPROVED")
+    private String isApproved;
 }

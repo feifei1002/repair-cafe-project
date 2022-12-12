@@ -11,5 +11,6 @@ public interface RepairProductRepository {
     List<RepairProduct> getRepairProductsBySearch(String search);
 
     Optional<RepairProduct> getRepairProductById(Integer id);
+    void save(RepairProduct repairProduct);
     void deleteRepairProductById(RepairProduct repairProduct);
 }

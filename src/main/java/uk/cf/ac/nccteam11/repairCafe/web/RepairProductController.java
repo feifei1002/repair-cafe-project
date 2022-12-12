@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
-import uk.cf.ac.nccteam11.repairCafe.service.message.DeleteRepairProductRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.DeleteRepairProductResponse;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListRequest;
-import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.util.List;
 
@@ -40,6 +37,13 @@ public class RepairProductController {
         model.addAttribute("products", repairProductListResponse.getRepairProducts());
 
         var mv = new ModelAndView("admin/repair-products-list", model.asMap());
+        return mv;
+    }
+    @PostMapping("admin/repair-product/{id}/update")
+    public ModelAndView approveRepairProduct(@PathVariable("id") Integer productId, Model model){
+        UpdateRepairProductRequest updateRepairProductRequest = UpdateRepairProductRequest.of().productId(productId).build();
+        UpdateRepairProductResponse updateRepairProductResponse = repairProductService.updateRepairProduct(updateRepairProductRequest);
+        var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
     @PostMapping("admin/repair-product/{id}/delete")
