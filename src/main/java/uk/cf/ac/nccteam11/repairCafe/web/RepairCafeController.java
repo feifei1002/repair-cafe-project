@@ -89,15 +89,6 @@ public class RepairCafeController {
         return mv;
     }
 
-    @PostMapping("admin/repair-cafe/{cafe_id}/update")
-    public ModelAndView updateRepairCafe(@PathVariable("cafe_id") Integer cafeId, RepairCafeAddForm newRepairCafeAdd, Model model){
-        RepairCafeDTO repairCafeDTO = FormAssembler.toRepairCafeDTO(newRepairCafeAdd);
-        UpdateRepairCafeRequest updateRepairCafeRequest = UpdateRepairCafeRequest.of().repairCafeDTO(repairCafeDTO).build();
-        UpdateRepairCafeResponse updateRepairCafeResponse = repairCafeService.updateRepairCafe(updateRepairCafeRequest);
-        var mv = new ModelAndView("redirect/admin/repair-cafe/{cafe_id}/update/form", model.asMap());
-        return mv;
-    }
-
     @GetMapping("admin/repair-cafe/{cafe_id}/delete/form")
     public ModelAndView getDeleteRepairCafeForm(@PathVariable("cafe_id") Integer cafeId, Model model){
         SingleRepairCafeRequest singleRepairCafeRequest = SingleRepairCafeRequest.of().cafe_id(cafeId).build();

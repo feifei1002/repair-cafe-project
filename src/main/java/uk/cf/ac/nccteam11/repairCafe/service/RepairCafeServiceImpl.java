@@ -63,11 +63,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     @Override
     public UpdateRepairCafeResponse updateRepairCafe(UpdateRepairCafeRequest updateRepairCafeRequest) {
         Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(updateRepairCafeRequest.getCafe_id());
-        if(updateRepairCafeRequest.getRepairCafeDTO().getCafe_id() == null){
-            repairCafeRepository.save(repairCafe.get());
-        }else {
-        repairCafeRepository.save(repairCafe.get());}
-
+        repairCafeRepository.save(repairCafe.get());
         return UpdateRepairCafeResponse.of().updateRepairCafeRequest(updateRepairCafeRequest).build();
     }
 
