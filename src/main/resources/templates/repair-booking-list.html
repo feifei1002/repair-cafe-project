@@ -17,12 +17,12 @@
       <th>Email</th>
       <th>Repair Date</th>
       <th>Category</th>
-      <th>Address</th>
+      <th>Location</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="repairBooking : ${repairBookings}">
-      <td class="table-list">
+      <td class="details-table">
         <a th:text="${repairBooking.firstName}"></a>
       </td>
       <td class="details-table">

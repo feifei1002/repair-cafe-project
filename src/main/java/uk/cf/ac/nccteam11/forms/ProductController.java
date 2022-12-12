@@ -21,6 +21,11 @@ public class ProductController {
     }
 
     @GetMapping("admin")
+    public ModelAndView adminHomePage(Model model){
+        return new ModelAndView("admin");
+    }
+
+    @GetMapping("admin/repair-products-list")
     public ModelAndView getProductListPage(@RequestParam(name = "search", required = false) Optional<String> query, Model model) {
 
         List<ProductDto> products;
@@ -33,7 +38,7 @@ public class ProductController {
 
         model.addAttribute("products", products);
 
-        var mv = new ModelAndView("admin", model.asMap());
+        var mv = new ModelAndView("admin/repair-products-list", model.asMap());
         return mv;
     }
 
