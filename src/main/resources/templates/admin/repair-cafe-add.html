@@ -11,6 +11,10 @@
     <form id="repair-add" th:action="@{/admin/repair-cafe/add}" th:method="post" th:object="${repairCafeAdd}">
         <h2 class="form-title">Add New Repair Cafe</h2><br>
         <div>
+<!--            <label>Repair Cafe's Name:</label>-->
+            <input class='input-field' th:field="*{cafe_id}" type="hidden"/><br>
+        </div>
+        <div>
             <label>Repair Cafe's Name:</label>
             <input class='input-field' th:field="*{name}" type="text"/><br>
             <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
