@@ -2,8 +2,10 @@ package uk.cf.ac.nccteam11.repairCafe.repository;
 
 import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairProduct;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RepairProductRepositoryImpl implements RepairProductRepository {
@@ -17,6 +19,21 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
         List<RepairProduct> repairProducts = new ArrayList<>();
         repairProductRepoJdbc.findAll().forEach(repairProducts::add);
         return repairProducts;
+    }
+
+    @Override
+    public Optional<RepairProduct> getRepairProductsByByLocation(String location) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<RepairProduct> getRepairProductsBySearch(String search) {
+        return repairProductRepoJdbc.findByProduct_nameContaining(search);
+    }
+
+    @Override
+    public Optional<RepairProduct> getRepairProductById(Integer id) {
+        return repairProductRepoJdbc.findById(id);
     }
 
 

@@ -42,9 +42,9 @@ public class RepairBookingWebMvcTests {
         RepairCategoryDTO category2 = new RepairCategoryDTO(2, "Heater");
         RepairCategoryDTO category3 = new RepairCategoryDTO(3, "Scooter");
 
-        RepairCafeDTO cafe1 = new RepairCafeDTO(1, "Bangor", "Bryncethin Community Centre, Ogmore Terrace, Bryncethin, Bridgend CF32 9YF");
-        RepairCafeDTO cafe2 = new RepairCafeDTO(2, "Caerau", "Caerau Menshed, Bangor Terrace, Nantyffyllon, Bridgend CF34 0HU");
-        RepairCafeDTO cafe3 = new RepairCafeDTO(3, "Caerphilly", "Caerphilly Miners Centre For The Community, Watford Road, Caerphilly CF83 1ET");
+        RepairCafeDTO cafe1 = new RepairCafeDTO(1, "Bangor", "Bryncethin Community Centre, Ogmore Terrace, Bryncethin", "Bridgend", "CF32 9YF");
+        RepairCafeDTO cafe2 = new RepairCafeDTO(2, "Caerau", "Caerau Menshed, Bangor Terrace, Nantyffyllon", "Bridgend", "CF34 0HU");
+        RepairCafeDTO cafe3 = new RepairCafeDTO(3, "Caerphilly", "Caerphilly Miners Centre For The Community, Watford Road", "Caerphilly", "CF83 1ET");
 
         RepairCategoryListRequest repairCategoryListRequest = RepairCategoryListRequest.of().build();
         var repairCategoryListResponse = repairCategoryService.getRepairCategories(repairCategoryListRequest);

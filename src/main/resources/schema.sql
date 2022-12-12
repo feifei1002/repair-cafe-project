@@ -97,7 +97,10 @@ CREATE TABLE IF NOT EXISTS repair_Product (
   `brand` VARCHAR(45) NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `photo` LONGBLOB NULL,
-  PRIMARY KEY (`product_id`))
+  -- `name` VARCHAR(200) NOT NULL,
+    -- CONSTRAINT fk_category FOREIGN KEY (name)
+   --  REFERENCES repair_Category(name),
+    PRIMARY KEY (`product_id`))
 ENGINE = INNODB;
 
 

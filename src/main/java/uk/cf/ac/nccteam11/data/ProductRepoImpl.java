@@ -16,7 +16,7 @@ public class ProductRepoImpl implements ProductRepo {
     private RowMapper<Product> productMapper;
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    public ProductRepoImpl(JdbcTemplate jdbcTemplate){
+    public ProductRepoImpl(JdbcTemplate jdbcTemplate) {
         jdbc = jdbcTemplate;
         setProductMapper();
     }
@@ -91,10 +91,20 @@ public class ProductRepoImpl implements ProductRepo {
      */
     @Override
     public Optional<Product> getProductByCategory(String category) {
-        String productByFurlSql = "select * from charity where category = ?";
+        String productByFurlSql = "select * from product where category = ?";
 
         try {
             return Optional.of(jdbc.queryForObject(productByFurlSql, productMapper, category));
+        } catch (IncorrectResultSizeDataAccessException e) {
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<Product> getProductById(Integer id) {
+        String productByIdSql = "select * from product where id = ?";
+        try {
+            return Optional.of(jdbc.queryForObject(productByIdSql, productMapper, id));
         } catch (IncorrectResultSizeDataAccessException e) {
             return Optional.empty();
         }
