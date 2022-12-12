@@ -28,7 +28,7 @@ public class RepairProductController {
     }
 
     @GetMapping("admin/repair-products-list")
-    public ModelAndView getProductListPage(@RequestParam(name = "search", required = false) String query, Model model) {
+    public ModelAndView getRepairProductListPage(@RequestParam(name = "search", required = false) String query, Model model) {
 
        RepairProductListRequest repairProductListRequest = RepairProductListRequest.of().searchTerm(query).build();
        var repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);

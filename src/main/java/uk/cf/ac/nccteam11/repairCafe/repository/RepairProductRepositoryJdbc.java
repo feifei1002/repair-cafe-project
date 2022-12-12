@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RepairProductRepositoryJdbc extends CrudRepository<RepairProduct, Integer> {
-    List<RepairProduct>findByProduct_nameContaining(String name);
+    List<RepairProduct> findByProductNameContaining(String name);
     Optional<RepairProduct> findById(Integer id);
 }

@@ -15,7 +15,7 @@ public class RepairProduct {
     @Column("PRODUCT_ID")
     private Integer product_id;
     @Column("PRODUCT_NAME")
-    private String product_name;
+    private String productName;
     @Column("CONDITION")
     private String condition;
     @Column("BRAND")

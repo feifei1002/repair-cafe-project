@@ -28,7 +28,7 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
 
     @Override
     public List<RepairProduct> getRepairProductsBySearch(String search) {
-        return repairProductRepoJdbc.findByProduct_nameContaining(search);
+        return repairProductRepoJdbc.findByProductNameContaining(search);
     }
 
     @Override
