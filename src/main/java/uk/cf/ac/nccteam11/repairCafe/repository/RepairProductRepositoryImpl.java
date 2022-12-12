@@ -43,7 +43,7 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
 
     @Override
     public void deleteRepairProductById(RepairProduct repairProduct) {
-        repairProductRepoJdbc.deleteById(repairProduct.getProduct_id());
+        repairProductRepoJdbc.deleteById(repairProduct.getProductId());
     }
 
 

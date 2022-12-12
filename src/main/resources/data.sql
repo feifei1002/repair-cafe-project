@@ -112,22 +112,22 @@ INSERT INTO repair_Category(name)
 VALUES ('Scooter');
 
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Halogen Heater 3 Bars', 'A - As new', 'Brother', 'available');
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Sewing Machine', 'A - As new', 'Brother', 'available');
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Electric Multicooker', 'B - Fair', 'Team Uk international', 'available');
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('DVD Player', 'B - Fair', 'Samsung', 'available');
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
 
-INSERT INTO repair_Product(`productName`, `condition`, `brand`, `status`)
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'on loan');
 
 

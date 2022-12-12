@@ -12,7 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class RepairCafe {
     @Id
     @Column("CAFE_ID")
-    private Integer cafe_id;
+    private Integer cafeId;
     @Column("NAME")
     private String name;
     @Column("ADDRESS")

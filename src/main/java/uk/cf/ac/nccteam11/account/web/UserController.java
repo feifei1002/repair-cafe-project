@@ -41,7 +41,7 @@ public class UserController {
             var mv = new ModelAndView("login/sign-up", model.asMap());
             return mv;
         } else {
-            UserDTO userDTO = new UserDTO(newSignUp.getUser_id(), newSignUp.getFirstName(), newSignUp.getLastName(),
+            UserDTO userDTO = new UserDTO(newSignUp.getUserId(), newSignUp.getFirstName(), newSignUp.getLastName(),
                     newSignUp.getEmail(), newSignUp.getPhoneNo(), newSignUp.getPassword(), newSignUp.getAddress(),
                     newSignUp.getCity(), newSignUp.getPostcode());
             SaveUserRequest saveUserRequest = SaveUserRequest.of().userDTO(userDTO).build();

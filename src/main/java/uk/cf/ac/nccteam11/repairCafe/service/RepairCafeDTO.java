@@ -6,7 +6,7 @@ import lombok.Value;
 @Value
 @AllArgsConstructor
 public class RepairCafeDTO {
-    private Integer cafe_id;
+    private Integer cafeId;
     private String name;
     private String address;
     private String city;

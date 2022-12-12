@@ -32,7 +32,7 @@ public class RepairBookingServiceImpl implements RepairBookingService {
     public SaveRepairBookingResponse addNewRepairBooking(SaveRepairBookingRequest saveRepairBookingRequest) {
         RepairBookingDTO repairBookingDTO = saveRepairBookingRequest.getRepairBookingDTO();
         RepairBooking newRepairBooking = new RepairBooking(
-                repairBookingDTO.getBooking_id(),
+                repairBookingDTO.getBookingId(),
                 repairBookingDTO.getFirstName(),
                 repairBookingDTO.getLastName(),
                 repairBookingDTO.getEmail(),

@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SignUpForm {
-    private Integer user_id;
+    private Integer userId;
 
     @NotEmpty
     private String firstName;

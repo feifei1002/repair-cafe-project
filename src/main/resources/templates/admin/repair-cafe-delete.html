@@ -7,8 +7,8 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
-<form method="post" th:action="@{/admin/repair-cafe/{cafe_id}/delete (cafe_id=${repairCafeAdd.cafe_id})}" th:object="${repairCafeDelete}">
-    <input th:field="*{cafe_id}" type="hidden">
+<form method="post" th:action="@{/admin/repair-cafe/{id}/delete (id=${repairCafeAdd.cafeId})}" th:object="${repairCafeDelete}">
+    <input th:field="*{cafeId}" type="hidden">
     <h2>Do you really want to delete the Repair Cafe?</h2><br>
     <button class="sub-btn" id="delete-btn">Submit</button>
     <a class="sub-btn" id = "cancel" href="/admin/repair-cafes-list">Cancel</a><br>

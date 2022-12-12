@@ -15,35 +15,33 @@
     </div>
 </form>
 <div class="product-list">
-    <table class="products">
+    <table class="table-list">
         <thead>
         <tr>
             <th class="table-header">ID</th>
             <th class="table-header">Product Name</th>
         </tr>
         </thead>
-<!--        <form class="adminApproval" >-->
             <tbody>
             <tr th:each="product : ${products}">
-                <td>
-                    <a th:text="${product.product_id}"></a>
+                <td class="details-table">
+                    <a th:text="${product.productId}"></a>
                 </td>
-                <td>
+                <td class="details-table">
                     <a th:href="@{/product/descripton/location}" th:text="${product.productName}"></a>
                 </td>
                 <td>
-                    <form th:action="@{/admin/repair-product/{id}/update (id=${product.product_id})}" th:method="post" th:object="${products}">
-                    <button class="Approve" type="submit" value="Submit">Approve</button>
+                    <form th:action="@{/admin/repair-product/{id}/update (id=${product.productId})}" th:method="post" th:object="${products}">
+                    <button class="sub-btn" type="submit" value="Submit">Approve</button>
                     </form>
                 </td>
                 <td>
-                    <form th:action="@{/admin/repair-product/{id}/delete (id=${product.product_id})}" th:method="post" th:object="${products}">
-                    <button class="Reject" type="submit" value="Submit">Reject</button>
+                    <form th:action="@{/admin/repair-product/{id}/delete (id=${product.productId})}" th:method="post" th:object="${products}">
+                    <button class="sub-btn" type="submit" value="Submit">Reject</button>
                     </form>
                 </td>
             </tr>
             </tbody>
-<!--        </form>-->
     </table>
 
 </div>

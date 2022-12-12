@@ -6,6 +6,6 @@ import lombok.Value;
 @Value
 @AllArgsConstructor
 public class RepairCategoryDTO {
-    private Integer category_id;
+    private Integer categoryId;
     private String name;
 }

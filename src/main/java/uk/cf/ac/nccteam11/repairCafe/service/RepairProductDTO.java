@@ -5,7 +5,7 @@ import lombok.Value;
 @Value
 @AllArgsConstructor
 public class RepairProductDTO {
-    private Integer product_id;
+    private Integer productId;
     private String productName;
     private String condition;
     private String brand;

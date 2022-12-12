@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RepairBookingForm {
-    private Integer booking_id;
+    private Integer bookingId;
     @NotEmpty
     private String firstName;
 

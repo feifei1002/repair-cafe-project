@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RepairCafeDeleteForm {
-    private Integer cafe_id;
+    private Integer cafeId;
 }

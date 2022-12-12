@@ -6,5 +6,5 @@ import lombok.Value;
 @Value
 @Builder(builderMethodName = "of")
 public class SingleRepairCafeRequest {
-    private final Integer cafe_id;
+    private final Integer cafeId;
 }

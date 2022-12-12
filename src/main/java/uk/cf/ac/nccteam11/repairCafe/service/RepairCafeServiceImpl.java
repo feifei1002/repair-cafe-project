@@ -35,7 +35,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
 
     @Override
     public SingleRepairCafeResponse getRepairCafeByRequest(SingleRepairCafeRequest singleRepairCafeRequest) {
-        Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(singleRepairCafeRequest.getCafe_id());
+        Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(singleRepairCafeRequest.getCafeId());
         RepairCafeDTO repairCafeDTO;
         if(repairCafe.isPresent()){
             repairCafeDTO = RepairCafeAssembler.toDTO(repairCafe.get());
@@ -51,7 +51,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
     public SaveRepairCafeResponse addNewRepairCafe(SaveRepairCafeRequest saveRepairCafeRequest){
         RepairCafeDTO repairCafeDTO = saveRepairCafeRequest.getRepairCafeDTO();
         RepairCafe newRepairCafe = new RepairCafe(
-                repairCafeDTO.getCafe_id(),
+                repairCafeDTO.getCafeId(),
                 repairCafeDTO.getName(),
                 repairCafeDTO.getAddress(),
                 repairCafeDTO.getCity(),
@@ -62,7 +62,7 @@ public class RepairCafeServiceImpl implements RepairCafeService {
 
     @Override
     public UpdateRepairCafeResponse updateRepairCafe(UpdateRepairCafeRequest updateRepairCafeRequest) {
-        Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(updateRepairCafeRequest.getCafe_id());
+        Optional<RepairCafe> repairCafe = repairCafeRepository.getRepairCafeById(updateRepairCafeRequest.getCafeId());
         repairCafeRepository.save(repairCafe.get());
         return UpdateRepairCafeResponse.of().updateRepairCafeRequest(updateRepairCafeRequest).build();
     }
