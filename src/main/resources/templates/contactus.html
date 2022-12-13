@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us</title>
+  <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+  <h2>Contact Us</h2>
+  <link th:replace="fragments/fragment :: header">
+  <section id="form">
+    <div class="gjs-cell">
+      <form th:action="@{contactus}" th:method="post" th:object="${contactUsForm}" id="contactus">
+        <div  id="namecontainer">
+          <label>Name</label>
+          <input th:field="*{fullName}" type="text"/>
+          <td th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Name error</td>
+        </div>
+        <div id="emailcontainer">
+          <label>Email</label>
+          <input th:field="*{email}" type="email"/>
+          <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </div>
+        <div id="dropdowncontainer">
+          <label>Pick a reason for your enquiry</label>
+          <select th:field="*{reason}" type="text" required name="dropdown" id="dropdown"><option value="opt1">i need help from an admin</option><option value="opt2">products</option><option value="opt3">i would like to find out more</option><option value="opt4">other</option></select>
+          <td th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}">Reason Error</td>
+        </div>
+        <div id="messagecontainer">
+          <label>Message</label>
+          <textarea id="message" th:field="*{message}"></textarea>
+          <td th:if="${#fields.hasErrors('message')}" th:errors="*{message}">Payload Error</td>
+        </div>
+        <div id="submit">
+          <button type="submit" value="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
