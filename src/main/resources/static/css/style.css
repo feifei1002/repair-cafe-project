@@ -265,6 +265,7 @@ body {
 	line-height:30px;
 	margin-bottom:30px;
 	color:#c6c6c6;
+	position: center;
 }
 .lead-btn, .lead-btn:visited{
 	/*margin-top:10px;*/
