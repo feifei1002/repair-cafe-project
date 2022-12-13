@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 @Data
+@Table
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactUsForm {
