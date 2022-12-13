@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Form</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div>
+    <form id="rent-form" th:action="@{/repair-product/rent}" th:method="post" th:object="${rentForm}">
+        <h2 class="form-title">Please book an appointment if you have products that need to be repaired</h2><br>
+        <div>
+            <label>Product Name:</label>
+            <input class='input-field' th:field="*{productName}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">First Name Error</td>
+        </div><br>
+
+        <div>
+            <label>Condition:</label>
+            <select th:field="*{condition}" name="condition">
+                <option value="A - As new">A - As new</option>
+                <option value="B - Fair">B - Fair</option>
+                <option value="C - Poor">C - Poor</option>
+            </select><br>
+            <td th:if="${#fields.hasErrors('condition')}" th:errors="*{condition}">Condition Error</td>
+        </div><br>
+
+        <div>
+            <label>Brand:</label>
+            <input class='input-field' th:field="*{brand}" type="text"/><br>
+            <td th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Brand Error</td>
+        </div><br>
+
+        <div>
+            <label>Status:</label>
+            <select th:field="*{status}" name="status">
+                <option value="available">Available</option>
+            </select><br>
+            <td th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</td>
+        </div><br>
+
+        <div>
+            <button class="submit-btn">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

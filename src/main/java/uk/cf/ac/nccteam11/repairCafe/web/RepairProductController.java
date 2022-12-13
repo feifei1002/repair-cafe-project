@@ -27,6 +27,21 @@ public class RepairProductController {
     public ModelAndView adminHomePage(Model model){
         return new ModelAndView("admin");
     }
+    @GetMapping("repair-product/add")
+    public ModelAndView getNewRepairProductAddForm(Model model){
+        model.addAttribute("rentForm", new RepairProductRentForm());
+        var mv = new ModelAndView("rent-form", model.asMap());
+        return mv;
+    }
+
+    @PostMapping("repair-product/rent")
+    public ModelAndView addNewRepairProduct(RepairProductRentForm newRepairProductAdd){
+        RepairProductDTO repairProductDTO = new RepairProductDTO(newRepairProductAdd.getProductId(), newRepairProductAdd.getProductName(), newRepairProductAdd.getCondition(), newRepairProductAdd.getBrand(), newRepairProductAdd.getStatus(), newRepairProductAdd.getIsApproved());
+        SaveRepairProductRequest saveRepairProductRequest = SaveRepairProductRequest.of().repairProductDTO(repairProductDTO).build();
+        SaveRepairProductResponse saveRepairProductResponse = repairProductService.addNewRepairProduct(saveRepairProductRequest);
+        var mv = new ModelAndView("redirect:/");
+        return mv;
+    }
 
     @GetMapping("admin/repair-products-list")
     public ModelAndView getRepairProductListPage(@RequestParam(name = "search", required = false) String query, Model model) {
