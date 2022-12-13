@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RepairCafeAddForm {
-    private Integer cafe_id;
+    private Integer cafeId;
 
     @NotEmpty
     private String name;

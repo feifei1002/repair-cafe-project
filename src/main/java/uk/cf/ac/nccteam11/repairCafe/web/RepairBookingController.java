@@ -57,7 +57,7 @@ public class RepairBookingController {
             var mv = new ModelAndView("repair-form", model.asMap());
             return mv;
         } else {
-            RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBooking_id(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), newRepairBooking.getRepairDate(), newRepairBooking.getCategory(), newRepairBooking.getLocation());
+            RepairBookingDTO repairBookingDTO = new RepairBookingDTO(newRepairBooking.getBookingId(), newRepairBooking.getFirstName(), newRepairBooking.getLastName(), newRepairBooking.getEmail(), newRepairBooking.getRepairDate(), newRepairBooking.getCategory(), newRepairBooking.getLocation());
             SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(repairBookingDTO).build();
             SaveRepairBookingResponse saveRepairBookingResponse = repairBookingService.addNewRepairBooking(saveRepairBookingRequest);
             emailService.sendSimpleMail(newRepairBooking);

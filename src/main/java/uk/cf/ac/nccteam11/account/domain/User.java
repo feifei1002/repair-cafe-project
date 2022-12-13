@@ -12,7 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class User {
     @Id
     @Column("USER_ID")
-    private Integer user_id;
+    private Integer userId;
 
     @Column("FIRSTNAME")
     private String firstName;

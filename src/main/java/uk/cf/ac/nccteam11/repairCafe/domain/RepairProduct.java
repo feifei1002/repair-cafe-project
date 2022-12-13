@@ -13,13 +13,15 @@ import org.springframework.data.relational.core.mapping.Table;
 public class RepairProduct {
     @Id
     @Column("PRODUCT_ID")
-    private Integer product_id;
+    private Integer productId;
     @Column("PRODUCT_NAME")
-    private String product_name;
+    private String productName;
     @Column("CONDITION")
     private String condition;
     @Column("BRAND")
     private String brand;
     @Column("STATUS")
     private String status;
+    @Column("IS_APPROVED")
+    private String isApproved;
 }

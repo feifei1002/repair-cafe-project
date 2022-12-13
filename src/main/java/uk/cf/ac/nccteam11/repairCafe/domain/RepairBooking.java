@@ -14,7 +14,7 @@ import java.util.Date;
 public class RepairBooking {
     @Id
     @Column("BOOKING_ID")
-    private Integer booking_id;
+    private Integer bookingId;
     @Column("FIRSTNAME")
     private String firstName;
     @Column("LASTNAME")

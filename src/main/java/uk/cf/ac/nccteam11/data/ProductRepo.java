@@ -15,4 +15,5 @@ public interface ProductRepo {
     Optional<Product> getProductsByLocation(String location);
 
     Optional<Product> getProductByCategory(String category);
+    Optional<Product> getProductById(Integer id);
 }

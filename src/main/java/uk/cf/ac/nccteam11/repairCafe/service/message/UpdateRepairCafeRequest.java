@@ -7,6 +7,6 @@ import uk.cf.ac.nccteam11.repairCafe.service.RepairCafeDTO;
 @Value
 @Builder(builderMethodName = "of")
 public class UpdateRepairCafeRequest {
-    private final Integer cafe_id;
+    private final Integer cafeId;
     private final RepairCafeDTO repairCafeDTO;
 }

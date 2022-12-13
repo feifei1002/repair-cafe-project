@@ -15,6 +15,9 @@
             <div>
                 <label class="form-label" for="search">Search</label>
                 <input class="form-control" name="q" type="text"/>
+            </div><br>
+            <div>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/add/form}">Add New Repair Cafe</a>
             </div>
         </form>
     </div><br>
@@ -31,7 +34,7 @@
         <tbody>
         <tr th:each="repairCafe : ${repairCafes}">
             <td class="details-table">
-                <a th:text="${repairCafe.cafe_id}"></a>
+                <a th:text="${repairCafe.cafeId}"></a>
             </td>
             <td class="details-table">
                 <a th:text="${repairCafe.name}"></a>
@@ -46,10 +49,10 @@
                 <a th:text="${repairCafe.postcode}"></a>
             </td>
             <td>
-                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/update/form (cafe_id=${repairCafe.cafe_id})}">Edit</a>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{id}/update/form (id=${repairCafe.cafeId})}">Edit</a>
             </td>
             <td>
-                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{cafe_id}/delete/form (cafe_id=${repairCafe.cafe_id})}">Delete</a>
+                <a class = "sub-btn" th:href="@{/admin/repair-cafe/{id}/delete/form (id=${repairCafe.cafeId})}">Delete</a>
             </td>
         </tr>
         </tbody>

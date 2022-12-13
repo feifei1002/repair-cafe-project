@@ -37,6 +37,6 @@ public class RepairCafeRepositoryImpl implements RepairCafeRepository {
 
     @Override
     public void deleteRepairCafeById(RepairCafe repairCafe) {
-        repairCafeRepoJdbc.deleteById(repairCafe.getCafe_id());
+        repairCafeRepoJdbc.deleteById(repairCafe.getCafeId());
     }
 }

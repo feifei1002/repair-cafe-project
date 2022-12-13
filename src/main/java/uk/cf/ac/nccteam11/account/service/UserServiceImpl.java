@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
     public SaveUserResponse addNewUser(SaveUserRequest saveUserRequest) {
         UserDTO userDTO = saveUserRequest.getUserDTO();
         User newUser = new User(
-                userDTO.getUser_id(),
+                userDTO.getUserId(),
                 userDTO.getFirstName(),
                 userDTO.getLastName(),
                 userDTO.getEmail(),
