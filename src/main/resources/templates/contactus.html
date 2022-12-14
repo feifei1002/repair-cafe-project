@@ -10,7 +10,7 @@
   <link th:replace="fragments/fragment :: header">
   <section id="form">
     <div class="gjs-cell">
-      <form th:action="@{contactus}" th:method="post" th:object="${contactUsForm}" id="contactus">
+      <form th:action="@{contactUs}" th:method="post" th:object="${contactUsForm}" id="contactus">
         <div  id="namecontainer">
           <label>Name</label>
           <input th:field="*{fullName}" type="text"/>
