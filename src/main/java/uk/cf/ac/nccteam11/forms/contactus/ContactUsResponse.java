@@ -6,6 +6,5 @@ import lombok.Value;
 @Value
 @Builder(builderMethodName = "of")
 public class ContactUsResponse {
-    private
     private final ContactUsRequest contactUsRequest;
 }
