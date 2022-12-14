@@ -3,10 +3,8 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
@@ -35,12 +33,22 @@ public class RepairProductController {
     }
 
     @PostMapping("repair-product/rent")
-    public ModelAndView addNewRepairProduct(RepairProductRentForm newRepairProductAdd){
-        RepairProductDTO repairProductDTO = new RepairProductDTO(newRepairProductAdd.getProductId(), newRepairProductAdd.getProductName(), newRepairProductAdd.getCondition(), newRepairProductAdd.getBrand(), newRepairProductAdd.getStatus(), newRepairProductAdd.getIsApproved());
-        SaveRepairProductRequest saveRepairProductRequest = SaveRepairProductRequest.of().repairProductDTO(repairProductDTO).build();
-        SaveRepairProductResponse saveRepairProductResponse = repairProductService.addNewRepairProduct(saveRepairProductRequest);
-        var mv = new ModelAndView("redirect:/");
-        return mv;
+    public ModelAndView addNewRepairProduct(RepairProductRentForm newRepairProductAdd, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            SingleRepairProductRequest singleRepairProductRequest = SingleRepairProductRequest.of().productId(newRepairProductAdd.getProductId()).withBorrow(Boolean.FALSE).build();
+            var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
+            var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
+            var repairBorrowDTO = singleRepairProductResponse.getRepairBorrowDTO();
+            RepairBorrowForm repairBorrowForm = FormAssembler.toRepairBorrowForm(repairBorrowDTO);
+            model.addAttribute("repairBorrowForm", repairBorrowForm);
+            return new ModelAndView("/rent-form", model.asMap());
+        }else {
+            RepairProductDTO repairProductDTO = new RepairProductDTO(newRepairProductAdd.getProductId(), newRepairProductAdd.getProductName(), newRepairProductAdd.getCondition(), newRepairProductAdd.getBrand(), newRepairProductAdd.getStatus(), newRepairProductAdd.getIsApproved());
+            SaveRepairProductRequest saveRepairProductRequest = SaveRepairProductRequest.of().repairProductDTO(repairProductDTO).build();
+            SaveRepairProductResponse saveRepairProductResponse = repairProductService.addNewRepairProduct(saveRepairProductRequest);
+            var mv = new ModelAndView("redirect:/");
+            return mv;
+        }
     }
 
     @GetMapping("admin/repair-products-list")

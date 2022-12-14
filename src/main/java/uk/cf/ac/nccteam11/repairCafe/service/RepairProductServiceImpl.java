@@ -1,6 +1,7 @@
 package uk.cf.ac.nccteam11.repairCafe.service;
 
 import org.springframework.stereotype.Service;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairBorrow;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairProduct;
 import uk.cf.ac.nccteam11.repairCafe.repository.RepairProductRepository;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
@@ -8,6 +9,7 @@ import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,15 +43,18 @@ public class RepairProductServiceImpl implements RepairProductService {
 
     @Override
     public SaveRepairProductResponse addNewRepairProduct(SaveRepairProductRequest saveRepairProductRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(saveRepairProductRequest.getRepairProductDTO().getProductId());
         RepairProductDTO repairProductDTO = saveRepairProductRequest.getRepairProductDTO();
-        RepairProduct repairProduct = new RepairProduct(
+        Set<RepairBorrow> repairBorrows = repairProduct.isPresent() ? repairProduct.get().getRepairBorrows() : null;
+        RepairProduct newRepairProduct = new RepairProduct(
                 repairProductDTO.getProductId(),
                 repairProductDTO.getProductName(),
                 repairProductDTO.getCondition(),
                 repairProductDTO.getBrand(),
                 repairProductDTO.getStatus(),
-                repairProductDTO.getIsApproved());
-        repairProductRepository.save(repairProduct);
+                repairProductDTO.getIsApproved(),
+                repairBorrows);
+        repairProductRepository.save(newRepairProduct);
         return SaveRepairProductResponse.of().saveRepairProductRequest(saveRepairProductRequest).build();
     }
 

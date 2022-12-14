@@ -11,9 +11,12 @@
     <form id="rent-form" th:action="@{/repair-product/rent}" th:method="post" th:object="${rentForm}">
         <h2 class="form-title">Rent Form</h2><br>
         <div>
+            <input class='input-field' th:field="*{productId}" type="hidden"/><br>
+        </div>
+        <div>
             <label>Product Name:</label>
-            <input class='input-field' th:field="*{productName}" type="text"/><br>
-            <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">First Name Error</td>
+            <input class='input-field' th:field="*{productName}" type="text" value="productName"/><br>
+            <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Product Name Error</td>
         </div><br>
 
         <div>
