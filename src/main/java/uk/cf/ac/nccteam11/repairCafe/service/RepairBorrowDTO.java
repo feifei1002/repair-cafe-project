@@ -12,4 +12,12 @@ public class RepairBorrowDTO {
     private String email;
     private String productName;
     private Integer productId;
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
 }

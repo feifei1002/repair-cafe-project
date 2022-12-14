@@ -6,5 +6,6 @@ import lombok.Value;
 @Value
 @Builder(builderMethodName = "of")
 public class SingleRepairBorrowRequest {
+    private final Integer productId;
     private final Integer borrowId;
 }

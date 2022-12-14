@@ -7,6 +7,7 @@ import uk.cf.ac.nccteam11.repairCafe.repository.RepairProductRepository;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -79,6 +80,19 @@ public class RepairProductServiceImpl implements RepairProductService {
         return UpdateRepairProductResponse.of().updateRepairProductRequest(updateRepairProductRequest).build();
 
 
+    }
+
+    @Override
+    public SingleRepairBorrowResponse getRepairBorrowByRequest(SingleRepairBorrowRequest singleRepairBorrowRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(singleRepairBorrowRequest.getProductId());
+
+        RepairProductDTO repairProductDTO = RepairProductAssembler.toDTO(repairProduct.get());
+        RepairBorrowDTO repairBorrowDTO = repairProduct.get().getRepairBorrows()
+                .stream()
+                .filter(rb -> rb.getBorrowId().equals(singleRepairBorrowRequest.getBorrowId()))
+                .map(rb -> RepairProductAssembler.toDTO(rb.))
+                .findFirst()
+                .get();
     }
 
     public List<RepairProductDTO> getRepairProducts() {
