@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairBorrowDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
@@ -56,6 +57,16 @@ public class RepairProductController {
             model.addAttribute("borrowForm", new RepairProductBorrowForm());
             var mv = new ModelAndView("borrow-form");
             return mv;
+    }
+
+    @PostMapping("repair-product/{productId}/borrow")
+    public ModelAndView addNewRepairBorrow (@PathVariable Integer productId, RepairProductBorrowForm newRepairBorrowAdd, Model model){
+        RepairBorrowDTO repairBorrowDTO = FormAssembler.toRepairBorrowDTO(newRepairBorrowAdd);
+        UpdateRepairBorrowRequest updateRepairBorrowRequest = UpdateRepairBorrowRequest.of().productId(productId).repairBorrowDTO(repairBorrowDTO).build();
+        UpdateRepairBorrowResponse updateRepairBorrowResponse = repairProductService.updateRepairBorrow(updateRepairBorrowRequest);
+
+        var mv = new ModelAndView("borrow-form", model.asMap());
+        return mv;
     }
 
     @GetMapping("admin/repair-products-list")

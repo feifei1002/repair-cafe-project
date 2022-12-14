@@ -7,7 +7,7 @@ public class RepairProductAssembler {
         return new RepairProductDTO(rp.getProductId(), rp.getProductName(), rp.getCondition(), rp.getBrand(), rp.getStatus(), rp.getIsApproved());
     }
 
-    public static RepairBorrowDTO toDTO(RepairBorrow rb) {
-        return new RepairBorrowDTO(rb.getBorrowId(), rb.getFirstName(), rb.getLastName(), rb.getEmail());
+    static RepairBorrowDTO toDTO(RepairBorrow rpb) {
+        return new RepairBorrowDTO(rpb.getBorrowId(), rpb.getFirstName(), rpb.getLastName(), rpb.getEmail(), null, null);
     }
 }

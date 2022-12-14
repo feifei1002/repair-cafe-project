@@ -13,11 +13,7 @@ public class RepairBorrowDTO {
     private String productName;
     private Integer productId;
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public Integer getProductId() {
-        return productId;
+    public RepairBorrowDTO of(Integer borrowId, String firstName, String lastName, String email) {
+        return new RepairBorrowDTO(borrowId, firstName, lastName, email, productName, productId);
     }
 }

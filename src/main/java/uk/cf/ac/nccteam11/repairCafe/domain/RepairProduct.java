@@ -42,6 +42,10 @@ public class RepairProduct {
                 repairBorrowDTO.getEmail()));
     }
 
+    public void updateBorrow(RepairBorrowDTO repairBorrowDTO) {
+        RepairBorrow borrowToChange = getRepairBorrowByDTO(repairBorrowDTO);
+    }
+
     private RepairBorrow getRepairBorrowByDTO(RepairBorrowDTO repairBorrowDTO) {
         RepairBorrow borrowToChange = repairBorrows
                 .stream()

@@ -15,4 +15,8 @@ public class FormAssembler {
         return new RepairProductBorrowForm(repairBorrowDTO.getBorrowId(), repairBorrowDTO.getFirstName(),
                 repairBorrowDTO.getLastName(), repairBorrowDTO.getEmail(), repairBorrowDTO.getProductName(), repairBorrowDTO.getProductId());
     }
+
+    public static RepairBorrowDTO toRepairBorrowDTO(RepairProductBorrowForm repairBorrowAdd){
+        return new RepairBorrowDTO(repairBorrowAdd.getBorrowId(), repairBorrowAdd.getFirstName(), repairBorrowAdd.getLastName(), repairBorrowAdd.getEmail(), repairBorrowAdd.getProductName(), repairBorrowAdd.getProductId());
+    }
 }
