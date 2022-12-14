@@ -130,6 +130,15 @@ VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
 INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'on loan');
 
+INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
+VALUES ('Fei', 'Liu', 'LiuF29@cardiff.ac.uk', 'Sewing Machine', 2);
+
+INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
+VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', 'DVD Player', 4);
+
+INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
+VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', 'Single Camping Mat', 6);
+
 
 
 

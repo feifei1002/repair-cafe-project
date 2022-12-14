@@ -1,13 +1,14 @@
 package uk.cf.ac.nccteam11.repairCafe.service;
 
 import org.springframework.stereotype.Service;
+import uk.cf.ac.nccteam11.repairCafe.domain.RepairBorrow;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairProduct;
 import uk.cf.ac.nccteam11.repairCafe.repository.RepairProductRepository;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
-
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,6 +41,23 @@ public class RepairProductServiceImpl implements RepairProductService {
     }
 
     @Override
+    public SaveRepairProductResponse addNewRepairProduct(SaveRepairProductRequest saveRepairProductRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(saveRepairProductRequest.getRepairProductDTO().getProductId());
+        RepairProductDTO repairProductDTO = saveRepairProductRequest.getRepairProductDTO();
+        Set<RepairBorrow> repairBorrows = repairProduct.isPresent() ? repairProduct.get().getRepairBorrows() : null;
+        RepairProduct newRepairProduct = new RepairProduct(
+                repairProductDTO.getProductId(),
+                repairProductDTO.getProductName(),
+                repairProductDTO.getCondition(),
+                repairProductDTO.getBrand(),
+                repairProductDTO.getStatus(),
+                repairProductDTO.getIsApproved(),
+                repairBorrows);
+        repairProductRepository.save(newRepairProduct);
+        return SaveRepairProductResponse.of().saveRepairProductRequest(saveRepairProductRequest).build();
+    }
+
+    @Override
     public DeleteRepairProductResponse deleteRepairProduct(DeleteRepairProductRequest deleteRepairProductRequest) {
         Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(deleteRepairProductRequest.getProductId());
         if (repairProduct.isPresent()){
@@ -60,6 +78,35 @@ public class RepairProductServiceImpl implements RepairProductService {
         return UpdateRepairProductResponse.of().updateRepairProductRequest(updateRepairProductRequest).build();
 
 
+    }
+
+    @Override
+    public UpdateRepairBorrowResponse updateRepairBorrow(UpdateRepairBorrowRequest updateRepairBorrowRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(updateRepairBorrowRequest.getBorrowId());
+        if(repairProduct.isPresent()){
+            if(updateRepairBorrowRequest.getBorrowId() == null){
+                repairProduct.get().addBorrow(updateRepairBorrowRequest.getRepairBorrowDTO());
+            }else{
+                repairProduct.get().updateBorrow(updateRepairBorrowRequest.getRepairBorrowDTO());
+            }
+            repairProductRepository.save(repairProduct.get());
+            return UpdateRepairBorrowResponse.of().updateRepairBorrowRequest(updateRepairBorrowRequest).build();
+        }
+        return UpdateRepairBorrowResponse.of().updateRepairBorrowRequest(updateRepairBorrowRequest).build();
+    }
+
+    @Override
+    public SingleRepairBorrowResponse getRepairBorrowByRequest(SingleRepairBorrowRequest singleRepairBorrowRequest) {
+//        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(singleRepairBorrowRequest.getProductId());
+//
+//        RepairProductDTO repairProductDTO = RepairProductAssembler.toDTO(repairProduct.get());
+//        RepairBorrowDTO repairBorrowDTO = repairProduct.get().getRepairBorrows()
+//                .stream()
+//                .filter(rb -> rb.getBorrowId().equals(singleRepairBorrowRequest.getBorrowId()))
+//                .map(rb -> RepairProductAssembler.toDTO(rb.getBorrowId(), rb.getFirstName(), rb.getLastName(), rb.;
+//                .findFirst()
+//                .get();
+        return null;
     }
 
     public List<RepairProductDTO> getRepairProducts() {

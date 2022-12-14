@@ -104,6 +104,20 @@ CREATE TABLE IF NOT EXISTS repair_Product (
     PRIMARY KEY (`product_id`))
 ENGINE = INNODB;
 
+DROP TABLE IF EXISTS `product_Booking`;
+
+CREATE TABLE IF NOT EXISTS repair_Borrow
+(
+    borrow_id          INTEGER AUTO_INCREMENT NOT NULL,
+    firstName                 VARCHAR(200) NOT NULL,
+    lastName                  VARCHAR(200) NOT NULL,
+    email                     VARCHAR(200) NOT NULL,
+    productName               VARCHAR(200) NOT NULL,
+    product_id                 INTEGER NOT NULL,
+    PRIMARY KEY(`borrow_id`)
+    )
+    ENGINE = INNODB;
+
 DROP TABLE IF EXISTS `contactUs`;
 
 CREATE TABLE IF NOT EXISTS contactUs (

@@ -2,11 +2,11 @@ package uk.cf.ac.nccteam11.repairCafe.service.message;
 
 import lombok.Builder;
 import lombok.Value;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairBorrowDTO;
 
 @Value
 @Builder(builderMethodName = "of")
-public class SingleRepairProductRequest {
+public class UpdateRepairBorrowRequest {
     private final Integer productId;
-    @Builder.Default
-    private final Boolean withBorrow = Boolean.FALSE;
+    private final RepairBorrowDTO repairBorrowDTO;
 }

@@ -5,8 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder(builderMethodName = "of")
-public class SingleRepairProductRequest {
+public class SingleRepairBorrowRequest {
     private final Integer productId;
-    @Builder.Default
-    private final Boolean withBorrow = Boolean.FALSE;
+    private final Integer borrowId;
 }
