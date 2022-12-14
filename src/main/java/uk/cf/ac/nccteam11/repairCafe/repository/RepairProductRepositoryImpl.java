@@ -33,7 +33,7 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
 
     @Override
     public Optional<RepairProduct> getRepairProductById(Integer id) {
-        return repairProductRepoJdbc.findById(id);
+        return repairProductRepoJdbc.findByProductId(id);
     }
 
     @Override
