@@ -30,6 +30,9 @@
                 <td class="details-table">
                     <a th:href="@{/product/descripton/location}" th:text="${product.productName}"></a>
                 </td>
+                <td class="details-table">
+                    <a th:text="${product.isApproved}"></a>
+                </td>
                 <td>
                     <form th:action="@{/admin/repair-product/{id}/update (id=${product.productId})}" th:method="post" th:object="${products}">
                     <button class="sub-btn" type="submit" value="Submit">Approve</button>
