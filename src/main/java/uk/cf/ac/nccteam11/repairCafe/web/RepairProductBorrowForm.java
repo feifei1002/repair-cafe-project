@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RepairBorrowForm {
+public class RepairProductBorrowForm {
     private Integer borrowId;
     private String firstName;
     private String lastName;

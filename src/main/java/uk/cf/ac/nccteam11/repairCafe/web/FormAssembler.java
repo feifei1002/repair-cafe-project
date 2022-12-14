@@ -11,8 +11,8 @@ public class FormAssembler {
         return new RepairCafeDTO(repairCafeAdd.getCafeId(), repairCafeAdd.getName(), repairCafeAdd.getAddress(), repairCafeAdd.getCity(), repairCafeAdd.getPostcode());
     }
 
-    public static RepairBorrowForm toRepairBorrowForm(RepairBorrowDTO repairBorrowDTO) {
-        return new RepairBorrowForm(repairBorrowDTO.getBorrowId(), repairBorrowDTO.getFirstName(),
+    public static RepairProductBorrowForm toRepairBorrowForm(RepairBorrowDTO repairBorrowDTO) {
+        return new RepairProductBorrowForm(repairBorrowDTO.getBorrowId(), repairBorrowDTO.getFirstName(),
                 repairBorrowDTO.getLastName(), repairBorrowDTO.getEmail(), repairBorrowDTO.getProductName(), repairBorrowDTO.getProductId());
     }
 }

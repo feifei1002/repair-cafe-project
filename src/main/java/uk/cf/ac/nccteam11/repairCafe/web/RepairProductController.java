@@ -39,7 +39,7 @@ public class RepairProductController {
             var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
             var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
             var repairBorrowDTO = singleRepairProductResponse.getRepairBorrowDTO();
-            RepairBorrowForm repairBorrowForm = FormAssembler.toRepairBorrowForm(repairBorrowDTO);
+            RepairProductBorrowForm repairBorrowForm = FormAssembler.toRepairBorrowForm(repairBorrowDTO);
             model.addAttribute("repairBorrowForm", repairBorrowForm);
             return new ModelAndView("/rent-form", model.asMap());
         }else {
@@ -49,6 +49,13 @@ public class RepairProductController {
             var mv = new ModelAndView("redirect:/");
             return mv;
         }
+    }
+
+    @GetMapping("repair-product/borrow")
+        public ModelAndView getNewProductBorrowForm(Model model){
+            model.addAttribute("borrowForm", new RepairProductBorrowForm());
+            var mv = new ModelAndView("borrow-form");
+            return mv;
     }
 
     @GetMapping("admin/repair-products-list")
