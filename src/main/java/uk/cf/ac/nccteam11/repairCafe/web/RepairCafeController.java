@@ -68,6 +68,7 @@ public class RepairCafeController {
     @PostMapping("admin/repair-cafe/add")
     public ModelAndView addNewRepairCafe(@Valid RepairCafeAddForm newRepairCafeAdd, BindingResult bindingResult, Model model){
         if (bindingResult.hasErrors()) {
+            model.addAttribute("repairCafeAdd", newRepairCafeAdd);
             var mv = new ModelAndView("admin/repair-cafe-add", model.asMap());
             return mv;
         } else {
