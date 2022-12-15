@@ -11,6 +11,7 @@ import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -26,6 +27,42 @@ public class RepairProductController {
     public ModelAndView adminHomePage(Model model){
         return new ModelAndView("admin");
     }
+
+    @GetMapping("repair/products-list")
+    public ModelAndView getRepairProducts(@RequestParam(name = "q", required = false) String query, Model model) {
+
+        RepairProductListRequest repairProductListRequest = RepairProductListRequest
+                .of()
+                .searchTerm(query)
+                .build();
+
+        var repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);
+        model.addAttribute("repairProducts", repairProductListResponse.getRepairProducts());
+        var mv = new ModelAndView("products-list", model.asMap());
+        return mv;
+    }
+
+    @GetMapping("repair/product/{productId}")
+    public ModelAndView getRepairProductByRequest(@PathVariable Integer productId, Model model) {
+
+        var singleRepairProductRequest = SingleRepairProductRequest
+
+                .of()
+                .productId(productId)
+                .build();
+
+
+        var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
+        if(singleRepairProductResponse.isRepairProductPresent()){
+            model.addAttribute("repairProducts", singleRepairProductResponse.getRepairProductDTO());
+            var mv = new ModelAndView("product-profile", model.asMap());
+            return mv;
+        }
+//        var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
+        var mv = new ModelAndView("product-profile", model.asMap());
+        return mv;
+
+    }
     @GetMapping("repair-product/add")
     public ModelAndView getNewRepairProductAddForm(Model model){
         model.addAttribute("rentForm", new RepairProductRentForm());
@@ -34,22 +71,18 @@ public class RepairProductController {
     }
 
     @PostMapping("repair-product/rent")
-    public ModelAndView addNewRepairProduct(RepairProductRentForm newRepairProductAdd, BindingResult bindingResult, Model model){
-//        if(bindingResult.hasErrors()){
-//            SingleRepairProductRequest singleRepairProductRequest = SingleRepairProductRequest.of().productId(newRepairProductAdd.getProductId()).withBorrow(Boolean.FALSE).build();
-//            var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
-//            var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
-//            var repairBorrowDTO = singleRepairProductResponse.getRepairBorrowDTO();
-//            RepairProductBorrowForm repairBorrowForm = FormAssembler.toRepairBorrowForm(repairBorrowDTO);
-//            model.addAttribute("repairBorrowForm", repairBorrowForm);
-//            return new ModelAndView("/rent-form", model.asMap());
-//        }else {
+    public ModelAndView addNewRepairProduct(@Valid RepairProductRentForm newRepairProductAdd, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("rentForm", newRepairProductAdd);
+            var mv= new ModelAndView("rent-form", model.asMap());
+            return mv;
+        }else {
             RepairProductDTO repairProductDTO = new RepairProductDTO(newRepairProductAdd.getProductId(), newRepairProductAdd.getProductName(), newRepairProductAdd.getCondition(), newRepairProductAdd.getBrand(), newRepairProductAdd.getStatus(), newRepairProductAdd.getIsApproved());
             SaveRepairProductRequest saveRepairProductRequest = SaveRepairProductRequest.of().repairProductDTO(repairProductDTO).build();
             SaveRepairProductResponse saveRepairProductResponse = repairProductService.addNewRepairProduct(saveRepairProductRequest);
             var mv = new ModelAndView("redirect:/");
             return mv;
-//        }
+        }
     }
 
     @GetMapping("repair-product/borrow")
@@ -94,7 +127,7 @@ public class RepairProductController {
         var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
-    @GetMapping("repair/product-list")
+    @GetMapping("repair/products")
     private ResponseEntity<List<RepairProductDTO>> getAllRepairProducts() {
         RepairProductListRequest repairProductListRequest = RepairProductListRequest.of().build();
         RepairProductListResponse repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);

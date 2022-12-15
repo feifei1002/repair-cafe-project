@@ -28,7 +28,7 @@
                     <a th:text="${product.productId}"></a>
                 </td>
                 <td class="details-table">
-                    <a th:href="@{/product/descripton/location}" th:text="${product.productName}"></a>
+                    <a th:href="@{/repair/product/{id} (id=${product.productId})}" th:text="${product.productName}"></a>
                 </td>
                 <td class="details-table">
                     <a th:text="${product.isApproved}"></a>
