@@ -13,4 +13,6 @@ public interface RepairProductRepository {
     Optional<RepairProduct> getRepairProductById(Integer id);
     void save(RepairProduct repairProduct);
     void deleteRepairProductById(RepairProduct repairProduct);
+
+    List<RepairProduct> getRepairProductsByCategoryId(Integer repair_Category_category_id);
 }

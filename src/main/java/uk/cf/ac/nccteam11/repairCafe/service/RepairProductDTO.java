@@ -10,5 +10,6 @@ public class RepairProductDTO {
     private String condition;
     private String brand;
     private String status;
+    private Integer repair_Category_category_id;
     private String isApproved;
 }

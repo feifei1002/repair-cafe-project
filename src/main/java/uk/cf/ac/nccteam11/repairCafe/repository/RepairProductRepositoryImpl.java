@@ -46,5 +46,13 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
         repairProductRepoJdbc.deleteById(repairProduct.getProductId());
     }
 
+    @Override
+    public List<RepairProduct> getRepairProductsByCategoryId(Integer repair_Category_category_id) {
+        List<RepairProduct> repairProducts = new ArrayList<>();
+        repairProductRepoJdbc.findAll().forEach(repairProducts::add);
+        return repairProducts;
+    }
+
+
 
 }
