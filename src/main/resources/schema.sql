@@ -97,7 +97,6 @@ CREATE TABLE IF NOT EXISTS repair_Product (
   `brand` VARCHAR(45) NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `photo` LONGBLOB NULL,
-  `repair_Category_category_id` INTEGER NOT NULL,
   `is_Approved` VARCHAR(10),
   -- `name` VARCHAR(200) NOT NULL,
     -- CONSTRAINT fk_category FOREIGN KEY (name)

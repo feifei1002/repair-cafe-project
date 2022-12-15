@@ -27,6 +27,42 @@ public class RepairProductController {
     public ModelAndView adminHomePage(Model model){
         return new ModelAndView("admin");
     }
+
+    @GetMapping("repair/products-list")
+    public ModelAndView getRepairProducts(@RequestParam(name = "q", required = false) String query, Model model) {
+
+        RepairProductListRequest repairProductListRequest = RepairProductListRequest
+                .of()
+                .searchTerm(query)
+                .build();
+
+        var repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);
+        model.addAttribute("repairProducts", repairProductListResponse.getRepairProducts());
+        var mv = new ModelAndView("products-list", model.asMap());
+        return mv;
+    }
+
+    @GetMapping("repair/product/{productId}")
+    public ModelAndView getRepairProductByRequest(@PathVariable Integer productId, Model model) {
+
+        var singleRepairProductRequest = SingleRepairProductRequest
+
+                .of()
+                .productId(productId)
+                .build();
+
+
+        var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
+        if(singleRepairProductResponse.isRepairProductPresent()){
+            model.addAttribute("repairProducts", singleRepairProductResponse.getRepairProductDTO());
+            var mv = new ModelAndView("product-profile", model.asMap());
+            return mv;
+        }
+//        var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
+        var mv = new ModelAndView("product-profile", model.asMap());
+        return mv;
+
+    }
     @GetMapping("repair-product/add")
     public ModelAndView getNewRepairProductAddForm(Model model){
         model.addAttribute("rentForm", new RepairProductRentForm());
@@ -91,7 +127,7 @@ public class RepairProductController {
         var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
-    @GetMapping("repair/product-list")
+    @GetMapping("repair/products")
     private ResponseEntity<List<RepairProductDTO>> getAllRepairProducts() {
         RepairProductListRequest repairProductListRequest = RepairProductListRequest.of().build();
         RepairProductListResponse repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);

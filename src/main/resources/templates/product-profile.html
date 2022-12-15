@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link th:replace="fragments/fragment :: styling-css">
+
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div class="container">
+
+  <h1 class="title">Full List of Products</h1>
+  <div>
+    <form action="/repair/product-profile" method="get">
+    </form>
+  </div>
+  <div>
+    <table class="summary-table">
+      <thead>
+      <tr>
+        <th class="table-header">Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <div class="container">
+
+        <h3>List of Products</h3>
+
+        <hr/>
+
+        <table class="table table-bordered table-striped">
+
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Condition</th>
+            <th>Brand</th>
+<!--            <th>Price</th>-->
+            <th>Status</th>
+
+<!--            <th>Photo</th>-->
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="repairProduct: ${repairProducts}">
+            <td th:text="${repairProduct.productId}"></td>
+            <td th:text="${repairProduct.productName}"></td>
+            <td th:text="${repairProduct.condition}"></td>
+            <td th:text="${repairProduct.brand}"></td>
+            <td th:text="${repairProduct.status}"></td>
+            <!--                        <td th:text="${repairProduct.photo}"></td>-->
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>
