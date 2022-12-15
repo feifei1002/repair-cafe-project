@@ -128,7 +128,7 @@ INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
 VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
 
 INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'on loan');
+VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'available');
 
 INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
 VALUES ('Fei', 'Liu', 'LiuF29@cardiff.ac.uk', 'Sewing Machine', 2);
