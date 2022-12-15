@@ -10,4 +10,8 @@ import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 public class SingleRepairProductResponse {
     private final SingleRepairProductRequest singleRepairProductRequest;
     private final RepairProductDTO repairProductDTO;
+
+    public Boolean isRepairProductPresent() {
+        return repairProductDTO != null;
+    }
 }

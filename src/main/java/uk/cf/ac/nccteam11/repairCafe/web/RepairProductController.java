@@ -1,16 +1,17 @@
 package uk.cf.ac.nccteam11.repairCafe.web;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
-import uk.cf.ac.nccteam11.repairCafe.service.message.*;
-
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListRequest;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListResponse;
+import uk.cf.ac.nccteam11.repairCafe.service.message.SingleRepairProductRequest;
 
 import java.util.List;
 
@@ -57,17 +58,22 @@ public class RepairProductController {
 
 
         var singleRepairProductResponse = repairProductService.getRepairProductByRequest(singleRepairProductRequest);
-        var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
+        if(singleRepairProductResponse.isRepairProductPresent()){
+            model.addAttribute("repairProducts", singleRepairProductResponse.getRepairProductDTO());
+            var mv = new ModelAndView("product-profile", model.asMap());
+            return mv;
+        }
+//        var repairProductDTO = singleRepairProductResponse.getRepairProductDTO();
         var mv = new ModelAndView("product-profile", model.asMap());
         return mv;
 
     }
 
-    @GetMapping("category/{repair_Category_category_id}")
-    public String getRepairProductsByCategoryId(@PathVariable int repair_Category_category_id, Model model) {
-        List<RepairProduct> products = repairProductRepoJdbc.findByCategoryId(repair_Category_category_id);
-        model.addAttribute("repairProduct", repairProducts);
-        return "repairProducts";
-    }
+//    @GetMapping("category/{repair_Category_category_id}")
+//    public String getRepairProductsByCategoryId(@PathVariable int repair_Category_category_id, Model model) {
+//        List<RepairProduct> products = repairProductRepoJdbc.findByCategoryId(repair_Category_category_id);
+//        model.addAttribute("repairProduct", repairProducts);
+//        return "repairProducts";
+//    }
 }
 
