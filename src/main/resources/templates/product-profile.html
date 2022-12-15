@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Details of Product</title>
   <link th:replace="fragments/fragment :: styling-css">
 
 </head>
@@ -10,22 +10,22 @@
 <link th:replace="fragments/fragment :: header">
 <div class="container">
 
-  <h1 class="title">Full List of Products</h1>
+  <h1 class="title">Details of Product</h1>
   <div>
     <form action="/repair/product-profile" method="get">
     </form>
   </div>
   <div>
-    <table class="summary-table">
+    <table class="table-list">
       <thead>
       <tr>
-        <th class="table-header">Name</th>
+<!--        <th class="table-header">Name</th>-->
       </tr>
       </thead>
       <tbody>
       <div class="container">
 
-        <h3>List of Products</h3>
+<!--        <h3>List of Products</h3>-->
 
         <hr/>
 
@@ -33,23 +33,23 @@
 
           <thead>
           <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Condition</th>
-            <th>Brand</th>
+            <th class="table-header">Code</th>
+            <th class="table-header">Name</th>
+            <th class="table-header">Condition</th>
+            <th class="table-header">Brand</th>
 <!--            <th>Price</th>-->
-            <th>Status</th>
+            <th class="table-header">Status</th>
 
 <!--            <th>Photo</th>-->
           </tr>
           </thead>
           <tbody>
           <tr th:each="repairProduct: ${repairProducts}">
-            <td th:text="${repairProduct.productId}"></td>
-            <td th:text="${repairProduct.productName}"></td>
-            <td th:text="${repairProduct.condition}"></td>
-            <td th:text="${repairProduct.brand}"></td>
-            <td th:text="${repairProduct.status}"></td>
+            <td class="details-table" th:text="${repairProduct.productId}"></td>
+            <td class="details-table" th:text="${repairProduct.productName}"></td>
+            <td class="details-table" th:text="${repairProduct.condition}"></td>
+            <td class="details-table" th:text="${repairProduct.brand}"></td>
+            <td class="details-table" th:text="${repairProduct.status}"></td>
             <!--                        <td th:text="${repairProduct.photo}"></td>-->
           </tr>
           </tbody>

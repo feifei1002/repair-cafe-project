@@ -16,7 +16,7 @@
     </form>
   </div>
   <div>
-    <table class="summary-table">
+    <table class="table-list">
       <thead>
       <tr>
         <th class="table-header">Name</th>
@@ -24,13 +24,13 @@
       </thead>
       <tbody>
       <tr th:each="repairProduct : ${repairProducts}">
-        <td>
+        <td class="details-table">
           <a th:href="@{/repair/product/{id} (id=${repairProduct.productId})}" th:text="${repairProduct.productName}"></a>
         </td>
-        <td>
+        <td class="details-table">
           <a th:text="${repairProduct.status}"></a>
         </td>
-        <td>
+        <td class="details-table">
           <form th:action="@{/repair-product/{id}/status/update (id=${repairProduct.productId})}" th:method="post" th:object="${repairProducts}">
             <button class="sub-btn" type="submit" value="Submit">Reserve</button>
           </form>
