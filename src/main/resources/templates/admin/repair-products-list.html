@@ -8,11 +8,15 @@
 <body>
 <link th:replace="fragments/fragment :: header">
 <h4>Here you can see all the products that are waiting for your approval</h4>
+
 <form th:action="@{/admin/repair-products-list}" method="get">
     <div class="mb-3">
         <label class="Search-bar" for="search">Search</label>
         <input class="search-form" name="search" type="text"/>
-    </div>
+    </div><br>
+    <div>
+        <a class = "sub-btn" th:href="@{/admin}">Return To Admin Homepage</a>
+    </div><br>
 </form>
 <div class="product-list">
     <table class="table-list">
