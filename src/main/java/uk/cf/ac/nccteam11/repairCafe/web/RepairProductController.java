@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import uk.cf.ac.nccteam11.repairCafe.service.RepairCategoryService;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
+import uk.cf.ac.nccteam11.repairCafe.service.message.RepairCategoryListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListRequest;
 import uk.cf.ac.nccteam11.repairCafe.service.message.RepairProductListResponse;
 import uk.cf.ac.nccteam11.repairCafe.service.message.SingleRepairProductRequest;
@@ -20,9 +22,11 @@ import java.util.List;
 public class RepairProductController {
 
     private final RepairProductService repairProductService;
+    private final RepairCategoryService repairCategoryService;
 
-    public RepairProductController(RepairProductService svc) {
+    public RepairProductController(RepairProductService svc, RepairCategoryService rcs) {
         this.repairProductService = svc;
+        this.repairCategoryService = rcs;
     }
 
 
@@ -67,6 +71,20 @@ public class RepairProductController {
         var mv = new ModelAndView("product-profile", model.asMap());
         return mv;
 
+    }
+    @GetMapping("category-list")
+    public ModelAndView getCategoryList(Model model){
+        RepairCategoryListRequest repairCategoryListRequest = RepairCategoryListRequest.of().build();
+        var repairCategoryListResponse = repairCategoryService.getRepairCategories(repairCategoryListRequest);
+        RepairProductListRequest repairProductListRequest = RepairProductListRequest
+                .of()
+                .build();
+
+        var repairProductListResponse = repairProductService.getRepairProducts(repairProductListRequest);
+        model.addAttribute("repairProducts", repairProductListResponse.getRepairProducts());
+        model.addAttribute("repairCategories", repairCategoryListResponse.getRepairCategories());
+        var mv = new ModelAndView("category", model.asMap());
+        return mv;
     }
 
 //    @GetMapping("category/{repair_Category_category_id}")
