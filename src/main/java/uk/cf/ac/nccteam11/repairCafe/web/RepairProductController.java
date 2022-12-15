@@ -120,6 +120,14 @@ public class RepairProductController {
         var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
+
+    @PostMapping("repair-product/{id}/status/update")
+    public ModelAndView statusRepairProduct(@PathVariable("id") Integer productId, Model model){
+        UpdateRepairProductRequest updateRepairProductRequest = UpdateRepairProductRequest.of().productId(productId).build();
+        UpdateRepairProductResponse updateRepairProductResponse = repairProductService.updateRepairProductStatus(updateRepairProductRequest);
+        var mv = new ModelAndView("redirect:/repair/products-list");
+        return mv;
+    }
     @PostMapping("admin/repair-product/{id}/delete")
     public ModelAndView deleteRepairProduct(@PathVariable("id") Integer productId, Model model){
         DeleteRepairProductRequest deleteRepairProductRequest = DeleteRepairProductRequest.of().productId(productId).build();

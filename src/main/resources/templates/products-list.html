@@ -27,6 +27,14 @@
         <td>
           <a th:href="@{/repair/product/{id} (id=${repairProduct.productId})}" th:text="${repairProduct.productName}"></a>
         </td>
+        <td>
+          <a th:text="${repairProduct.status}"></a>
+        </td>
+        <td>
+          <form th:action="@{/repair-product/{id}/status/update (id=${repairProduct.productId})}" th:method="post" th:object="${repairProducts}">
+            <button class="sub-btn" type="submit" value="Submit">Reserve</button>
+          </form>
+        </td>
       </tr>
       </tbody>
     </table>

@@ -68,13 +68,25 @@ public class RepairProductServiceImpl implements RepairProductService {
         Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(updateRepairProductRequest.getProductId());
         if(repairProduct.get().getIsApproved()==null) {
             repairProduct.get().setIsApproved("approved");
-            repairProductRepository.save(repairProduct.get());
-        }else{
+            repairProductRepository.save(repairProduct.get());}
+        else{
             repairProductRepository.save(repairProduct.get());
         }
         return UpdateRepairProductResponse.of().updateRepairProductRequest(updateRepairProductRequest).build();
 
 
+    }
+
+    @Override
+    public UpdateRepairProductResponse updateRepairProductStatus(UpdateRepairProductRequest updateRepairProductRequest) {
+        Optional<RepairProduct> repairProduct = repairProductRepository.getRepairProductById(updateRepairProductRequest.getProductId());
+        if(repairProduct.get().getStatus().equals("available")) {
+            repairProduct.get().setStatus("reserved");
+            repairProductRepository.save(repairProduct.get());
+        }else{
+            repairProductRepository.save(repairProduct.get());
+        }
+        return UpdateRepairProductResponse.of().updateRepairProductRequest(updateRepairProductRequest).build();
     }
 
     @Override

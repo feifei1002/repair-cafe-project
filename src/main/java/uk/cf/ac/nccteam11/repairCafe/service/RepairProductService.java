@@ -8,6 +8,7 @@ public interface RepairProductService {
     SaveRepairProductResponse addNewRepairProduct(SaveRepairProductRequest saveRepairProductRequest);
     DeleteRepairProductResponse deleteRepairProduct(DeleteRepairProductRequest deleteRepairProductRequest);
     UpdateRepairProductResponse updateRepairProduct(UpdateRepairProductRequest updateRepairProductRequest);
+    UpdateRepairProductResponse updateRepairProductStatus(UpdateRepairProductRequest updateRepairProductRequest);
     UpdateRepairBorrowResponse updateRepairBorrow(UpdateRepairBorrowRequest updateRepairBorrowRequest);
     SingleRepairBorrowResponse getRepairBorrowByRequest(SingleRepairBorrowRequest singleRepairBorrowRequest);
 }
