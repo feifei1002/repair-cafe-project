@@ -3,8 +3,10 @@ package uk.cf.ac.nccteam11.repairCafe.repository;
 import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairCategory;
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RepairCategoryRepositoryImpl implements RepairCategoryRepository{
@@ -19,4 +21,5 @@ public class RepairCategoryRepositoryImpl implements RepairCategoryRepository{
         repairCategoryRepoJdbc.findAll().forEach(repairCategories::add);
         return repairCategories;
     }
+
 }

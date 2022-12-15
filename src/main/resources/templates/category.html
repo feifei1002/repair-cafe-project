@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link th:replace="fragments/fragment :: styling-css">
+
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div class="container">
+
+    <h1 class="title">Our Categories</h1>
+    <div>
+        <form action="/repair/category-list" method="get">
+        </form>
+    </div>
+    <div>
+        <table class="summary-table">
+            <thead>
+            <tr>
+                <th class="table-header">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <label for="repair_Category_category_id">Category:</label>
+            <select name="repair_Category_category_id">
+                <option value="1">Category 1</option>
+                <option value="2">Category 2</option>
+                <option value="3">Category 3</option>
+                <option value="3">Category 4</option>
+                <option value="3">Category 5</option>
+                <option value="3">Category 6</option>
+                <option value="3">Category 7</option>
+                <option value="3">Category 8</option>
+                <option value="3">Category 9</option>
+                <option value="3">Category 10</option>
+                <option value="3">Category 11</option>
+                <option value="3">Category 12</option>
+                <option value="3">Category 13</option>
+
+            </select>
+            <button type="submit">Submit</button>
+            </form>
+
+            <ul>
+                <li th:each="repairProduct : ${repairProducts}">
+                    <span th:text="${repairProduct.product_name}"></span>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

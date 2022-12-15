@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS repair_Product (
   `brand` VARCHAR(45) NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `photo` LONGBLOB NULL,
+  `repair_Category_category_id` INTEGER NOT NULL,
   PRIMARY KEY (`product_id`))
 ENGINE = INNODB;
 

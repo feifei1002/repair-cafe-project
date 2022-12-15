@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import uk.cf.ac.nccteam11.repairCafe.domain.RepairProduct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RepairProductRepositoryImpl implements RepairProductRepository {
@@ -19,5 +20,16 @@ public class RepairProductRepositoryImpl implements RepairProductRepository {
         return repairProducts;
     }
 
+    @Override
+    public List<RepairProduct> getRepairProductsByCategoryId(Integer repair_Category_category_id) {
+        List<RepairProduct> repairProducts = new ArrayList<>();
+        repairProductRepoJdbc.findAll().forEach(repairProducts::add);
+        return repairProducts;
+    }
+
+    @Override
+    public Optional<RepairProduct> getRepairProductById(Integer product_id) {
+        return repairProductRepoJdbc.findById(product_id);
+    }
 
 }

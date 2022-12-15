@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link th:replace="fragments/fragment :: styling-css">
+
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<div class="container">
+
+    <h1 class="title">Full List of Products</h1>
+    <div>
+        <form action="/repair/product-list" method="get">
+        </form>
+    </div>
+    <div>
+        <table class="summary-table">
+            <thead>
+            <tr>
+                <th class="table-header">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="repairProduct : ${repairProducts}">
+                <td>
+                    <a th:href="@{/repair/product-list/{product_name} (product_name=${repairProduct.product_name})} "th:text="${repairProduct.product_name}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>
+</html>

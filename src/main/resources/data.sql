@@ -112,23 +112,23 @@ INSERT INTO repair_Category(name)
 VALUES ('Scooter');
 
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Halogen Heater 3 Bars', 'A - As new', 'Brother', 'available');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('Halogen Heater 3 Bars', 'A - As new', 'Brother', 'available', 8);
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Sewing Machine', 'A - As new', 'Brother', 'available');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('Sewing Machine', 'A - As new', 'Brother', 'available', 6);
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Electric Multicooker', 'B - Fair', 'Team Uk international', 'available');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('Electric Multicooker', 'B - Fair', 'Team Uk international', 'available', 6);
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('DVD Player', 'B - Fair', 'Samsung', 'available');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('DVD Player', 'B - Fair', 'Samsung', 'available', 12);
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available', 6);
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
-VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'on loan');
+INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`, `repair_Category_category_id`)
+VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'on loan', 2);
 
 
 
