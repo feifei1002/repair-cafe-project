@@ -25,7 +25,7 @@
       <tbody>
       <tr th:each="repairProduct : ${repairProducts}">
         <td>
-          <a th:href="@{/repair/product-list/{productName} (product_name=${repairProduct.productName})} "th:text="${repairProduct.productName}"></a>
+          <a th:href="@{/repair/product/{id} (id=${repairProduct.productId})}" th:text="${repairProduct.productName}"></a>
         </td>
       </tr>
       </tbody>
