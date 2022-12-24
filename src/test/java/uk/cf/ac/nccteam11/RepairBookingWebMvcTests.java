@@ -59,7 +59,7 @@ public class RepairBookingWebMvcTests {
     @Test
     public void shouldAddANewRepairBooking() throws Exception {
         //GIVEN
-        RepairBookingDTO newRepairBooking = new RepairBookingDTO(1, "Fei", "Liu", "liufei20021002@gmail.com", Date.valueOf("2022-12-12"), "Bicycle", "Bangor");
+        RepairBookingDTO newRepairBooking = new RepairBookingDTO(4, "Fei", "Liu", "liufei20021002@gmail.com", Date.valueOf("2022-02-12"), "Bicycle", "Bangor");
 
         //WHEN
         SaveRepairBookingRequest saveRepairBookingRequest = SaveRepairBookingRequest.of().repairBookingDTO(newRepairBooking).build();
