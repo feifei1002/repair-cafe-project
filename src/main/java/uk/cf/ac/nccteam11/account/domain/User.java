@@ -37,4 +37,10 @@ public class User {
 
     @Column("POSTCODE")
     private String postcode;
+
+    @Column("ROLE")
+    private String role;
+
+    @Column("ENABLED")
+    private Integer enabled;
 }

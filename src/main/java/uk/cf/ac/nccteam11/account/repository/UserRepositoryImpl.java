@@ -5,6 +5,7 @@ import uk.cf.ac.nccteam11.account.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository{
@@ -23,5 +24,16 @@ public class UserRepositoryImpl implements UserRepository{
     @Override
     public void addUser(User user){
         userRepoJdbc.save(user);
+    }
+
+    @Override
+    public Optional<User> getUserById(Integer id) {
+        return userRepoJdbc.findByUserId(id);
+    }
+
+    @Override
+    public void deleteUserById(User user) {
+        userRepoJdbc.deleteById(user.getUserId());
+
     }
 }

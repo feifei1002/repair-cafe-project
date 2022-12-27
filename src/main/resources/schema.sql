@@ -47,6 +47,8 @@ CREATE TABLE IF NOT EXISTS user (
     address VARCHAR(60) NULL,
     city VARCHAR(45) NULL,
     postcode VARCHAR(45) NULL,
+    role VARCHAR(45),
+    enabled TINYINT,
     PRIMARY KEY (`user_id`))
     ENGINE = InnoDB;
 
