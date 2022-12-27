@@ -54,6 +54,9 @@
             <td class="details-table">
                 <a th:text="${user.postcode}"></a>
             </td>
+            <td class="details-table">
+                <a th:text="${user.enabled}"></a>
+            </td>
             <td>
                 <form th:action="@{/admin/user/{id}/update (id=${user.userId})}" th:method="post" th:object="${users}">
                     <button class="sub-btn" type="submit" value="Submit">Approve</button>
