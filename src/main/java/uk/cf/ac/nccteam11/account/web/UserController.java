@@ -22,12 +22,12 @@ public class UserController {
         this.userService = usrService;
     }
 
-    @GetMapping("user/login")
+    @GetMapping("login")
     public ModelAndView loginPage(Model model){
         return new ModelAndView("login/login");
     }
 
-    @GetMapping("user/sign-up")
+    @GetMapping("sign-up")
     public ModelAndView getNewSignUpForm(Model model){
         model.addAttribute("signUpForm", new SignUpForm());
         var mv = new ModelAndView("login/sign-up", model.asMap());
