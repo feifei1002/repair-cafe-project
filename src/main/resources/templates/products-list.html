@@ -8,6 +8,7 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
+<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 <div class="container">
 
   <h1 class="title">Full List of Products</h1>

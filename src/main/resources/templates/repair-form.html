@@ -7,6 +7,7 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
+<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 <div>
 <form id="repair-form" th:action="@{/user/repair/booking/add}" th:method="post" th:object="${repairBookingForm}">
     <h2 class="form-title">Please book an appointment if you have products that need to be repaired</h2><br>
