@@ -1,12 +1,15 @@
 package uk.cf.ac.nccteam11.repairCafe.web;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import uk.cf.ac.nccteam11.repairCafe.service.RepairBorrowDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductDTO;
 import uk.cf.ac.nccteam11.repairCafe.service.RepairProductService;
 import uk.cf.ac.nccteam11.repairCafe.service.message.*;
@@ -23,11 +26,13 @@ public class RepairProductController {
         this.repairProductService = svc;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin")
     public ModelAndView adminHomePage(Model model){
         return new ModelAndView("admin");
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("user/repair/products-list")
     public ModelAndView getRepairProducts(@RequestParam(name = "q", required = false) String query, Model model) {
 
@@ -42,6 +47,7 @@ public class RepairProductController {
         return mv;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("user/repair/product/{productId}")
     public ModelAndView getRepairProductByRequest(@PathVariable Integer productId, Model model) {
 
@@ -63,6 +69,7 @@ public class RepairProductController {
         return mv;
 
     }
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("user/repair-product/add")
     public ModelAndView getNewRepairProductAddForm(Model model){
         model.addAttribute("rentForm", new RepairProductRentForm());
@@ -70,6 +77,7 @@ public class RepairProductController {
         return mv;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @PostMapping("user/repair-product/rent")
     public ModelAndView addNewRepairProduct(@Valid RepairProductRentForm newRepairProductAdd, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
@@ -85,23 +93,7 @@ public class RepairProductController {
         }
     }
 
-    @GetMapping("user/repair-product/borrow")
-        public ModelAndView getNewProductBorrowForm(Model model){
-            model.addAttribute("borrowForm", new RepairProductBorrowForm());
-            var mv = new ModelAndView("borrow-form");
-            return mv;
-    }
-
-    @PostMapping("user/repair-product/{productId}/borrow")
-    public ModelAndView addNewRepairBorrow (@PathVariable Integer productId, RepairProductBorrowForm newRepairBorrowAdd, Model model){
-        RepairBorrowDTO repairBorrowDTO = FormAssembler.toRepairBorrowDTO(newRepairBorrowAdd);
-        UpdateRepairBorrowRequest updateRepairBorrowRequest = UpdateRepairBorrowRequest.of().productId(productId).repairBorrowDTO(repairBorrowDTO).build();
-        UpdateRepairBorrowResponse updateRepairBorrowResponse = repairProductService.updateRepairBorrow(updateRepairBorrowRequest);
-
-        var mv = new ModelAndView("borrow-form", model.asMap());
-        return mv;
-    }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-products-list")
     public ModelAndView getRepairProductListPage(@RequestParam(name = "search", required = false) String query, Model model) {
 
@@ -113,6 +105,7 @@ public class RepairProductController {
         var mv = new ModelAndView("admin/repair-products-list", model.asMap());
         return mv;
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("admin/repair-product/{id}/update")
     public ModelAndView approveRepairProduct(@PathVariable("id") Integer productId, Model model){
         UpdateRepairProductRequest updateRepairProductRequest = UpdateRepairProductRequest.of().productId(productId).build();
@@ -121,6 +114,7 @@ public class RepairProductController {
         return mv;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @PostMapping("user/repair-product/{id}/status/update")
     public ModelAndView statusRepairProduct(@PathVariable("id") Integer productId, Model model){
         UpdateRepairProductRequest updateRepairProductRequest = UpdateRepairProductRequest.of().productId(productId).build();
@@ -128,6 +122,7 @@ public class RepairProductController {
         var mv = new ModelAndView("redirect:/user/repair/products-list");
         return mv;
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("admin/repair-product/{id}/delete")
     public ModelAndView deleteRepairProduct(@PathVariable("id") Integer productId, Model model){
         DeleteRepairProductRequest deleteRepairProductRequest = DeleteRepairProductRequest.of().productId(productId).build();
@@ -135,6 +130,7 @@ public class RepairProductController {
         var mv = new ModelAndView("redirect:/admin/repair-products-list");
         return mv;
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("repair/products")
     private ResponseEntity<List<RepairProductDTO>> getAllRepairProducts() {
         RepairProductListRequest repairProductListRequest = RepairProductListRequest.of().build();

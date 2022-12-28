@@ -26,6 +26,7 @@
             <th class="table-header">Address</th>
             <th class="table-header">City</th>
             <th class="table-header">Postcode</th>
+            <th class="table-header">Role</th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +54,9 @@
             </td>
             <td class="details-table">
                 <a th:text="${user.postcode}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.role}"></a>
             </td>
             <td class="details-table">
                 <a th:text="${user.enabled}"></a>

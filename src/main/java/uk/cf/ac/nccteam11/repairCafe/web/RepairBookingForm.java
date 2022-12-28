@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 public class RepairBookingForm {
     private Integer bookingId;
     @NotEmpty

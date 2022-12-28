@@ -139,6 +139,9 @@ VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', 'DVD Player', 4);
 INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
 VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', 'Single Camping Mat', 6);
 
-
+INSERT INTO user(`firstName`, `lastName`, `email`, `phoneNo`, `password`, `address`, `city`, `postcode`, `role`,`enabled`)
+VALUES ('Fei', 'Liu', 'admin@gmail.com', 0123456789, '$2a$10$/FhlPyse/nXmz8BSCRh4OuBnSic7FqDdklZch8X0/1.9yXCJqqXc.','Tyndall Street', 'Cardiff', 'CF10 4BZ', 'ROLE_ADMIN', 1);
+INSERT INTO user(`firstName`, `lastName`, `email`, `phoneNo`, `password`, `address`, `city`, `postcode`, `role`,`enabled`)
+VALUES ('Fei', 'Liu', 'user@gmail.com', 0123456789, '$2a$10$NyH9Ua9VLyHtgmrS6YzPo.vumgm5fQzanVx7FsfyyzOM41BVgSdWi','Tyndall Street', 'Cardiff', 'CF10 4BZ', 'ROLE_USER', 1);
 
 
