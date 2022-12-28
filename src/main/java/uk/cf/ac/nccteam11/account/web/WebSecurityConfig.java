@@ -1,14 +1,12 @@
 package uk.cf.ac.nccteam11.account.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 @Configuration
@@ -16,6 +14,7 @@ import javax.sql.DataSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
+
     @Autowired
     public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
 
@@ -26,18 +25,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("select email, role from user where email = ?");
 
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.removeConfigurer(DefaultLoginPageConfigurer.class);
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
 
                                 .mvcMatchers("/admin/**").authenticated()
                                 .mvcMatchers("/user/**").authenticated()
-//                                .mvcMatchers("/repair/booking/form").authenticated()
-//                                .mvcMatchers("/repair/products-list").authenticated()
-//                                .mvcMatchers("/repair-product/add").authenticated()
                                 .mvcMatchers("/css/**").permitAll()
                                 .mvcMatchers("/").permitAll()
                                 .mvcMatchers("/sign-up").permitAll()
@@ -52,10 +48,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         logout
                                 .permitAll());
     }
-
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 }
