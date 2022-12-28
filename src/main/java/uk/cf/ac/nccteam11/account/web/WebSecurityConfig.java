@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
 
-                                .mvcMatchers("/admin/**").authenticated()
+                                .mvcMatchers("/admin/**").hasRole("ADMIN")
                                 .mvcMatchers("/user/**").authenticated()
                                 .mvcMatchers("/css/**").permitAll()
                                 .mvcMatchers("/").permitAll()

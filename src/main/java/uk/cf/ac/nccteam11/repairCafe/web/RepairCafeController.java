@@ -2,6 +2,7 @@ package uk.cf.ac.nccteam11.repairCafe.web;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,6 +45,7 @@ public class RepairCafeController {
         return mv;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-cafes-list")
     public ModelAndView getRepairCafesAdmin(@RequestParam(name = "q", required = false) String query, Model model) {
 
@@ -58,6 +60,7 @@ public class RepairCafeController {
         return mv;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-cafe/add/form")
     public ModelAndView getNewRepairCafeAddForm(Model model){
         model.addAttribute("repairCafeAdd", new RepairCafeAddForm());
@@ -65,6 +68,7 @@ public class RepairCafeController {
         return mv;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("admin/repair-cafe/add")
     public ModelAndView addNewRepairCafe(@Valid RepairCafeAddForm newRepairCafeAdd, BindingResult bindingResult, Model model){
         if (bindingResult.hasErrors()) {
@@ -79,6 +83,7 @@ public class RepairCafeController {
             return mv;
         }
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-cafe/{id}/update/form")
     public ModelAndView getUpdateRepairCafeForm(@PathVariable("id") Integer cafeId, Model model){
         SingleRepairCafeRequest singleRepairCafeRequest = SingleRepairCafeRequest.of().cafeId(cafeId).build();
@@ -90,6 +95,7 @@ public class RepairCafeController {
         return mv;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-cafe/{id}/delete/form")
     public ModelAndView getDeleteRepairCafeForm(@PathVariable("id") Integer cafeId, Model model){
         SingleRepairCafeRequest singleRepairCafeRequest = SingleRepairCafeRequest.of().cafeId(cafeId).build();
@@ -101,7 +107,7 @@ public class RepairCafeController {
         var mv = new ModelAndView("admin/repair-cafe-delete", model.asMap());
         return mv;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("admin/repair-cafe/{id}/delete")
     public ModelAndView deleteRepairCafe(@PathVariable("id") Integer cafeId, RepairCafeDeleteForm repairCafeDelete, Model model){
         DeleteRepairCafeRequest deleteRepairCafeRequest = DeleteRepairCafeRequest.of().cafeId(cafeId).build();
@@ -109,7 +115,7 @@ public class RepairCafeController {
         var mv = new ModelAndView("redirect:/admin/repair-cafes-list");
         return mv;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("repair/cafes")
     private ResponseEntity<List<RepairCafeDTO>> getAllRepairCafes() {
         RepairCafeListRequest repairCafeListRequest = RepairCafeListRequest.of().build();

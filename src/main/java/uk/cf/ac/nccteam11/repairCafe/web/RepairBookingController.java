@@ -1,6 +1,7 @@
 package uk.cf.ac.nccteam11.repairCafe.web;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +30,7 @@ public class RepairBookingController {
         this.emailService = es;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("admin/repair-booking-list")
     public ModelAndView getRepairBookings(Model model) {
 
@@ -42,6 +44,7 @@ public class RepairBookingController {
 
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("user/repair/booking/form")
     @ModelAttribute
     public ModelAndView getNewRepairForm(Model model) {
@@ -50,6 +53,7 @@ public class RepairBookingController {
         return mv;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @PostMapping("user/repair/booking/add")
     @ModelAttribute
     public ModelAndView addNewRepairBooking(@Valid RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
@@ -66,6 +70,7 @@ public class RepairBookingController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("repair/bookings")
     public ResponseEntity<List<RepairBookingDTO>> getAllRepairBookings() {
         RepairBookingListRequest repairBookingListRequest = RepairBookingListRequest.of().build();

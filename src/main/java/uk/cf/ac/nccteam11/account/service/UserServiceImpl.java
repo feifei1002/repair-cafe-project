@@ -54,6 +54,9 @@ public class UserServiceImpl implements UserService{
     public UpdateUserResponse updateUser(UpdateUserRequest updateUserRequest) {
         Optional<User> user = userRepository.getUserById(updateUserRequest.getUserId());
         if (user.get().getEnabled() == null) {
+            if(user.get().getRole()== null) {
+                user.get().setRole("ROLE_USER");
+            }
             user.get().setEnabled(1);
             userRepository.addUser(user.get());
         } else {
