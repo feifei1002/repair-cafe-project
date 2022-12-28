@@ -39,5 +39,7 @@ public class SignUpForm {
 
     @NotEmpty
     private String postcode;
+    private String role;
+    private Integer enabled;
 
 }

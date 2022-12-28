@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+    <link th:replace="fragments/fragment :: styling-css">
+</head>
+<body>
+<link th:replace="fragments/fragment :: header">
+<h4>Here you can see all the users that are waiting for your approval</h4><br>
+
+<form th:action="@{/admin/users-list}" method="get">
+    <div>
+        <a class = "sub-btn" th:href="@{/admin}">Return To Admin Homepage</a>
+    </div><br>
+</form>
+<div class="product-list">
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th class="table-header">ID</th>
+            <th class="table-header">First Name</th>
+            <th class="table-header">Last Name</th>
+            <th class="table-header">Email</th>
+            <th class="table-header">Phone Number</th>
+            <th class="table-header">Address</th>
+            <th class="table-header">City</th>
+            <th class="table-header">Postcode</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td class="details-table">
+                <a th:text="${user.userId}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.firstName}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.lastName}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.email}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.phoneNo}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.address}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.city}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.postcode}"></a>
+            </td>
+            <td class="details-table">
+                <a th:text="${user.enabled}"></a>
+            </td>
+            <td>
+                <form th:action="@{/admin/user/{id}/update (id=${user.userId})}" th:method="post" th:object="${users}">
+                    <button class="sub-btn" type="submit" value="Submit">Approve</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/admin/user/{id}/delete (id=${user.userId})}" th:method="post" th:object="${users}">
+                    <button class="sub-btn" type="submit" value="Submit">Reject</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<link th:replace="fragments/fragment :: footer">
+</body>

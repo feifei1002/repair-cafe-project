@@ -8,7 +8,7 @@
 <body>
 <link th:replace="fragments/fragment :: header">
 <div class="form-box" id="register-form">
-<form id="register" class="input-group-register" th:action="@{/user/sign-up/add}" th:method="post" th:object="${signUpForm}">
+<form id="register" class="input-group-register" th:action="@{/sign-up}" th:method="post" th:object="${signUpForm}">
     <h2 class="form-title">Sign Up</h2>
     <div>
         <input class="input-field" th:field="*{firstName}" type="text" placeholder="First Name"/><br>

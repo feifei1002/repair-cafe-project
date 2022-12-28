@@ -15,4 +15,6 @@ public class UserDTO {
     private String address;
     private String city;
     private String postcode;
+    private String role;
+    private Integer enabled;
 }

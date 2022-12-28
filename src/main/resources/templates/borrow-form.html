@@ -8,7 +8,7 @@
 <body>
 <link th:replace="fragments/fragment :: header">
 <div>
-    <form id="borrow-form" th:action="@{/repair-product/borrow}" th:method="post" th:object="${borrowForm}">
+    <form id="borrow-form" th:action="@{/user/repair-product/borrow}" th:method="post" th:object="${borrowForm}">
         <h2 class="form-title">Borrow Form</h2><br>
         <div>
             <input class='input-field' th:field="*{borrowId}" type="hidden"/><br>

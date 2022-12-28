@@ -42,7 +42,7 @@ public class RepairBookingController {
 
     }
 
-    @GetMapping("repair/booking/form")
+    @GetMapping("user/repair/booking/form")
     @ModelAttribute
     public ModelAndView getNewRepairForm(Model model) {
         model.addAttribute("repairBookingForm", new RepairBookingForm());
@@ -50,7 +50,7 @@ public class RepairBookingController {
         return mv;
     }
 
-    @PostMapping("repair/booking/add")
+    @PostMapping("user/repair/booking/add")
     @ModelAttribute
     public ModelAndView addNewRepairBooking(@Valid RepairBookingForm newRepairBooking, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
