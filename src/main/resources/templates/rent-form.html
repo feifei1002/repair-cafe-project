@@ -7,6 +7,7 @@
 </head>
 <body>
 <link th:replace="fragments/fragment :: header">
+<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
 <div>
     <form id="rent-form" th:action="@{/user/repair-product/rent}" th:method="post" th:object="${rentForm}">
         <h2 class="form-title">Rent Form</h2><br>
