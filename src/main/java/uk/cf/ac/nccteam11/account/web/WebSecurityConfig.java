@@ -34,9 +34,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         authorizeRequests
 
                                 .mvcMatchers("/admin/**").authenticated()
-                                .mvcMatchers("/repair/booking/form").authenticated()
-                                .mvcMatchers("/repair/products-list").authenticated()
-                                .mvcMatchers("/repair-product/add").authenticated()
+                                .mvcMatchers("/user/**").authenticated()
+//                                .mvcMatchers("/repair/booking/form").authenticated()
+//                                .mvcMatchers("/repair/products-list").authenticated()
+//                                .mvcMatchers("/repair-product/add").authenticated()
                                 .mvcMatchers("/css/**").permitAll()
                                 .mvcMatchers("/").permitAll()
                                 .mvcMatchers("/sign-up").permitAll()

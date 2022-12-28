@@ -12,7 +12,7 @@
 
   <h1 class="title">Full List of Products</h1>
   <div>
-    <form action="/repair/product-list" method="get">
+    <form action="/user/repair/product-list" method="get">
     </form>
   </div>
   <div>
@@ -25,13 +25,13 @@
       <tbody>
       <tr th:each="repairProduct : ${repairProducts}">
         <td class="details-table">
-          <a th:href="@{/repair/product/{id} (id=${repairProduct.productId})}" th:text="${repairProduct.productName}"></a>
+          <a th:href="@{/user/repair/product/{id} (id=${repairProduct.productId})}" th:text="${repairProduct.productName}"></a>
         </td>
         <td class="details-table">
           <a th:text="${repairProduct.status}"></a>
         </td>
         <td class="details-table">
-          <form th:action="@{/repair-product/{id}/status/update (id=${repairProduct.productId})}" th:method="post" th:object="${repairProducts}">
+          <form th:action="@{/user/repair-product/{id}/status/update (id=${repairProduct.productId})}" th:method="post" th:object="${repairProducts}">
             <button class="sub-btn" type="submit" value="Submit">Reserve</button>
           </form>
         </td>

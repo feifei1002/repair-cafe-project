@@ -8,7 +8,7 @@
 <body>
 <link th:replace="fragments/fragment :: header">
 <div>
-    <form id="rent-form" th:action="@{/repair-product/rent}" th:method="post" th:object="${rentForm}">
+    <form id="rent-form" th:action="@{/user/repair-product/rent}" th:method="post" th:object="${rentForm}">
         <h2 class="form-title">Rent Form</h2><br>
         <div>
             <input class='input-field' th:field="*{productId}" type="hidden"/><br>

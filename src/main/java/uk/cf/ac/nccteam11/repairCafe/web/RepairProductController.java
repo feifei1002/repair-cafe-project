@@ -28,7 +28,7 @@ public class RepairProductController {
         return new ModelAndView("admin");
     }
 
-    @GetMapping("repair/products-list")
+    @GetMapping("user/repair/products-list")
     public ModelAndView getRepairProducts(@RequestParam(name = "q", required = false) String query, Model model) {
 
         RepairProductListRequest repairProductListRequest = RepairProductListRequest
@@ -42,7 +42,7 @@ public class RepairProductController {
         return mv;
     }
 
-    @GetMapping("repair/product/{productId}")
+    @GetMapping("user/repair/product/{productId}")
     public ModelAndView getRepairProductByRequest(@PathVariable Integer productId, Model model) {
 
         var singleRepairProductRequest = SingleRepairProductRequest
@@ -63,14 +63,14 @@ public class RepairProductController {
         return mv;
 
     }
-    @GetMapping("repair-product/add")
+    @GetMapping("user/repair-product/add")
     public ModelAndView getNewRepairProductAddForm(Model model){
         model.addAttribute("rentForm", new RepairProductRentForm());
         var mv = new ModelAndView("rent-form", model.asMap());
         return mv;
     }
 
-    @PostMapping("repair-product/rent")
+    @PostMapping("user/repair-product/rent")
     public ModelAndView addNewRepairProduct(@Valid RepairProductRentForm newRepairProductAdd, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("rentForm", newRepairProductAdd);
@@ -85,14 +85,14 @@ public class RepairProductController {
         }
     }
 
-    @GetMapping("repair-product/borrow")
+    @GetMapping("user/repair-product/borrow")
         public ModelAndView getNewProductBorrowForm(Model model){
             model.addAttribute("borrowForm", new RepairProductBorrowForm());
             var mv = new ModelAndView("borrow-form");
             return mv;
     }
 
-    @PostMapping("repair-product/{productId}/borrow")
+    @PostMapping("user/repair-product/{productId}/borrow")
     public ModelAndView addNewRepairBorrow (@PathVariable Integer productId, RepairProductBorrowForm newRepairBorrowAdd, Model model){
         RepairBorrowDTO repairBorrowDTO = FormAssembler.toRepairBorrowDTO(newRepairBorrowAdd);
         UpdateRepairBorrowRequest updateRepairBorrowRequest = UpdateRepairBorrowRequest.of().productId(productId).repairBorrowDTO(repairBorrowDTO).build();
@@ -121,11 +121,11 @@ public class RepairProductController {
         return mv;
     }
 
-    @PostMapping("repair-product/{id}/status/update")
+    @PostMapping("user/repair-product/{id}/status/update")
     public ModelAndView statusRepairProduct(@PathVariable("id") Integer productId, Model model){
         UpdateRepairProductRequest updateRepairProductRequest = UpdateRepairProductRequest.of().productId(productId).build();
         UpdateRepairProductResponse updateRepairProductResponse = repairProductService.updateRepairProductStatus(updateRepairProductRequest);
-        var mv = new ModelAndView("redirect:/repair/products-list");
+        var mv = new ModelAndView("redirect:/user/repair/products-list");
         return mv;
     }
     @PostMapping("admin/repair-product/{id}/delete")
