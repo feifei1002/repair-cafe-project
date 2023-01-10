@@ -12,8 +12,12 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+build {
     bootRun {if ( project.hasProperty('jvmArgs') ) {
         jvmArgs = (project.jvmArgs.split("\\s+") as List)}}
+
 }
 
 repositories {
@@ -27,7 +31,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot:3.0.3'
     compileOnly "org.springframework.boot:spring-boot-starter-security"
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
