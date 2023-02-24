@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS user (
     PRIMARY KEY (`user_id`))
     ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `repair_Cafe`;
+DROP TABLE IF EXISTS `RepairCafe`;
 
-CREATE TABLE IF NOT EXISTS repair_Cafe
+CREATE TABLE IF NOT EXISTS RepairCafe
 (
     cafe_id         INTEGER AUTO_INCREMENT NOT NULL,
     name            VARCHAR(200) NOT NULL,
@@ -65,9 +65,9 @@ CREATE TABLE IF NOT EXISTS repair_Cafe
     )
     ENGINE = INNODB;
 
-DROP TABLE IF EXISTS `repair_Booking`;
+DROP TABLE IF EXISTS `RepairBooking`;
 
-CREATE TABLE IF NOT EXISTS repair_Booking
+CREATE TABLE IF NOT EXISTS RepairBooking
 (
     booking_id      INTEGER AUTO_INCREMENT NOT NULL,
     firstName       VARCHAR(200) NOT NULL,
@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS repair_Booking
     )
     ENGINE = INNODB;
     
-DROP TABLE IF EXISTS `repair_Category`;
+DROP TABLE IF EXISTS `RepairCategory`;
 
-CREATE TABLE IF NOT EXISTS repair_Category
+CREATE TABLE IF NOT EXISTS RepairCategory
 (
     category_id      INTEGER AUTO_INCREMENT NOT NULL,
     name       VARCHAR(200) NOT NULL,
