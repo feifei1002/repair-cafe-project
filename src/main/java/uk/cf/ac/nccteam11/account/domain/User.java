@@ -11,36 +11,36 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 public class User {
     @Id
-    @Column("USER_ID")
+    @Column("user_id")
     private Integer userId;
 
-    @Column("FIRSTNAME")
+    @Column("firstName")
     private String firstName;
 
-    @Column("LASTNAME")
+    @Column("lastName")
     private String lastName;
 
-    @Column("EMAIL")
+    @Column("email")
     private String email;
 
-    @Column("PHONENO")
+    @Column("phoneNo")
     private String phoneNo;
 
-    @Column("PASSWORD")
+    @Column("password")
     private String password;
 
-    @Column("ADDRESS")
+    @Column("address")
     private String address;
 
-    @Column("CITY")
+    @Column("city")
     private String city;
 
-    @Column("POSTCODE")
+    @Column("postcode")
     private String postcode;
 
-    @Column("ROLE")
+    @Column("role")
     private String role;
 
-    @Column("ENABLED")
+    @Column("enabled")
     private Integer enabled;
 }
