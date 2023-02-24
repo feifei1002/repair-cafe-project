@@ -12,17 +12,17 @@ import org.springframework.data.relational.core.mapping.Table;
 
 public class RepairProduct {
     @Id
-    @Column("PRODUCT_ID")
+    @Column("product_id")
     private Integer productId;
-    @Column("PRODUCT_NAME")
+    @Column("product_name")
     private String productName;
-    @Column("CONDITION")
+    @Column("condition")
     private String condition;
-    @Column("BRAND")
+    @Column("brand")
     private String brand;
-    @Column("STATUS")
+    @Column("status")
     private String status;
-    @Column("IS_APPROVED")
+    @Column("is_Approved")
     private String isApproved;
 
 //    @MappedCollection(idColumn = "PRODUCT_ID")

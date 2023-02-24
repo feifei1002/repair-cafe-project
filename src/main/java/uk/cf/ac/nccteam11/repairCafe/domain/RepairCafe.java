@@ -11,15 +11,15 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 public class RepairCafe {
     @Id
-    @Column("CAFE_ID")
+    @Column("cafe_id")
     private Integer cafeId;
-    @Column("NAME")
+    @Column("name")
     private String name;
-    @Column("ADDRESS")
+    @Column("address")
     private String address;
-    @Column("CITY")
+    @Column("city")
     private String city;
-    @Column("POSTCODE")
+    @Column("postcode")
     private String postcode;
     public static RepairCafe of(Integer cafe_id, String name, String address, String city, String postcode) {
         return new RepairCafe(cafe_id, name, address, city, postcode);

@@ -11,8 +11,8 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table
 public class RepairCategory {
     @Id
-    @Column("CATEGORY_ID")
+    @Column("category_id")
     private Integer categoryId;
-    @Column("NAME")
+    @Column("name")
     private String name;
 }

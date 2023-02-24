@@ -13,18 +13,18 @@ import java.util.Date;
 @Table
 public class RepairBooking {
     @Id
-    @Column("BOOKING_ID")
+    @Column("booking_id")
     private Integer bookingId;
-    @Column("FIRSTNAME")
+    @Column("firstName")
     private String firstName;
-    @Column("LASTNAME")
+    @Column("lastName")
     private String lastName;
-    @Column("EMAIL")
+    @Column("email")
     private String email;
-    @Column("REPAIRDATE")
+    @Column("repairDate")
     private Date repairDate;
-    @Column("CATEGORY")
+    @Column("category")
     private String category;
-    @Column("LOCATION")
+    @Column("location")
     private String location;
 }
