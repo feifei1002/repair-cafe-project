@@ -31,7 +31,7 @@ values ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0'
 INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street', 'Abergavenny', 'NP7 5YB');
 
-INSERT INTO RepairCafee(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Bangor', 'SBangor Students Union, Room 3, Activities Hub, Ffriddoedd Site, Ffriddoedd Road', 'Bangor', 'LL57 2JW');
 
 INSERT INTO RepairCafe(name, address, city, postcode)
