@@ -28,87 +28,87 @@ values ('009', 'Pen', '4 colour ballpoint', 'stationary', 'Stow Hill', '0', '0')
 INSERT INTO `product` (productID, name, description, category, location, status, availability)
 values ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street', 'Abergavenny', 'NP7 5YB');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafee(name, address, city, postcode)
 VALUES ('Bangor', 'SBangor Students Union, Room 3, Activities Hub, Ffriddoedd Site, Ffriddoedd Road', 'Bangor', 'LL57 2JW');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Barford', 'Scout Hut, Wasperton Lane, Barford', 'Warwick', 'CV35 8DT');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Beaumaris', 'Canolfan Hamdden Beaumaris, Rating Row, Beaumaris', 'Ynys Mon', 'LL58 8AL');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Boat of Garten', 'Boat of Garten Community Hall, Reidhaven Park, Craigie Avenue Boat of Garten', 'Highland', 'PH24 3BL');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Bridgend', 'Bryncethin Community Centre, Ogmore Terrace, Bryncethin', 'Bridgend', 'CF32 9YF');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Bridgend College Pop Up Shop', '22 The Rhiw', 'Bridgend', 'CF31 3BL');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Caerau', 'Caerau Menshed, Bangor Terrace, Nantyffyllon', 'Bridgend', 'CF34 0HU');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Caerphilly', 'Caerphilly Miners Centre For The Community, Watford Road', 'Caerphilly', 'CF83 1ET');
 
-INSERT INTO repair_Cafe(name, address, city, postcode)
+INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Caerphilly (The Furniture Revival)', 'The Furniture Revival, Unit 21 Lawn Industrial Estate, Rhymey, Tredegar', 'Gwent', 'NP22 5PW');
 
 
 
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+INSERT INTO RepairBooking(firstName, lastName, email, repairDate, category, location)
 VALUES ('Fei', 'Liu', 'LiuF29@cardiff.ac.uk', '2021-11-25', 'Scooter','Bridgend');
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+INSERT INTO RepairBooking(firstName, lastName, email, repairDate, category, location)
 VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', '2021-12-02', 'Misc','Bangor');
 
-INSERT INTO repair_Booking(firstName, lastName, email, repairDate, category, location)
+INSERT INTO RepairBooking(firstName, lastName, email, repairDate, category, location)
 VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2012-12-25', 'Heater','Barford');
 
 
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Apparel/Textiles');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Bag/Luggage/Purse');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Bicycle');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Bicycle Accessory');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Car Accessory');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Electrical Item');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Furniture');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Heater');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Home Decor');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Jewellery/Accessory');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Mannual Tool');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Misc');
 
-INSERT INTO repair_Category(name)
+INSERT INTO RepairCategory(name)
 VALUES ('Scooter');
 
 
