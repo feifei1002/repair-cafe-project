@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS product (
 -- -----------------------------------------------------
 -- Table `mydb`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `User` ;
+DROP TABLE IF EXISTS `user` ;
 
-CREATE TABLE IF NOT EXISTS User (
+CREATE TABLE IF NOT EXISTS user (
     user_id INTEGER AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(45) NOT NULL,
     lastName VARCHAR(45) NOT NULL,
@@ -90,9 +90,9 @@ CREATE TABLE IF NOT EXISTS RepairCategory
     )
     ENGINE = INNODB;
 
-DROP TABLE IF EXISTS `repair_Product`;
+DROP TABLE IF EXISTS `RepairProduct`;
 
-CREATE TABLE IF NOT EXISTS repair_Product (
+CREATE TABLE IF NOT EXISTS RepairProduct (
   `product_id` INT NOT NULL AUTO_INCREMENT,
   `product_name` VARCHAR(45) NOT NULL,
   `condition` VARCHAR(45) NOT NULL,

@@ -1,32 +1,32 @@
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('001', 'Desk', 'White 120 x 70 x 50 desk', 'furniture', 'Stow Hill', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('001', 'Desk', 'White 120 x 70 x 50 desk', 'furniture', 'Stow Hill', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('002', 'Chair', 'Black 60 x 45 x 38 chair', 'furniture', 'Cathays', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('002', 'Chair', 'Black 60 x 45 x 38 chair', 'furniture', 'Cathays', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('003', 'Shoes', 'Black Air Force 1 Size 10', 'clothing', 'Canton', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('003', 'Shoes', 'Black Air Force 1 Size 10', 'clothing', 'Canton', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('004', 'Lawnmower', 'Green 400cc', 'Gardening', 'Newport', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('004', 'Lawnmower', 'Green 400cc', 'Gardening', 'Newport', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('005', 'Frisbee', 'Yellow 30cm Circumfrence', 'Toys', 'Caerphilly', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('005', 'Frisbee', 'Yellow 30cm Circumfrence', 'Toys', 'Caerphilly', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('006', 'Book', 'The Nicomachean Ethics by Aristotle', 'Books', 'Castle', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('006', 'Book', 'The Nicomachean Ethics by Aristotle', 'Books', 'Castle', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('007', 'Cupboard', 'Wood 2.5m x 70cm x 40cm', 'furniture', 'Cathays', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('007', 'Cupboard', 'Wood 2.5m x 70cm x 40cm', 'furniture', 'Cathays', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('008', 'Laptop', 'Dell i7', 'Electronics', 'Cardiff University', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('008', 'Laptop', 'Dell i7', 'Electronics', 'Cardiff University', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('009', 'Pen', '4 colour ballpoint', 'stationary', 'Stow Hill', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('009', 'Pen', '4 colour ballpoint', 'stationary', 'Stow Hill', '0', '0');
 
-INSERT INTO `product` (productID, name, description, category, location, status, availability)
-values ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0');
+INSERT INTO product (productID, name, description, category, location, status, availability)
+VALUES ('010', 'Paper', 'White A4', 'stationary', 'Cardiff University', '0', '0');
 
 INSERT INTO RepairCafe(name, address, city, postcode)
 VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Street', 'Abergavenny', 'NP7 5YB');
@@ -112,22 +112,22 @@ INSERT INTO RepairCategory(name)
 VALUES ('Scooter');
 
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('Halogen Heater 3 Bars', 'A - As new', 'Brother', 'available');
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('Sewing Machine', 'A - As new', 'Brother', 'available');
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('Electric Multicooker', 'B - Fair', 'Team Uk international', 'available');
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('DVD Player', 'B - Fair', 'Samsung', 'available');
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
 
-INSERT INTO repair_Product(`product_name`, `condition`, `brand`, `status`)
+INSERT INTO RpairProduct(product_name, condition, brand, status)
 VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'available');
 
 INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
@@ -139,9 +139,9 @@ VALUES ('Louis', 'Polly', 'PollyL@cardiff.ac.uk', 'DVD Player', 4);
 INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
 VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', 'Single Camping Mat', 6);
 
-INSERT INTO user(`firstName`, `lastName`, `email`, `phoneNo`, `password`, `address`, `city`, `postcode`, `role`,`enabled`)
+INSERT INTO user(firstName, lastName, email, phoneNo, password, address, city, postcode, role,enabled)
 VALUES ('Fei', 'Liu', 'admin@gmail.com', 0123456789, '$2a$10$/FhlPyse/nXmz8BSCRh4OuBnSic7FqDdklZch8X0/1.9yXCJqqXc.','Tyndall Street', 'Cardiff', 'CF10 4BZ', 'ROLE_ADMIN', 1);
-INSERT INTO user(`firstName`, `lastName`, `email`, `phoneNo`, `password`, `address`, `city`, `postcode`, `role`,`enabled`)
+INSERT INTO user(firstName, lastName, email, phoneNo, password, address, city, postcode, role,enabled)
 VALUES ('Fei', 'Liu', 'user@gmail.com', 0123456789, '$2a$10$NyH9Ua9VLyHtgmrS6YzPo.vumgm5fQzanVx7FsfyyzOM41BVgSdWi','Tyndall Street', 'Cardiff', 'CF10 4BZ', 'ROLE_USER', 1);
 
 
