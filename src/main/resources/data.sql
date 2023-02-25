@@ -112,22 +112,22 @@ INSERT INTO RepairCategory(name)
 VALUES ('Scooter');
 
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('Halogen Heater 3 Bars', 'A - As new', 'Brother', 'available');
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('Sewing Machine', 'A - As new', 'Brother', 'available');
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('Electric Multicooker', 'B - Fair', 'Team Uk international', 'available');
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('DVD Player', 'B - Fair', 'Samsung', 'available');
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('Vacuum Cleaner', 'A - As new', 'Numatic', 'available');
 
-INSERT INTO RpairProduct(product_name, condition, brand, status)
+INSERT INTO RepairProduct(product_name, `condition`, brand, status)
 VALUES ('Single Camping Mat', 'A - As new', ' Unknown', 'available');
 
 INSERT INTO repair_Borrow(`firstName`, `lastName`, `email`, `productName`, `product_id`)
