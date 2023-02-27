@@ -34,7 +34,7 @@ VALUES ('Abergavenny', 'Abergavenny Community Centre, The Old School, Park Stree
 INSERT INTO repair_cafe(name, address, city, postcode)
 VALUES ('Bangor', 'SBangor Students Union, Room 3, Activities Hub, Ffriddoedd Site, Ffriddoedd Road', 'Bangor', 'LL57 2JW');
 
-INSERT INTO repair_cafee(name, address, city, postcode)
+INSERT INTO repair_cafe(name, address, city, postcode)
 VALUES ('Barford', 'Scout Hut, Wasperton Lane, Barford', 'Warwick', 'CV35 8DT');
 
 INSERT INTO repair_cafe(name, address, city, postcode)
