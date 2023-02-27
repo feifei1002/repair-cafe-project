@@ -90,9 +90,9 @@ CREATE TABLE IF NOT EXISTS repair_category
     )
     ENGINE = INNODB;
 
-DROP TABLE IF EXISTS `RepairProduct`;
+DROP TABLE IF EXISTS `repair_product`;
 
-CREATE TABLE IF NOT EXISTS RepairProduct (
+CREATE TABLE IF NOT EXISTS repair_product (
   `product_id` INT NOT NULL AUTO_INCREMENT,
   `product_name` VARCHAR(45) NOT NULL,
   `condition` VARCHAR(45) NOT NULL,
