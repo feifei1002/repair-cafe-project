@@ -65,9 +65,9 @@ CREATE TABLE IF NOT EXISTS repair_cafe
     )
     ENGINE = INNODB;
 
-DROP TABLE IF EXISTS `RepairBooking`;
+DROP TABLE IF EXISTS `repair_booking`;
 
-CREATE TABLE IF NOT EXISTS RepairBooking
+CREATE TABLE IF NOT EXISTS repair_booking
 (
     booking_id      INTEGER AUTO_INCREMENT NOT NULL,
     firstName       VARCHAR(200) NOT NULL,
