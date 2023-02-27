@@ -72,43 +72,43 @@ VALUES ('Nikita', 'Vashchenko', 'VashchenkoN@cardiff.ac.uk', '2012-12-25', 'Heat
 
 
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Apparel/Textiles');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Bag/Luggage/Purse');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Bicycle');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Bicycle Accessory');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Car Accessory');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Electrical Item');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Furniture');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Heater');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Home Decor');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Jewellery/Accessory');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Mannual Tool');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Misc');
 
-INSERT INTO RepairCategory(name)
+INSERT INTO repair_category(name)
 VALUES ('Scooter');
 
 
