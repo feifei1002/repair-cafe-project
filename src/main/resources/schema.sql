@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS RepairBooking
     )
     ENGINE = INNODB;
     
-DROP TABLE IF EXISTS `RepairCategory`;
+DROP TABLE IF EXISTS `repair_category`;
 
-CREATE TABLE IF NOT EXISTS RepairCategory
+CREATE TABLE IF NOT EXISTS repair_category
 (
     category_id      INTEGER AUTO_INCREMENT NOT NULL,
     name       VARCHAR(200) NOT NULL,
