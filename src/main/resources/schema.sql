@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS user (
     PRIMARY KEY (`user_id`))
     ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `RepairCafe`;
+DROP TABLE IF EXISTS `repair_cafe`;
 
-CREATE TABLE IF NOT EXISTS RepairCafe
+CREATE TABLE IF NOT EXISTS repair_cafe
 (
     cafe_id         INTEGER AUTO_INCREMENT NOT NULL,
     name            VARCHAR(200) NOT NULL,
