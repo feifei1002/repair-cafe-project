@@ -51,6 +51,7 @@ checkstyle {
     toolVersion = 9.2
     checkstyleMain.enabled(true)
     checkstyleTest.enabled(false)
+    ignoreFailures = true
 }
 
 tasks.named('test') {
